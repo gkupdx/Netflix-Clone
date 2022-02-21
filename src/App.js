@@ -1,5 +1,6 @@
 //// App.js
 
+import Nav from './components/Nav';
 import Banner from './components/Banner';
 
 // Routes from React Router
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
+            <Nav />
             <Banner />
           </>
         } />
