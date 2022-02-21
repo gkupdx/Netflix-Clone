@@ -1,1 +1,85 @@
+/* Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* LANDING PAGE CSS */
+.main {
+    min-height: 100vh;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('static/netflix_landing_page_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
+  }
+  
+  .main h1 {
+    width: 60%;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3.1rem;
+    text-align: center;
+  }
+  
+  .main h2 {
+    max-width: 450px;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+  
+  .main p {
+    max-width: 450px;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .main input {
+    width: 50%;
+    height: 60px;
+    padding-left: 10px;
+  }
+  
+  .main input::placeholder {
+    font-size: 1rem;
+  }
+  
+  .main button {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 140px;
+    height: 40px;
+    background: #e50914;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+    margin-top: 10px;
+  }
+  
+  .main button:hover {
+    background: #ff2400;
+    cursor: pointer;
+  }
