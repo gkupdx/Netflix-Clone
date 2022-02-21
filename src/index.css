@@ -12,6 +12,74 @@
     height: 100vh;
 }
 
+/* NAVBAR CSS */
+.nav {
+    height: 70px;
+    padding: 10px;
+    background: #000;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav img {
+    width: 100px;
+    height: 50px;
+  }
+  
+  .nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+  
+  .nav ul li a {
+    margin: 5px 20px;
+  }
+  
+  .languageBtn {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    background: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 2px;
+  }
+  
+  .languageDropDown {
+    position: absolute;
+    top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+    height: 50px;
+    background: #333;
+    border-radius: 2px;
+  }
+  
+  .languageDropDown p {
+    margin-top: 0;
+  }
+  
+  .languageDropDown p:hover {
+    background: dimgrey;
+    cursor: default;
+  }
+  
+  .signIn {
+    background: #e50914;
+    color: #FFF;
+    padding: 7px 17px;
+    border-radius: 3px;
+  }
+
 /* LANDING PAGE CSS */
 .main {
     min-height: 100vh;
