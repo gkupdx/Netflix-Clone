@@ -1,9 +1,20 @@
 //// App.js
 
+import Banner from './components/Banner';
+
+// Routes from React Router
+import { Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-
+    <div className="container">
+      <Routes>
+        <Route path='/' element={
+          <>
+            <Banner />
+          </>
+        } />
+      </Routes>
     </div>
   );
 }
