@@ -1,5 +1,9 @@
 /* Open Sans */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* Open Sans Semi-bold 600 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+/* Open Sans Bold 700 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -14,9 +18,11 @@
 
 /* NAVBAR CSS */
 .nav {
+    position: absolute;
+    width: 100%;
     height: 70px;
     padding: 10px;
-    background: #000;
+    background: transparent;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
     display: flex;
@@ -42,7 +48,7 @@
   
   .languageBtn {
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100px;
     height: 35px;
@@ -61,7 +67,9 @@
     width: 100px;
     height: 50px;
     background: #333;
+    border: 1px solid dimgrey;
     border-radius: 2px;
+    box-shadow: 0 0 0px 2px #000;
   }
   
   .languageDropDown p {
@@ -82,9 +90,7 @@
 
 /* LANDING PAGE CSS */
 .main {
-    min-height: 100vh;
-    padding: 4rem 0;
-    flex: 1;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,46 +99,48 @@
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
-  }
-  
-  .main h1 {
-    width: 60%;
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 3.1rem;
     text-align: center;
-  }
+}
   
-  .main h2 {
-    max-width: 450px;
+.main h1 {
+    width: 90%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 1.6rem;
-    margin-top: 0;
-  }
+    font-size: 1.7rem;
+    font-weight: 700;
+}
   
-  .main p {
-    max-width: 450px;
+.main h2 {
+    width: 70%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 1.3rem;
-    text-align: center;
-    margin-top: 0;
-  }
-  
-  .main input {
-    width: 50%;
-    height: 60px;
-    padding-left: 10px;
-  }
-  
-  .main input::placeholder {
+    font-weight: 600;
     font-size: 1rem;
-  }
+    margin-top: 15px;
+}
   
-  .main button {
+.main p {
+    width: 70%;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 15px;
+}
+  
+.main input {
+    width: 90%;
+    height: 50px;
+    padding-left: 10px;
+    margin-top: 15px;
+}
+  
+.main input::placeholder {
+    font-size: 1rem;
+}
+  
+.main button {
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
@@ -141,13 +149,135 @@
     background: #e50914;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 16px;
     border: none;
     border-radius: 2px;
-    margin-top: 10px;
-  }
+    margin-top: 15px;
+}
   
-  .main button:hover {
+.main button:hover {
     background: #ff2400;
     cursor: pointer;
+}
+
+/* SUBSECTION */
+section {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    background: #000;
+    color: #FFF;
+    border-top: 7px solid #3d3d3d;
+}
+  
+.subsectionWrapper {
+    width: 90%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.subsectionContent {
+    width: 90%;
+}
+  
+.subsectionWrapper h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.subsectionContent h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    background: #000;
+    color: grey;
+    font-family: 'Open Sans', sans-serif;
+    border-top: 7px solid #3d3d3d;
+}
+  
+footer a {
+    color: grey;
+    text-decoration: none;
+}
+  
+footer a:hover {
+    text-decoration: underline;
+}
+  
+footer button {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    color: grey;
+    font-size: 18px;
+    border: 1px solid #3d3d3d;
+    border-radius: 2px;
+}
+  
+.footerWrapper {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.footerWrapper p {
+    width: 80%;
+}
+
+.linksWrapper {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: auto;
+}
+  
+.linksWrapper a {
+    width: 50%;
+    font-size: 0.8rem;
+}
+
+/* .languagePopUp {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 150px;
+    height: 60px;
+    background: #000;
+    border: 1px solid dimgrey;
+    border-radius: 2px;
+} */
+
+.languagePopUp p {
+    margin-top: 0;
   }
+  
+.languagePopUp p:hover {
+    background: dimgrey;
+    color: #FFF;
+    cursor: default;
+}
