@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { IoGlobe } from 'react-icons/io5';
 import { AiFillCaretDown } from 'react-icons/ai';
-import logo from '../static/netflix_text_logo.png';
+import logo from '../assets/netflix_text_logo.png';
 
 const Nav = () => {
     const [show, setShow] = useState(false);
