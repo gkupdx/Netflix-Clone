@@ -1,47 +1,39 @@
 //// App.js
 
-import Nav from './components/Nav';
-import Banner from './components/Banner';
-import Subsection from './components/Subsection';
-import Footer from './components/Footer';
+import Homepage from './components/Homepage';
+import Loginpage from './components/Loginpage';
+
+import { useState } from 'react';
 
 // Routes from React Router
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const subsectionContent = [
-    {
-      header: 'Enjoy on your TV.',
-      body: 'Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.'
-    },
-    {
-      header: 'Download your shows to watch offline.',
-      body: 'Save your favorites easily and always have something to watch.'
-    },
-    {
-      header: 'Watch everywhere.',
-      body: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.'
-    },
-    {
-      header: 'Create profiles for kids.',
-      body: 'Send kids on adventures with their favorite characters in a space made just for them--free with your membership.'
-    }
-  ];
+  const [toggle, setToggle] = useState(false);
+
+  // Toggle for languages button
+  const toggleLanguages = () => {
+    setToggle(!toggle)
+  }
 
   return (
     <div className="container">
       <Routes>
+        {/* HOMEPAGE / LANDING PAGE */}
         <Route path='/' element={
           <>
-            <Nav />
-            <Banner />
-            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} />
-            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} />
-            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} />
-            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} />
-            <Footer />
+            <Homepage toggleLanguages={toggleLanguages} toggle={toggle}/>
           </>
-          } />
+          } 
+        />
+
+        {/* LOGIN PAGE */}
+        <Route path='/login' element={
+          <>
+            <Loginpage toggleLanguages={toggleLanguages} toggle={toggle}/>
+          </>
+          }
+        />
       </Routes>
     </div>
   );
