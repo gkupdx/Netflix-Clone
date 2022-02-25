@@ -39,4 +39,4 @@ export const carouselHeaders = [
         id: '10',
         header: 'Blockbuster Movies'
     }
-]
+];
