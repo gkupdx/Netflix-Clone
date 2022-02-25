@@ -7,6 +7,7 @@ import { AiFillCaretDown } from 'react-icons/ai';
 import Nav from './Nav';
 import Banner from './Banner';
 import Subsection from './Subsection';
+import FAQ from './FAQ';
 import Footer from './Footer';
 
 
@@ -44,6 +45,7 @@ const Homepage = ({ toggleLanguages, toggle }) => {
             <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} />
             <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} />
             <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} />
+            <FAQ />
             <Footer />
         </div>
     )
