@@ -89,6 +89,42 @@
     border-radius: 3px;
 }
 
+/* NAVBAR ALT */
+.navAlt {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.navFlexRow {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navFlexRow button {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    color: #FFF;
+    border: none;
+}
+
+.navFlexRow button:hover {
+    cursor: pointer;
+}
+
+.redirectNavBtn {
+    width: 150px;
+}
+
+.browseBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 /* LANDING PAGE CSS */
 .main {
     height: 55vh;
@@ -217,7 +253,7 @@ section {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 20px;
 }
   
 .faq input {
@@ -225,12 +261,12 @@ section {
     height: 50px;
     padding: 10px;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 0;
 }
   
 .faqWrapper {
     width: 100%;
-    height: auto;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -239,6 +275,7 @@ section {
 
 .faqWrapper h1 {
     font-size: 25px;
+    margin-top: 50px;
 }
   
 .faqBtn {
@@ -262,20 +299,28 @@ section {
 
 .faqBtnDetails {
     width: 100%;
-    height: 30vh;
+    max-height: 40vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: left;
     background: #333;
+    border-top: 1px solid #000;
+    transition: all 0.1s ease-out;
+}
+
+.faqBtnDetails p {
+    width: 100%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    border-top: 1px solid #000;
-    transition: height 0.1s ease-out;
+    padding: 1rem;
+    margin: 0;
 }
 
 .hiddenDetails {
     height: 0;
-    transition: height 0.2s ease-in;
+    transition: all 0.1s ease-in;
 }
   
 .getStartedBtn {
@@ -389,7 +434,7 @@ section {
     transition: all 0.1s ease;
 }
   
-.form input[type="submit"] {
+.form input[type="button"] {
     width: 90%;
     height: 50px;
     background: #e50914;
@@ -481,6 +526,96 @@ section {
 .learnMore:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* BROWSE ROUTE */
+.browseMain {
+    width: 100%;
+    overflow-x: hidden;
+    background: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+  
+.flexRow {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.inlineFlex {
+    display: inline-flex;
+    align-items: center;
+}
+
+.carouselHeader {
+    background: #333;
+    padding-left: 1rem;
+}
+  
+.carouselHeader h2 {
+    color: lightgrey;
+}
+
+.carousel {
+    width: 3000px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 1rem 0;
+}
+  
+.carouselItem {
+    width: 500px;
+    height: 150px;
+    color: lightgrey;
+    border: 1px solid lightgrey;
+    padding: 1rem;
+    transition: 0.2s ease-in;
+}
+  
+.carouselItem:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    transition: 0.2s ease-in;
+    transition-delay: 0.5s;
+}
+
+.chevronLeft {
+    position: absolute;
+    left: 0;
+    height: 150px;
+    width: 50px;
+    background: transparent;
+    color: #FFF;
+    font-size: 35px;
+    border: none;
+}
+
+.chevronLeft:hover {
+    cursor: pointer;
+    background: #333;
+    font-size: 45px;
+    opacity: 0.8;
+    transition: 0.1s ease-in;
+}
+  
+.chevronRight {
+    position: absolute;
+    right: 20px;
+    height: 150px;
+    width: 50px;
+    background: transparent;
+    color: #FFF;
+    font-size: 35px;
+    border: none;
+}
+
+.chevronRight:hover {
+    cursor: pointer;
+    background: #333;
+    font-size: 45px;
+    opacity: 0.8;
+    transition: 0.1s ease-in;
 }
 
 /* FOOTER */
