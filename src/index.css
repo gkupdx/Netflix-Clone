@@ -362,6 +362,7 @@ section {
 }
 
 .redirectBtn { 
+    height: 75px;
     background: transparent;
     border: none;
 }
@@ -447,7 +448,7 @@ section {
     margin-top: 40px;
 }
   
-.form input[type="submit"]:hover {
+.form input[type="button"]:hover {
     cursor: pointer;
 }
   
@@ -512,7 +513,7 @@ section {
 .captcha {
     color: grey;
     font-family: 'Open Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin-top: 15px;
 }
   
@@ -526,6 +527,26 @@ section {
 .learnMore:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.learnMoreDetails {
+    color: grey;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+.learnMoreDetails a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+.learnMoreDetails a:hover {
+    text-decoration: underline;
 }
 
 /* BROWSE ROUTE */
