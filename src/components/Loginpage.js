@@ -8,7 +8,6 @@ import { ImFacebook2 } from 'react-icons/im';
 import Login from './Login';
 import FooterAlt from './FooterAlt';
 
-
 const Loginpage = ({ toggleLanguages, toggle }) => {
     // Facebook icon styling
     const fbIconStyle = {

@@ -24,7 +24,7 @@ const Login = ({ fbIcon }) => {
                     <div className='form'>
                         <input type="text" name="user" placeholder="Email or phone number"/>
                         <input type="text" name="password" placeholder="Password"/>
-                        <a href='/browse'><input type="submit" value="Sign In"/></a>
+                        <a href='/browse'><input type="button" value="Sign In"/></a>
                         <div className='rowJustifyBetween'>
                             <div>
                                 <input type="checkbox" id="checkbox" />
