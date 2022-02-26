@@ -1,6 +1,13 @@
 //// Subsection.js - component for the 4 subsections below Banner.js
 
-const Subsection = ({ header, body }) => {
+const Subsection = ({ header, body, imgSrc }) => {
+
+    // Image styling
+    const imgStyle = {
+        width: '75%',
+        height: '100%'
+    }
+
     return (
         <section>
             <div className='subsectionWrapper'>
@@ -10,7 +17,7 @@ const Subsection = ({ header, body }) => {
                 </div>
 
                 <div>
-                    <p>[image placeholder text]</p>
+                    <img src={imgSrc} alt='Placeholder' style={imgStyle}/>
                 </div>
             </div>
         </section>
