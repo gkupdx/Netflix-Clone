@@ -1,11 +1,13 @@
 //// FAQ.js - component for the Frequently Asked Questions subsection
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineClose } from 'react-icons/ai';
 import { VscChevronRight } from "react-icons/vsc";
 
 const FAQ = () => {
+    let reroute = useNavigate();
     const [show, setShow] = useState("");
 
     // Plus icon styling
@@ -21,6 +23,12 @@ const FAQ = () => {
         } 
 
         setShow(input);
+    }
+
+    // on click, reroute user to /signup/registration
+    const redirect = () => {
+        let path = `/signup/registration`;
+        reroute(path);
     }
 
     return (
@@ -98,7 +106,7 @@ const FAQ = () => {
 
                 <p>Ready to watch? Enter your email to create or restart your membership.</p>
                 <input type="text" name="email" placeholder="Email address" />
-                <button className='getStartedBtn'>Get Started <VscChevronRight /></button>
+                <button className='getStartedBtn' onClick={redirect}>Get Started <VscChevronRight /></button>
             </div>
         </div>
     )
