@@ -10,8 +10,14 @@ import Subsection from './Subsection';
 import FAQ from './FAQ';
 import Footer from './Footer';
 
+import tv from '../assets/tv.png';
+import mobile from '../assets/mobile.png';
+import devicePile from '../assets/device_pile.png';
+import kidsProfile from '../assets/kids_profile.png';
+
 
 const Homepage = ({ toggleLanguages, toggle }) => {
+
     // Temporary array of subsection headers + body 
     const subsectionContent = [
         {
@@ -41,10 +47,10 @@ const Homepage = ({ toggleLanguages, toggle }) => {
         <div>
             <Nav toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />} />
             <Banner />
-            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} />
-            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} />
-            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} />
-            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} />
+            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv}/>
+            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile}/>
+            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile}/>
+            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile}/>
             <FAQ />
             <Footer />
         </div>
