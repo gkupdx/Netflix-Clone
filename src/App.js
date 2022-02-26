@@ -1,6 +1,7 @@
 //// App.js
 
 import Homepage from './components/Homepage';
+import SignUppage from './components/SignUppage';
 import Loginpage from './components/Loginpage';
 
 import { useState } from 'react';
@@ -26,6 +27,14 @@ function App() {
           </>
           } 
         />
+
+        <Route path='/signup/registration' element={
+          <>
+            <SignUppage toggleLanguages={toggleLanguages} toggle={toggle}/>
+          </>
+        }>
+
+        </Route>
 
         {/* LOGIN PAGE */}
         <Route path='/login' element={
