@@ -1,8 +1,9 @@
 //// FooterAlt.js - component for alternate footer placed at bottom of Sign In page
 
-const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
+const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => {
+
     return (
-        <footer className='footerAlt'>
+        <footer className={theme === 'dark' ? 'footerAlt' : 'footerAltLight'}>
             <div className='footerWrapper'>
                 <p>Questions? Call <a href='tel:1-844-505-2993'>1-844-505-2993</a></p>
 
