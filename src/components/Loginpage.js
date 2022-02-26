@@ -9,6 +9,9 @@ import Login from './Login';
 import FooterAlt from './FooterAlt';
 
 const Loginpage = ({ toggleLanguages, toggle }) => {
+    // different footer theme depending on page
+    let footerTheme = "dark";
+
     // Facebook icon styling
     const fbIconStyle = {
         width: "20px",
@@ -25,7 +28,7 @@ const Loginpage = ({ toggleLanguages, toggle }) => {
     return (
         <div>
             <Login fbIcon={<ImFacebook2 style={fbIconStyle}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />}/>
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />} theme={footerTheme}/>
         </div>
     )
 }
