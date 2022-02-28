@@ -51,7 +51,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100px;
-    height: 35px;
+    height: 30px;
     background: transparent;
     color: #FFF;
     border: 1px solid #FFF;
@@ -85,7 +85,7 @@
     background: #e50914;
     color: #FFF;
     text-decoration: none;
-    padding: 7px 17px;
+    padding: 3px 13px;
     border-radius: 3px;
 }
 
@@ -171,7 +171,7 @@
 /* SUBSECTION */
 section {
     width: 100%;
-    height: 50vh;
+    height: 55vh;
     display: flex;
     background: #000;
     color: #FFF;
@@ -302,11 +302,12 @@ section {
     background: #e50914;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     border-radius: 2px;
     margin: auto;
-    margin-top: 15px;
+    padding: 5px;
+    margin-top: 0;
 }
   
 .getStartedBtn:hover {
@@ -314,7 +315,7 @@ section {
     cursor: pointer;
 }
 
-/* REGISTRATION / SIGN UP ROUTE */
+/* REGISTRATION + REG FORM ROUTES */
 .registration {
     width: 100%;
     height: 75vh;
@@ -381,8 +382,21 @@ section {
 }
 
 .flexCol h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+.flexCol h3 {
     font-size: 1rem;
     font-weight: normal;
+}
+
+.flexCol input {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .nextBtn {
@@ -405,6 +419,211 @@ section {
     background: #ff2400;
     cursor: pointer;
 }
+
+/* REG FORM ROUTE */
+.regForm {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFF;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.flexColForm {
+    width: 80%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 15vh;
+}
+
+.flexColForm p {
+    font-size: 0.8rem;
+}
+
+.flexColForm h1 {
+    margin-bottom: 15px;
+}
+
+.flexColForm h3 {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.flexColForm input {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* SIGN UP / PLANS ROUTE */
+.plans {
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFF;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.flexColPlans {
+    width: 80%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.flexColPlans p {
+    font-size: 0.8rem;
+}
+
+.flexColPlans h2 {
+    width: 250px;
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+/* PLAN FORM ROUTE */
+.planForm {
+    width: 100%;
+    height: 105vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFF;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 150px;
+}
+
+.flexColFull {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.flexColFull p {
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.flexColFull h1 {
+    margin-bottom: 15px;
+}
+
+.flexColFull h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+.flexRowPlans {
+    width: 95%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+    margin: auto;
+}
+
+.flexRowPlans p {
+    font-size: 1rem;
+}
+
+.flexRowBtns {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.inactiveBtn {
+    position: relative;
+    width: 32%;
+    height: 70px;
+    background: #e50914;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    opacity: 0.5;
+}
+
+.activeBtn {
+    position: relative;
+    width: 32%;
+    height: 70px;
+    background: #e50914;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 30px 1px lightgrey;
+}
+
+.activeBtn:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-left: 50px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #e50914;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+.textGrey {
+    color: dimgrey;
+    font-size: rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.textRed {
+    color: #e50914;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.planDetails {
+    color: dimgrey;
+    font-size: 1.1rem;
+}
+
+.planDetails a {
+    text-decoration: none;
+}
+
+.planDetails a:hover {
+    text-decoration: underline;
+}
+
 
 /* LOGIN / SIGN IN ROUTE */
 .login {
@@ -704,7 +923,7 @@ section {
 /* FOOTER */
 footer {
     width: 100%;
-    height: 55vh;
+    height: 52vh;
     display: flex;
     background: #000;
     color: grey;
@@ -809,6 +1028,33 @@ footer button {
 .linksWrapperAlt a {
     width: 50%;
     font-size: 0.8rem;
+}
+
+.languagePopUpAlt {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 145px;
+    height: 60px;
+    background: #FFF;
+    border: 1px solid dimgrey;
+    border-radius: 4px;
+    box-shadow: 3px 2px 1px dimgrey;
+    margin-bottom: 75px;
+}
+
+.languagePopUpAlt p {
+    width: 100%;
+    margin-top: 0;
+    padding-left: 5px;
+  }
+  
+.languagePopUpAlt p:hover {
+    background: dimgrey;
+    color: #FFF;
+    cursor: default;
 }
 
 /* FOOTER ALT - LIGHT THEME */
