@@ -18,7 +18,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => 
                 </div>
 
                 <div>
-                    {/* {toggle ? <div className='languagePopUp'><p>English</p><p>Espanol</p></div> : ''} */}
+                    {toggle ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
                     <button onClick={toggleLanguages}>{globeIcon} English {caretIcon}</button>
                 </div>
             </div>
