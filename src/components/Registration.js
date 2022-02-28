@@ -11,6 +11,12 @@ const Registration = ({ logo }) => {
         reroute(path);
     }
 
+    // on button click, move to Step 1 of registration
+    const stepOne = () => {
+        let path = `/signup/regform`
+        reroute(path);
+    }
+
     return (
         <div className='registration'>
             <div className='flexRowFull'>
@@ -22,9 +28,9 @@ const Registration = ({ logo }) => {
                 <img src='https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Devices.png' alt='Devices'/>
                 <p>STEP <b>1</b> OF <b>3</b></p>
                 <h1>Finish setting up your account</h1>
-                <h2>Netflix is personalized for you.</h2>
-                <h2>Create a password to watch on any device at any time.</h2>
-                <button className='nextBtn'>Next</button>
+                <h3>Netflix is personalized for you.</h3>
+                <h3>Create a password to watch on any device at any time.</h3>
+                <button onClick={stepOne} className='nextBtn'>Next</button>
             </div>
         </div>
     )
