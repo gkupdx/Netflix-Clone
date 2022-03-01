@@ -1,5 +1,7 @@
 /* Open Sans */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* Open Sans Medium 500 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 /* Open Sans Semi-bold 600 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 /* Open Sans Bold 700 */
@@ -536,17 +538,20 @@ section {
 }
 
 .flexRowPlans {
-    width: 95%;
+    width: 100%;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     border-bottom: 1px solid lightgrey;
     margin: auto;
 }
 
 .flexRowPlans p {
+    width: 80%;
     font-size: 1rem;
+    margin: auto;
 }
 
 .flexRowBtns {
@@ -622,6 +627,89 @@ section {
 
 .planDetails a:hover {
     text-decoration: underline;
+}
+
+/* PAYMENT ROUTE */
+.payment {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFF;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.flexColPayment {
+    width: 80%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.flexColPayment p {
+    font-size: 0.8rem;
+}
+
+.flexColPayment h2 {
+    width: 250px;
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+.flexColPayment h3 {
+    width: 250px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.secureServer {
+    font-weight: 500;
+    text-align: right;
+}
+
+.creditOption {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.paypalGiftOption {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.creditOption:hover,
+.paypalGiftOption:hover {
+    cursor: pointer;
+}
+
+.creditFlexRow,
+.paypalGiftFlexRow {
+    display: flex;
+}
+
+.creditFlexRow p,
+.paypalGiftFlexRow p {
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 
