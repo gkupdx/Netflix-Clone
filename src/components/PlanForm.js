@@ -15,6 +15,7 @@ const PlanForm = ({ logo }) => {
         reroute(path);
     }
 
+    // on button click, move to Step 3 of registration
     const stepThree = () => {
         let path = `/signup/payment`;
         reroute(path);
