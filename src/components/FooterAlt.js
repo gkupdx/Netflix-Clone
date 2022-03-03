@@ -1,6 +1,42 @@
 //// FooterAlt.js - component for alternate footer placed at bottom of Sign In page
 
+import { useEffect } from 'react';
+import _ from 'lodash';
+
 const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => {
+    let scrollEvent = false; // variable to detect scroll event
+
+    // toggle for language btn
+    const showLanguages = () => {
+        toggleLanguages(!toggle)
+    }
+
+    const hideLangOnScroll = () => {
+        let upScrollPos = window.scrollY - 1;
+        let scrollPos = window.scrollY;
+        let downScrollPos = window.scrollY + 1;
+
+        // detect scroll movement (up or down, does not matter)
+        if (scrollPos > upScrollPos || scrollPos < downScrollPos) {
+            scrollEvent = true;
+        }
+
+        // reset "toggle" to ensure its state value is default for next button click
+        // doing so prevents inconsistent states for ternary operation on Line 57
+        toggleLanguages(false);
+    };
+
+    useEffect(() => {
+        // only use this effect IF toggle === true
+        if (toggle === true) {
+            const throttledScroll = _.throttle(hideLangOnScroll, 100); // hard limit function call to 1 every 500ms
+            window.addEventListener('scroll', throttledScroll);
+
+            return () => {
+                window.removeEventListener('scroll', throttledScroll);
+            };
+        }
+    });
 
     return (
         <footer className={theme === 'dark' ? 'footerAlt' : 'footerAltLight'}>
@@ -18,8 +54,8 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => 
                 </div>
 
                 <div>
-                    {toggle ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
-                    <button onClick={toggleLanguages}>{globeIcon} English {caretIcon}</button>
+                    {toggle && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
+                    <button onClick={showLanguages}>{globeIcon} English {caretIcon}</button>
                 </div>
             </div>
         </footer>
