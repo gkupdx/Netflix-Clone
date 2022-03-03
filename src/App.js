@@ -5,7 +5,10 @@ import Registration from './components/Registration';
 import RegForm from './components/RegForm';
 import SignUp from './components/SignUp';
 import PlanForm from './components/PlanForm';
-// import Payment from './components/Payment';
+import Payment from './components/Payment';
+import CreditOption from './components/CreditOption';
+import PaypalOption from './components/PaypalOption';
+import GiftOption from './components/GiftOption';
 
 import Loginpage from './components/Loginpage';
 import FooterAlt from './components/FooterAlt';
@@ -84,12 +87,36 @@ function App() {
         } />
 
         {/* STEP 3 of 3 REGISTRATION */}
-        {/* <Route path='/signup/payment' element={
+        <Route path='/signup/payment' element={
           <>
             <Payment logo={logoImgSrc} />
             <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
-        } /> */}
+        } />
+
+        {/* STEP 3 continued... Credit */}
+        <Route path='/signup/creditoption' element={
+          <>
+            <CreditOption logo={logoImgSrc} />
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+          </>
+        } />
+
+        {/* STEP 3 continued... PayPal */}
+        <Route path='/signup/paypaloption' element={
+          <>
+            <PaypalOption logo={logoImgSrc} />
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+          </>
+        } />
+
+        {/* STEP 3 continued... Gift code */}
+        <Route path='/signup/giftoption' element={
+          <>
+            <GiftOption logo={logoImgSrc} />
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+          </>
+        }/>
 
         {/* LOGIN PAGE */}
         <Route path='/login' element={
