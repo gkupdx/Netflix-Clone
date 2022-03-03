@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './registration.css';
+import './login.css';
 import App from './App';
 
 // React Router
