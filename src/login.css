@@ -1,0 +1,204 @@
+/* LOGIN / SIGN IN ROUTE */
+.login {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #000;
+    font-family: 'Open Sans', sans-serif;
+    /* background-image: url('assets/netflix_landing_page_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
+    line-height: 1; */
+}
+
+.redirectBtn { 
+    height: 75px;
+    background: transparent;
+    border: none;
+}
+
+.redirectBtn:hover {
+    cursor: pointer;
+}
+
+.login img {
+    width: 200px;
+    height: 100px
+}
+  
+/* .formBackground {
+    width: 450px;
+    height: 670px;
+    background: #000;
+    border-radius: 5px;
+    opacity: 0.85;
+} */
+  
+.formDiv {
+    /* position: absolute; */
+    width: 100%;
+    height: 70vh;
+    margin-top: 30px;
+    margin-left: 20px;
+    /* z-index: 2; */
+}
+  
+.formDiv h1 {
+    color: #FFF;
+    font-size: 2rem;
+}
+  
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+  
+.form input[type="text"] {
+    width: 90%;
+    height: 50px;
+    background: #333;
+    color: #FFF;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+  
+.form input[type="text"]::placeholder {
+    color: #a5a79a;
+}
+  
+.form input[type="text"]:focus {
+    background: #555555;
+    transition: 0.1s ease;
+}
+  
+.form input[type="text"]:focus::placeholder {
+    position: relative;
+    top: -15px;
+    color: #a5a79a;
+    font-size: 0.6rem;
+    transition: all 0.1s ease;
+}
+  
+.form input[type="button"] {
+    width: 90%;
+    height: 50px;
+    background: #e50914;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 40px;
+}
+  
+.form input[type="button"]:hover {
+    cursor: pointer;
+}
+  
+.form label {
+    color: grey;
+    font-size: 0.75rem;
+}
+  
+.rowJustifyBetween {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+  
+.helpBtn {
+    color: grey;
+    background: transparent;
+    border: none;
+}
+  
+.helpBtn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+  
+.formHelp {
+    width: 90%;
+    margin-top: 50px;
+}
+  
+.fbBtn {
+    width: 150px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    color: grey;
+    border: none;
+}
+  
+.fbBtn:hover {
+    cursor: pointer;
+}
+  
+.signUp {
+    color: grey;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+  
+.signUp a {
+    color: #FFF;
+    text-decoration: none;
+}
+  
+.signUp a:hover {
+    text-decoration: underline;
+}
+  
+.captcha {
+    color: grey;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    margin-top: 15px;
+}
+  
+.learnMore {
+    color: dodgerblue;
+    background: transparent;
+    font-size: 0.8rem;
+    border: none;
+}
+  
+.learnMore:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.learnMoreDetails {
+    color: grey;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+.learnMoreDetails a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+.learnMoreDetails a:hover {
+    text-decoration: underline;
+}
