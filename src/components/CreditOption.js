@@ -7,11 +7,19 @@ import mastercard from '../assets/mastercard.svg';
 import amex from '../assets/amex.svg';
 import discover from '../assets/discover.png';
 
+
+
 const CreditOption = ({ logo }) => {
     const reroute = useNavigate();
 
     const redirect = () => {
         let path = `/`;
+        reroute(path);
+    }
+
+    // on btn click, redirect to Payment page
+    const returnToPayment = () => {
+        let path = `/signup/payment`
         reroute(path);
     }
 
@@ -63,6 +71,7 @@ const CreditOption = ({ logo }) => {
                     <input type="text" name="cardNumber" placeholder="Card number" />
                     <input type="text" name="expDate" placeholder="Expiration date (MM/YY)" />
                     <input type="text" name="cvv" placeholder="Security code (CVV)" />
+                    
                     <input type="text" name="zipCode" placeholder="Billing ZIP code" />
                     <div className='currentPlanDiv'>
                         <div>
@@ -70,7 +79,7 @@ const CreditOption = ({ logo }) => {
                             <p style={currentPlanStyle}>Premium Plan</p>
                         </div>
 
-                        <button>Change</button>
+                        <button onClick={returnToPayment}>Change</button>
                     </div>
                 </div>
                 <div>
@@ -79,7 +88,7 @@ const CreditOption = ({ logo }) => {
                         our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a>,
                         <a href="https://help.netflix.com/legal/privacy">Privacy Statement</a>, that you
                         are over 18, and that <b>Netflix will automatically continue your membership
-                            and charge the membership fee (currently [price per month]) to your payment
+                            and charge the membership fee (currently $19.99/month) to your payment
                             method until you cancel. You may cancel at any time to avoid future charges.
                         </b>. To cancel, go to Account and click "Cancel Membership".
                     </p>

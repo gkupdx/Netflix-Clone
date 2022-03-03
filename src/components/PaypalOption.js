@@ -10,6 +10,12 @@ const PaypalOption = ({ logo }) => {
         reroute(path);
     }
 
+    // on btn click, redirect to Payment page
+    const returnToPayment = () => {
+        let path = `/signup/payment`
+        reroute(path);
+    }
+
     const monthlyChargeStyle = {
         fontSize: "0.85rem",
         fontWeight: "bold",
@@ -41,7 +47,7 @@ const PaypalOption = ({ logo }) => {
                             <p style={currentPlanStyle}>Premium Plan</p>
                         </div>
 
-                        <button>Change</button>
+                        <button onClick={returnToPayment}>Change</button>
                     </div>
                 </div>
                 <div>
