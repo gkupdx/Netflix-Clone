@@ -7,6 +7,11 @@
 /* Open Sans Bold 700 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
+/* Encode Sans Regular, Medium, Semi-bold, Bold */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;500;600;700&display=swap');
+
+/** CSS file for LANDING PAGE **/
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -62,19 +67,21 @@
   
 .languageDropDown {
     position: absolute;
-    top: 55px;
+    top: 52px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100px;
     height: 50px;
-    background: #333;
+    background: #282828;
     border: 1px solid dimgrey;
     border-radius: 2px;
     box-shadow: 0 0 0px 2px #000;
+    padding-left: 5px;
 }
   
 .languageDropDown p {
+    font-size: 0.9rem;
     margin-top: 0;
 }
   
@@ -317,607 +324,6 @@ section {
     cursor: pointer;
 }
 
-/* REGISTRATION + REG FORM ROUTES */
-.registration {
-    width: 100%;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFF;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.flexRowFull {
-    width: 100%;
-    height: 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid lightgrey;
-}
-
-.flexRowFull img {
-    width: 100px;
-    height: 50px;
-}
-
-.flexRowFull img:hover {
-    cursor: pointer;
-}
-
-.flexRowFull a {
-    color: #333;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.flexRowFull a:hover {
-    text-decoration: underline;
-}
-
-.flexCol {
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-}
-
-.flexCol img {
-    width: 80%;
-    height: auto;
-    margin-bottom: 50px;
-}
-
-.flexCol p {
-    font-size: 0.8rem;
-}
-
-.flexCol h1 {
-    margin-bottom: 15px;
-}
-
-.flexCol h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    letter-spacing: -1px;
-}
-
-.flexCol h3 {
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-.flexCol input {
-    width: 100%;
-    height: 55px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.nextBtn {
-    display: inline-flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 65px;
-    background: #e50914;
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 15px;
-}
-
-.nextBtn:hover {
-    background: #ff2400;
-    cursor: pointer;
-}
-
-/* REG FORM ROUTE */
-.regForm {
-    width: 100%;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFF;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.flexColForm {
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-    margin-bottom: 15vh;
-}
-
-.flexColForm p {
-    font-size: 0.8rem;
-}
-
-.flexColForm h1 {
-    margin-bottom: 15px;
-}
-
-.flexColForm h3 {
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-.flexColForm input {
-    width: 100%;
-    height: 55px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-/* SIGN UP / PLANS ROUTE */
-.plans {
-    width: 100%;
-    height: 82vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFF;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.flexColPlans {
-    width: 80%;
-    height: 55%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-}
-
-.flexColPlans p {
-    font-size: 0.8rem;
-}
-
-.flexColPlans h2 {
-    width: 250px;
-    font-size: 1.1rem;
-    font-weight: normal;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-}
-
-/* PLAN FORM ROUTE */
-.planForm {
-    width: 100%;
-    height: 105vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFF;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 150px;
-}
-
-.flexColFull {
-    width: 90%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-}
-
-.flexColFull p {
-    font-size: 0.8rem;
-    margin-top: 15px;
-}
-
-.flexColFull h1 {
-    margin-bottom: 15px;
-}
-
-.flexColFull h2 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    letter-spacing: -1px;
-}
-
-.flexRowPlans {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    border-bottom: 1px solid lightgrey;
-    margin: auto;
-}
-
-.flexRowPlans p {
-    width: 80%;
-    font-size: 1rem;
-    margin: auto;
-}
-
-.flexRowBtns {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-}
-
-.inactiveBtn {
-    position: relative;
-    width: 32%;
-    height: 70px;
-    background: #e50914;
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    opacity: 0.5;
-}
-
-.activeBtn {
-    position: relative;
-    width: 32%;
-    height: 70px;
-    background: #e50914;
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 0 30px 1px lightgrey;
-}
-
-.activeBtn:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-left: 50px;
-    width: 0;
-    height: 0;
-    border-top: 15px solid #e50914;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-}
-
-.textGrey {
-    color: dimgrey;
-    font-size: rem;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.textRed {
-    color: #e50914;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.planDetails {
-    color: dimgrey;
-    font-size: 1.1rem;
-}
-
-.planDetails a {
-    text-decoration: none;
-}
-
-.planDetails a:hover {
-    text-decoration: underline;
-}
-
-/* PAYMENT ROUTE */
-.payment {
-    width: 100%;
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFF;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.flexColPayment {
-    width: 80%;
-    height: 55%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-}
-
-.flexColPayment p {
-    font-size: 0.8rem;
-}
-
-.flexColPayment h2 {
-    width: 250px;
-    font-size: 1.1rem;
-    font-weight: normal;
-    letter-spacing: -1px;
-}
-
-.flexColPayment h3 {
-    width: 250px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -1px;
-}
-
-.secureServer {
-    font-weight: 500;
-    text-align: right;
-}
-
-.creditOption {
-    width: 100%;
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-    padding-left: 10px;
-}
-
-.paypalGiftOption {
-    width: 100%;
-    height: 65px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-    padding-left: 10px;
-}
-
-.creditOption:hover,
-.paypalGiftOption:hover {
-    cursor: pointer;
-}
-
-.creditFlexRow,
-.paypalGiftFlexRow {
-    display: flex;
-}
-
-.creditFlexRow p,
-.paypalGiftFlexRow p {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-
-/* LOGIN / SIGN IN ROUTE */
-.login {
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #000;
-    font-family: 'Open Sans', sans-serif;
-    /* background-image: url('assets/netflix_landing_page_bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
-    line-height: 1; */
-}
-
-.redirectBtn { 
-    height: 75px;
-    background: transparent;
-    border: none;
-}
-
-.redirectBtn:hover {
-    cursor: pointer;
-}
-
-.login img {
-    width: 200px;
-    height: 100px
-}
-  
-/* .formBackground {
-    width: 450px;
-    height: 670px;
-    background: #000;
-    border-radius: 5px;
-    opacity: 0.85;
-} */
-  
-.formDiv {
-    /* position: absolute; */
-    width: 100%;
-    height: 70vh;
-    margin-top: 30px;
-    margin-left: 20px;
-    /* z-index: 2; */
-}
-  
-.formDiv h1 {
-    color: #FFF;
-    font-size: 2rem;
-}
-  
-.form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-  
-.form input[type="text"] {
-    width: 90%;
-    height: 50px;
-    background: #333;
-    color: #FFF;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    padding-left: 20px;
-    margin-top: 15px;
-}
-  
-.form input[type="text"]::placeholder {
-    color: #a5a79a;
-}
-  
-.form input[type="text"]:focus {
-    background: #555555;
-    transition: 0.1s ease;
-}
-  
-.form input[type="text"]:focus::placeholder {
-    position: relative;
-    top: -15px;
-    color: #a5a79a;
-    font-size: 0.6rem;
-    transition: all 0.1s ease;
-}
-  
-.form input[type="button"] {
-    width: 90%;
-    height: 50px;
-    background: #e50914;
-    color: #FFF;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    margin-top: 40px;
-}
-  
-.form input[type="button"]:hover {
-    cursor: pointer;
-}
-  
-.form label {
-    color: grey;
-    font-size: 0.75rem;
-}
-  
-.rowJustifyBetween {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-  
-.helpBtn {
-    color: grey;
-    background: transparent;
-    border: none;
-}
-  
-.helpBtn:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-  
-.formHelp {
-    width: 90%;
-    margin-top: 50px;
-}
-  
-.fbBtn {
-    width: 150px;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    color: grey;
-    border: none;
-}
-  
-.fbBtn:hover {
-    cursor: pointer;
-}
-  
-.signUp {
-    color: grey;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    margin-top: 15px;
-}
-  
-.signUp a {
-    color: #FFF;
-    text-decoration: none;
-}
-  
-.signUp a:hover {
-    text-decoration: underline;
-}
-  
-.captcha {
-    color: grey;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.75rem;
-    margin-top: 15px;
-}
-  
-.learnMore {
-    color: dodgerblue;
-    background: transparent;
-    font-size: 0.8rem;
-    border: none;
-}
-  
-.learnMore:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.hidden {
-    display: none;
-}
-
-.learnMoreDetails {
-    color: grey;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.75rem;
-    margin-top: 10px;
-}
-
-.learnMoreDetails a {
-    color: dodgerblue;
-    text-decoration: none;
-}
-
-.learnMoreDetails a:hover {
-    text-decoration: underline;
-}
-
 /* BROWSE ROUTE */
 .browseMain {
     width: 100%;
@@ -1043,7 +449,7 @@ footer button {
   
 .footerWrapper {
     width: 80%;
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1052,11 +458,13 @@ footer button {
 
 .footerWrapper p {
     width: 80%;
+    font-weight: 600;
+    margin-top: 10px;
 }
 
 .linksWrapper {
     width: 100%;
-    height: 70%;
+    height: 75%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -1066,6 +474,7 @@ footer button {
 .linksWrapper a {
     width: 50%;
     font-size: 0.8rem;
+    margin-top: 10px;
 }
 
 .languagePopUp {
@@ -1079,7 +488,7 @@ footer button {
     background: #000;
     border: 1px solid dimgrey;
     border-radius: 2px;
-    margin-bottom: 100px;
+    margin-bottom: 75px;
 }
 
 .languagePopUp p {
@@ -1111,6 +520,7 @@ footer button {
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: auto;
+    margin-top: 20px;
 }
 
 .linksWrapperAlt a {
@@ -1130,7 +540,7 @@ footer button {
     border: 1px solid dimgrey;
     border-radius: 4px;
     box-shadow: 3px 2px 1px dimgrey;
-    margin-bottom: 75px;
+    margin-bottom: 65px;
 }
 
 .languagePopUpAlt p {
