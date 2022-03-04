@@ -3,7 +3,9 @@
 import { useEffect } from 'react';
 import _ from 'lodash';
 
-const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => {
+import { AiFillCaretDown } from 'react-icons/ai';
+
+const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme }) => {
     let scrollEvent = false; // variable to detect scroll event
 
     // toggle for language btn
@@ -40,7 +42,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => 
 
     return (
         <footer className={theme === 'dark' ? 'footerAlt' : 'footerAltLight'}>
-            <div className='footerWrapper'>
+            <div className='footerWrapperAlt'>
                 <p>Questions? Call <a href='tel:1-844-505-2993'>1-844-505-2993</a></p>
 
 
@@ -54,8 +56,8 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, caretIcon, theme }) => 
                 </div>
 
                 <div>
-                    {toggle && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
-                    <button onClick={showLanguages}>{globeIcon} English {caretIcon}</button>
+                    {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUpAlt' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
+                    <button onClick={showLanguages}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
                 </div>
             </div>
         </footer>
