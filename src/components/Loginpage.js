@@ -2,7 +2,7 @@
 //// shared code logic will be stored here
 
 import { IoGlobe } from 'react-icons/io5';
-import { AiFillCaretDown } from 'react-icons/ai';
+import { VscChevronDown } from 'react-icons/vsc';
 import { ImFacebook2 } from 'react-icons/im';
 
 import Login from './Login';
@@ -28,7 +28,7 @@ const Loginpage = ({ toggleLanguages, toggle }) => {
     return (
         <div>
             <Login fbIcon={<ImFacebook2 style={fbIconStyle}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />} theme={footerTheme}/>
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
         </div>
     )
 }
