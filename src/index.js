@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './registration.css';
+import './index_576.css';
 import './login.css';
+import './registration.css';
+import './registration_576.css';
 import App from './App';
 
 // React Router
