@@ -1,8 +1,11 @@
 //// GiftOption.js - component for the /signup/giftoption route
 
+import { useState } from 'react';
 import { useNavigate } from "react-router";
 
 const GiftOption = ({ logo }) => {
+    const [show, setShow] = useState(false);
+
     const reroute = useNavigate();
 
     const redirect = () => {
@@ -14,6 +17,10 @@ const GiftOption = ({ logo }) => {
     const returnToPayment = () => {
         let path = `/signup/payment`
         reroute(path);
+    }
+
+    const displayLearnMore = () => {
+        setShow(true);
     }
 
     const monthlyChargeStyle = {
@@ -28,6 +35,13 @@ const GiftOption = ({ logo }) => {
         marginTop: "0"
     }
 
+    // // Simple validation functions to make sure field is not empty
+    // const giftCodeValidation = {
+
+    // }
+
+    // const zipCodeValidation = {}
+
 
     return (
         <div className='giftOption'>
@@ -36,7 +50,7 @@ const GiftOption = ({ logo }) => {
                 <a href='/login'>Sign In</a>
             </div>
 
-            <div className='flexColGift'>
+            <div className={!show ? 'flexColGift' : 'flexColGiftMb'}>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
                     <h1>Enter your gift code</h1>
@@ -56,7 +70,10 @@ const GiftOption = ({ logo }) => {
 
                 <button className='redeemCodeBtn'>Redeem Gift Code</button>
 
-                <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className='learnMore'>Learn more.</span></p>
+                <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={displayLearnMore}>Learn more.</span></p>
+                {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
+                    and for general security purposes (it is not used for personalized advertising by Google).
+                </p>}
             </div>
         </div>
     )
