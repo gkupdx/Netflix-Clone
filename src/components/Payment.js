@@ -96,7 +96,7 @@ const Payment = ({ logo }) => {
                 <div>
                     <p className='secureServer'>Secure Server <IoIosLock style={keyLockStyle} /></p>
                     <div onClick={creditPage} className='creditDiv'>
-                        <div className='creditFlexCol'>
+                        <div className={window.innerWidth < 576 ? 'creditFlexCol' : 'creditFlexRow'}>
                             <div>
                                 <p>Credit or Debit Card</p>
                             </div>
