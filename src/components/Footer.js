@@ -80,7 +80,7 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    {show && !scrollEvent ? <div className='languagePopUp'><p>English</p><p>Espanol</p></div> : ''}
+                    {show && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
                     <button onClick={showLanguages}><IoGlobe style={globeIconStyle} /> English <AiFillCaretDown /></button>
                 </div>
             </div>

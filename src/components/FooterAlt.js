@@ -46,7 +46,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme 
                 <p>Questions? Call <a href='tel:1-844-505-2993'>1-844-505-2993</a></p>
 
 
-                <div className='linksWrapperAlt'>
+                <div className={theme === 'dark' ? 'linksWrapper' : 'linksWrapperAltLight'}>
                     <a href='#faq'>FAQ</a>
                     <a href='#help'>Help Center</a>
                     <a href='#tos'>Terms of Use</a>
@@ -56,7 +56,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme 
                 </div>
 
                 <div>
-                    {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUpAlt' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
+                    {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUp' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
                     <button onClick={showLanguages}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
                 </div>
             </div>

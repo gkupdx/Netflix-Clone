@@ -103,7 +103,7 @@ const PlanForm = ({ logo }) => {
                     devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
                 </div>
 
-                <button onClick={stepThree} className='nextBtn'>Next</button>
+                <button onClick={stepThree} className='nextBtnAlt'>Next</button>
             </div>
         </div>
     )
