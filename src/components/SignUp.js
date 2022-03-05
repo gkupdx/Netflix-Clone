@@ -33,6 +33,11 @@ const SignUp = ({ logo }) => {
         fontSize: "2rem"
     }
 
+    // Stand-in flex row 
+    const flexRow = {
+        display: "flex"
+    }
+
 
     return (
         <div className='plans'>
@@ -50,9 +55,19 @@ const SignUp = ({ logo }) => {
                     <h1>Choose your plan.</h1>
                 </div>
                 <div>
-                    <h2><IoCheckmarkOutline style={checkMarkStyle} /> No commitments, cancel anytime.</h2>
-                    <h2><IoCheckmarkOutline style={checkMarkStyle} /> Everything on Netflix for one low price.</h2>
-                    <h2><IoCheckmarkOutline style={checkMarkStyle} /> Unlimited viewing on all your devices.</h2>
+                    <div style={flexRow}>
+                        <IoCheckmarkOutline style={checkMarkStyle} /><h2> No commitments, cancel anytime.</h2>
+                    </div>
+                </div>
+                <div>
+                    <div style={flexRow}>
+                        <IoCheckmarkOutline style={checkMarkStyle} /><h2> Everything on Netflix for one low price.</h2>
+                    </div>
+                </div>
+                <div>
+                    <div style={flexRow}>
+                        <IoCheckmarkOutline style={checkMarkStyle} /><h2> Unlimited viewing on all your devices.</h2>
+                    </div>
                 </div>
                 <div>
                     <button onClick={stepTwoCont} className='nextBtn'>Next</button>
