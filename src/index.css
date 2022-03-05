@@ -230,7 +230,7 @@ section {
     width: 80%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: auto;
     margin-top: 20px;
 }
@@ -240,7 +240,29 @@ section {
     height: 50px;
     padding: 10px;
     margin: auto;
-    margin-top: 0;
+    margin-toP: 10px;
+}
+
+.getStartedBtn {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 130px;
+    height: 40px;
+    background: #e50914;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2px;
+    margin: auto;
+    padding: 5px;
+    margin-top: 15px;
+}
+  
+.getStartedBtn:hover {
+    background: #ff2400;
+    cursor: pointer;
 }
   
 .faqWrapper {
@@ -301,28 +323,6 @@ section {
     height: 0;
     transition: all 0.1s ease-in;
 }
-  
-.getStartedBtn {
-    display: inline-flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 130px;
-    height: 40px;
-    background: #e50914;
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    border: none;
-    border-radius: 2px;
-    margin: auto;
-    padding: 5px;
-    margin-top: 0;
-}
-  
-.getStartedBtn:hover {
-    background: #ff2400;
-    cursor: pointer;
-}
 
 /* FOOTER */
 footer {
@@ -344,7 +344,7 @@ footer a:hover {
     text-decoration: underline;
 }
   
-footer button {
+.footerWrapper button {
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
@@ -387,7 +387,7 @@ footer button {
     margin-top: 10px;
 }
 
-.languagePopUp {
+.languagePopUpAlt {
     position: fixed;
     bottom: 0;
     display: flex;
@@ -401,12 +401,12 @@ footer button {
     margin-bottom: 75px;
 }
 
-.languagePopUp p {
+.languagePopUpAlt p {
     width: 100%;
     margin-top: 0;
   }
   
-.languagePopUp p:hover {
+.languagePopUpAlt p:hover {
     background: dimgrey;
     color: #FFF;
     cursor: default;
