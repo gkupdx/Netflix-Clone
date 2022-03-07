@@ -106,7 +106,7 @@
 
 /* LANDING PAGE CSS */
 .main {
-    height: 55vh;
+    height: 515px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,7 +180,7 @@
 /* SUBSECTION */
 section {
     width: 100%;
-    height: 55vh;
+    height: 500px;
     display: flex;
     background: #000;
     color: #FFF;
@@ -189,13 +189,18 @@ section {
   
 .subsectionWrapper {
     width: 90%;
-    height: 40vh;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     margin: auto;
+}
+
+.subsectionWrapper img {
+    width: 90%;
+    height: 100%;
 }
 
 .subsectionContent {
@@ -218,7 +223,7 @@ section {
 /* FAQ */
 .faq {
     width: 100%;
-    min-height: 70vh;
+    min-height: 700px;
     display: flex;
     background: #000;
     color: #FFF;
@@ -267,7 +272,7 @@ section {
   
 .faqWrapper {
     width: 100%;
-    min-height: 75vh;
+    min-height: 700px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -277,7 +282,25 @@ section {
 .faqWrapper h1 {
     font-size: 25px;
     margin-top: 50px;
+    margin-bottom: 15px;
 }
+
+/* faqWrapper with margin-bottom */
+.faqWrapperMb {
+    width: 100%;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 80px;
+}
+
+.faqWrapperMb h1 {
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}  
   
 .faqBtn {
     width: 100%;
@@ -300,7 +323,7 @@ section {
 
 .faqBtnDetails {
     width: 100%;
-    max-height: 40vh;
+    max-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,7 +350,7 @@ section {
 /* FOOTER */
 footer {
     width: 100%;
-    height: 52vh;
+    height: 480px;
     display: flex;
     background: #000;
     color: grey;
@@ -358,7 +381,7 @@ footer a:hover {
 }
   
 .footerWrapper {
-    width: 80%;
+    width: 90%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -369,12 +392,12 @@ footer a:hover {
 .footerWrapper p {
     width: 80%;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .linksWrapper {
-    width: 100%;
-    height: 75%;
+    width: 80%;
+    height: 90%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -384,7 +407,7 @@ footer a:hover {
 .linksWrapper a {
     width: 50%;
     font-size: 0.8rem;
-    margin-top: 10px;
+    margin-top: 13px;
 }
 
 .languagePopUpAlt {

@@ -1,7 +1,7 @@
 /* REGISTRATION + REG FORM ROUTES */
 .registration {
     width: 100%;
-    height: 75vh;
+    height: 720px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,7 +106,7 @@
 /* REG FORM ROUTE */
 .regForm {
     width: 100%;
-    height: 75vh;
+    height: 720px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -118,12 +118,12 @@
 
 .flexColForm {
     width: 80%;
-    height: 50vh;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 15vh;
+    margin-top: 40px;
 }
 
 .flexColForm p {
@@ -149,7 +149,7 @@
 /* SIGN UP / PLANS ROUTE */
 .plans {
     width: 100%;
-    height: 82vh;
+    height: 785px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -161,7 +161,7 @@
 
 .flexColPlans {
     width: 80%;
-    height: 55%;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -182,7 +182,7 @@
 /* PLAN FORM ROUTE */
 .planForm {
     width: 100%;
-    height: 105vh;
+    height: 950px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -195,7 +195,7 @@
 
 .flexColFull {
     width: 90%;
-    height: auto;
+    height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -204,7 +204,7 @@
 
 .flexColFull p {
     font-size: 0.8rem;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .flexColFull h1 {
@@ -215,17 +215,19 @@
     font-size: 1.1rem;
     font-weight: normal;
     letter-spacing: -1px;
+    margin-top: -7px;
 }
 
 .flexRowPlans {
     width: 100%;
-    height: 50px;
+    height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     border-bottom: 1px solid lightgrey;
     margin: auto;
+    margin-top: -5px;
 }
 
 .flexRowPlans p {
@@ -241,6 +243,7 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    margin-top: 10px;
 }
 
 .inactiveBtn {
@@ -297,6 +300,12 @@
 }
 
 .planDetails {
+    margin-top: -30px;
+    color: dimgrey;
+    font-size: 1.1rem;
+}
+
+.planDetails {
     color: dimgrey;
     font-size: 1.1rem;
 }
@@ -322,7 +331,7 @@
     border: none;
     border-radius: 5px;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .nextBtnAlt:hover {
@@ -333,7 +342,7 @@
 /* PAYMENT ROUTE */
 .payment {
     width: 100%;
-    height: 85vh;
+    height: 820px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -345,12 +354,12 @@
 
 .flexColPayment {
     width: 80%;
-    height: 60vh;
+    height: 560px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 15vh;
+    margin-bottom: 170px;
 }
 
 .flexColPayment p {
@@ -432,7 +441,7 @@
 /* CREDIT/DEBIT OPTION */
 .creditOption {
     width: 100%;
-    height: 115vh;
+    height: 1100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -444,7 +453,7 @@
 
 .flexColCredit {
     width: 80%;
-    height: 100vh;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -530,7 +539,7 @@
 /* PAYPAL OPTION */
 .paypalOption {
     width: 100%;
-    height: 75vh;
+    height: 720px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -542,12 +551,12 @@
 
 .flexColPaypal {
     width: 80%;
-    height: 35vh;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 40vh;
+    margin-bottom: 320px;
 }
 
 .flexColPaypal p {
@@ -586,7 +595,7 @@
 /* GIFT CODE OPTION */
 .giftOption {
     width: 100%;
-    height: 80vh;
+    height: 770px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -598,12 +607,12 @@
 
 .flexColGift {
     width: 80%;
-    height: 50vh;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 30vh;
+    margin-bottom: 250px;
 }
 
 .flexColGift p {
@@ -625,12 +634,12 @@
 
 .flexColGiftMb {
     width: 80%;
-    height: 65vh;
+    height: 770px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 30vh;
+    margin-bottom: 400px;
 }
 
 .flexColGiftMb p {
@@ -674,7 +683,7 @@
 /* FOOTER ALT - LIGHT THEME */
 .footerAltLight {
     width: 100%;
-    height: 26vh;
+    height: 240px;
     background: #f4f4f4;
     color: dimgrey;
     font-family: 'Open Sans', sans-serif;
@@ -692,6 +701,7 @@
     border-radius: 2px;
     background: #FFF;
     border: 1px solid grey;
+    margin-top: 20px;
 }
 
 .linksWrapperAltLight {
@@ -715,13 +725,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 145px;
+    width: 138px;
     height: 60px;
     background: #FFF;
     border: 1px solid dimgrey;
     border-radius: 4px;
     box-shadow: 3px 2px 0px 0px dimgrey;
-    margin-bottom: 72px;
+    margin-bottom: 70px;
 }
 
 .languagePopUpLight p {
