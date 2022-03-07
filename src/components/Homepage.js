@@ -17,6 +17,10 @@ import kidsProfile from '../assets/kids_profile.png';
 
 
 const Homepage = ({ toggleLanguages, toggle }) => {
+    // Variables to determine subsection ordering
+    // (for styling reasons)
+    let odd = 1;
+    let even = 2;
 
     // Temporary array of subsection headers + body 
     const subsectionContent = [
@@ -47,10 +51,10 @@ const Homepage = ({ toggleLanguages, toggle }) => {
         <div>
             <Nav toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />} />
             <Banner />
-            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv}/>
-            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile}/>
-            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile}/>
-            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile}/>
+            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv} order={odd}/>
+            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile} order={even}/>
+            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile} order={odd}/>
+            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile} order={even}/>
             <FAQ />
             <Footer />
         </div>
