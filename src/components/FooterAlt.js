@@ -46,7 +46,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme 
                 <p>Questions? Call <a href='tel:1-844-505-2993'>1-844-505-2993</a></p>
 
 
-                <div className={theme === 'dark' ? 'linksWrapper' : 'linksWrapperAltLight'}>
+                <div className={theme === 'dark' ? 'linksWrapperAlt' : 'linksWrapperAltLight'}>
                     <a href='#faq'>FAQ</a>
                     <a href='#help'>Help Center</a>
                     <a href='#tos'>Terms of Use</a>
