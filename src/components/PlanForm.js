@@ -35,7 +35,8 @@ const PlanForm = ({ logo }) => {
     // row descriptor (e.g. 'Monthly price', etc...) styling
     const rowDescriptorStyle = {
         fontSize: "0.8rem",
-        alignSelf: "center"
+        alignSelf: "center",
+        marginTop: "-10px"
     }
 
     // on click, highlight the selected plan
@@ -95,11 +96,11 @@ const PlanForm = ({ logo }) => {
                     <p className={activePlan === 'premo' ? 'textRed' : 'textGrey'}><IoCheckmarkOutline style={smCheckMarkStyle}/></p>
                 </div>
 
-                <div>
-                    <p className='planDetails'>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject
+                <div className='planDetails'>
+                    <p>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject
                     to your internet service and device capabilities. Not all content is 
                     available in all resolutions. See our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a> for more details.</p>
-                    <p className='planDetails'>Only people who live with you may use your account. Watch on 4 different 
+                    <p>Only people who live with you may use your account. Watch on 4 different 
                     devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
                 </div>
 
