@@ -35,6 +35,7 @@ const PlanForm = ({ logo }) => {
     // row descriptor (e.g. 'Monthly price', etc...) styling
     const rowDescriptorStyle = {
         fontSize: "0.8rem",
+        fontWeight: "500",
         alignSelf: "center",
         marginTop: "-10px"
     }

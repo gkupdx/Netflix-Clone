@@ -18,12 +18,13 @@ const PaypalOption = ({ logo }) => {
 
     const monthlyChargeStyle = {
         fontSize: "0.85rem",
-        fontWeight: "bold",
+        fontWeight: "700",
         marginTop: "0"
     }
 
     const currentPlanStyle = {
         fontSize: "0.85rem",
+        fontWeight: "500",
         color: "grey",
         marginTop: "0"
     }
