@@ -1,5 +1,5 @@
 /* MEDIA QUERY BREAKPOINT for index.css @ 576px width */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 576px) and (max-width: 949px) {
     /* NAVBAR */
     .nav {
         position: absolute;
@@ -84,7 +84,7 @@
 
     /* LANDING PAGE */
     .main {
-        height: 77vh;
+        height: 760px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -158,7 +158,7 @@
     /* SECTION / SUBSECTION */
     section {
         width: 100%;
-        height: 65vh;
+        height: 630px;
         display: flex;
         background: #000;
         color: #FFF;
@@ -167,7 +167,7 @@
       
     .subsectionWrapper {
         width: 95%;
-        height: 50vh;
+        height: 530px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -197,7 +197,7 @@
     /* FAQ */
     .faq {
         width: 100%;
-        min-height: 90vh;
+        min-height: 840px;
         display: flex;
         background: #000;
         color: #FFF;
@@ -246,7 +246,7 @@
       
     .faqWrapper {
         width: 75%;
-        min-height: 85vh;
+        min-height: 840px;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -262,7 +262,7 @@
     /* faqWrapper with margin-bottom */
     .faqWrapperMb {
         width: 75%;
-        min-height: 85vh;
+        min-height: 840px;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -297,7 +297,7 @@
     
     .faqBtnDetails {
         width: 100%;
-        min-height: 10vh;
+        max-height: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -324,7 +324,7 @@
     /* FOOTER */
     footer {
         width: 100%;
-        height: 45vh;
+        height: 430px;
         display: flex;
         background: #000;
         color: grey;
@@ -381,57 +381,5 @@
     .linksWrapper a {
         width: 33.3%;
         font-size: 0.8rem;
-    }
-
-    /* FOOTER ALT - DARK */
-    .footerAlt {
-        width: 100%;
-        height: 30vh;
-        display: flex;
-        background: #000;
-        color: grey;
-        font-family: 'Open Sans', sans-serif;
-        border-top: 1px solid grey;
-    }
-    
-    .linksWrapperAlt {
-        width: 100%;
-        height: 50%;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin: auto;
-        margin-top: 20px;
-    }
-    
-    .linksWrapperAlt a {
-        width: 50%;
-        font-size: 0.8rem;
-    }
-    
-    .languagePopUpAlt {
-        position: fixed;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 150px;
-        height: 60px;
-        background: #000;
-        border: 1px solid dimgrey;
-        border-radius: 4px;
-        margin-bottom: 70px;
-    }
-    
-    .languagePopUpAlt p {
-        width: 100%;
-        margin-top: 0;
-        padding-left: 5px;
-      }
-      
-    .languagePopUpAlt p:hover {
-        background: dimgrey;
-        color: #FFF;
-        cursor: default;
     }
 }
