@@ -476,6 +476,17 @@
     letter-spacing: 1px;
 }
 
+.flexColCredit input:focus {
+    outline: none;
+}
+
+/* .inputIcon {
+    position: absolute;
+    right: 0;
+    bottom: 410px;
+    margin-right: 50px;
+} */
+
 .currentPlanDiv {
     width: 100%;
     height: 70px;
