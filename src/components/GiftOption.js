@@ -1,11 +1,96 @@
 //// GiftOption.js - component for the /signup/giftoption route
 
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import { useNavigate } from "react-router";
 
 const GiftOption = ({ logo }) => {
     const [show, setShow] = useState(false);
 
+    const initialState = {
+        giftCode: '',
+        zipCode: ''
+    };
+
+    const reducer = (state, action) => {
+        switch (action.type) {
+            // 'Red Box' = display error message below input field + give input field a red border 
+            case 'Red Box':
+                return {
+                    ...state,
+                    [action.name]: 'red'
+                }
+            // 'Green Box' = give input field a green border
+            case 'Green Box':
+                return {
+                    ...state,
+                    [action.name]: 'green'
+                }
+            // 'Red To Green' = on input in firstName field, remove error message + change red border to green
+            case 'Red To Green':
+                return {
+                    ...state,
+                    [action.name]: 'red to green'
+                }
+            // 'Validate Red' = on some input, validate input is correct characters + length
+            case 'Validate Red':
+                return {
+                    ...state,
+                    [action.name]: 'validate red'
+                }
+            default:
+                return state;
+        }
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    // onBlur handler
+    const handleOnBlur = (event) => {
+        let fieldName = event.target.name;
+        let fieldVal = event.target.value;
+
+        if (fieldVal.length === 0) {
+            dispatch({
+                type: 'Red Box',
+                name: fieldName
+            });
+        } else if ((fieldName === 'giftCode' && fieldVal.length < 4) || (fieldName === 'zipCode' && (fieldVal.length < 5 || fieldVal.length > 5))) {
+            dispatch({
+                type: 'Validate Red',
+                name: fieldName
+            });
+        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4) || (fieldName === 'zipCode' && fieldVal.length === 5)) {
+            dispatch({
+                type: 'Green Box',
+                name: fieldName
+            });
+        }
+    }
+
+    // onChange handler (dispatch ONLY IF onBlur event HAS NOT already happened)
+    const handleOnChange = (event) => {
+        let fieldName = event.target.name;
+        let fieldVal = event.target.value;
+
+        if (fieldVal.length === 0) {
+            dispatch({
+                type: 'Red Box',
+                name: fieldName
+            });
+        } else if ((fieldName === 'giftCode' && fieldVal.length < 4 && state.giftCode !== '') || (fieldName === 'zipCode' && state.zipCode !== '' && (fieldVal.length < 5 || fieldVal.length > 5))) {
+            dispatch({
+                type: 'Validate Red',
+                name: fieldName
+            });
+        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4 && state.giftCode !== '') || (fieldName === 'zipCode' && fieldVal.length === 5 && state.zipCode !== '')) {
+            dispatch({
+                type: 'Green Box',
+                name: fieldName
+            });
+        }
+    }
+
+    // useNavigate()
     const reroute = useNavigate();
 
     const redirect = () => {
@@ -36,12 +121,10 @@ const GiftOption = ({ logo }) => {
         marginTop: "0"
     }
 
-    // // Simple validation functions to make sure field is not empty
-    // const giftCodeValidation = {
-
-    // }
-
-    // const zipCodeValidation = {}
+    const errorMsgStyle = {
+        color: 'crimson',
+        marginTop: '0'
+    }
 
 
     return (
@@ -57,8 +140,14 @@ const GiftOption = ({ logo }) => {
                     <h1>Enter your gift code</h1>
                 </div>
                 <div>
-                    <input type="text" name="giftCode" placeholder="Gift Card Pin or Code" />
-                    <input type="text" name="zipCode" placeholder="Zip Code" />
+                    <input type="text" name="giftCode" placeholder="Gift Card Pin or Code" maxLength="60" style={{ borderColor: (state.giftCode === 'red' || state.giftCode === 'validate red') ? 'crimson' : state.giftCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    {state.giftCode === 'red' && <p style={errorMsgStyle}>Gift Card Pin or Code is required!</p>}
+                    {state.giftCode === 'validate red' && <p style={errorMsgStyle}>Gift Card Pin or Code should be between 4 and 60 characters!</p>}
+        
+                    <input type="text" name="zipCode" placeholder="Zip Code" style={{ borderColor: (state.zipCode === 'red' || state.zipCode === 'validate red') ? 'crimson' : state.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    {state.zipCode === 'red' && <p style={errorMsgStyle}>Zip Code is required!</p>}
+                    {state.zipCode === 'validate red' && <p style={errorMsgStyle}>Please enter a valid ZIP code.</p>}
+
                     <div className='currentPlanDiv'>
                         <div>
                             <p style={monthlyChargeStyle}>$19.99</p>
