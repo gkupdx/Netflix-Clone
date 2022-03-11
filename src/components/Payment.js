@@ -83,18 +83,18 @@ const Payment = ({ logo }) => {
                 </div>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
-                    <h1>Set up your payment</h1>
+                    <h1>Choose how to pay</h1>
                 </div>
                 <div>
-                    <h2>Your membership starts as soon as you set up payment.</h2>
+                    <h2>Your payment is encrypted and you can change how you pay anytime.</h2>
                 </div>
                 <div>
-                    <h3>No commitments.</h3>
-                    <h3>Cancel online anytime.</h3>
+                    <h3>Secure for peace of mind.</h3>
+                    <h3>Cancel easily online.</h3>
                 </div>
 
                 <div>
-                    <p className='secureServer'>Secure Server <IoIosLock style={keyLockStyle} /></p>
+                    <p className='secureServer'>End-to-end encrypted <IoIosLock style={keyLockStyle} /></p>
                     <div onClick={creditPage} className='creditDiv'>
                         <div className={window.innerWidth < 576 ? 'creditFlexCol' : 'creditFlexRow'}>
                             <div>
