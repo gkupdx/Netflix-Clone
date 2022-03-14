@@ -132,10 +132,16 @@
         height: 60px;
         padding-left: 10px;
         margin-top: 15px;
+        border: 1px solid grey;
     }
       
     .main input::placeholder {
         font-size: 1rem;
+    }
+
+    .main input:focus {
+        outline: none;
+        border-color: blue;
     }
       
     .main button {
@@ -228,6 +234,12 @@
         height: 60px;
         padding: 10px;
         margin: auto;
+        border: 1px solid grey;
+    }
+
+    .faq input:focus {
+        outline: none;
+        border-color: blue;
     }
 
     .getStartedBtn {
