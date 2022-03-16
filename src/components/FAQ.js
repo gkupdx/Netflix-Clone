@@ -1,5 +1,6 @@
 //// FAQ.js - component for the Frequently Asked Questions subsection
-import { useState } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 
 import { AiOutlinePlus } from "react-icons/ai";
@@ -7,14 +8,34 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { VscChevronRight } from "react-icons/vsc";
 
 const FAQ = () => {
-    let reroute = useNavigate();
     const [show, setShow] = useState("");
+    const [emailVal, setEmailVal] = useState('');
+    const emailRef = useRef();
 
-    // Plus icon styling
-    const aiOutlineIconStyle = {
-        fontSize: "25px"
+    let reroute = useNavigate();
+
+    // on click, reroute user to /signup/registration
+    const redirect = () => {
+        let fieldVal = emailRef.current.value;
+
+        if (fieldVal.length === 0) {
+            emailRef.current.focus();
+            fieldVal = 'empty'
+        } else {
+            fieldVal = 'nonEmpty'
+        }
+
+        setEmailVal(fieldVal);
     }
 
+    useEffect(() => {
+        if (emailVal === 'nonEmpty') {
+            let path = `/signup/registration`;
+            reroute(path);
+        }
+    }, [emailVal, reroute])
+
+    
     // Toggle for FAQ buttons
     const toggleFAQBtn = (input) => {
         // if given input value is equal to current state, set input to empty string
@@ -25,10 +46,9 @@ const FAQ = () => {
         setShow(input);
     }
 
-    // on click, reroute user to /signup/registration
-    const redirect = () => {
-        let path = `/signup/registration`;
-        reroute(path);
+    // Plus icon styling
+    const aiOutlineIconStyle = {
+        fontSize: "25px"
     }
 
     return (
@@ -106,7 +126,9 @@ const FAQ = () => {
 
                 <div>
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <input type="text" name="email" placeholder="Email address" />
+                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={{ borderBottom: emailVal === 'empty' ? '2px solid orange' : 'none' }}/>
+                    {emailVal === 'empty' && <p style={{ color: 'orange' }}>Email is required!</p>}
+
                     <button className='getStartedBtn' onClick={redirect}>Get Started <VscChevronRight /></button>
                 </div>
             </div>
