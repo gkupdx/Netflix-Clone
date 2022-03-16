@@ -25,12 +25,6 @@ const GiftOption = ({ logo }) => {
                     ...state,
                     [action.name]: 'green'
                 }
-            // 'Red To Green' = on input in firstName field, remove error message + change red border to green
-            case 'Red To Green':
-                return {
-                    ...state,
-                    [action.name]: 'red to green'
-                }
             // 'Validate Red' = on some input, validate input is correct characters + length
             case 'Validate Red':
                 return {
@@ -108,6 +102,7 @@ const GiftOption = ({ logo }) => {
         setShow(true);
     }
 
+    // styling of different elements
     const monthlyChargeStyle = {
         fontSize: "0.85rem",
         fontWeight: "700",
