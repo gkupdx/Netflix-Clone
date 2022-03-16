@@ -1,5 +1,5 @@
-/* MEDIA QUERY BREAKPOINT for index.css @ 576px width */
-@media screen and (min-width: 576px) and (max-width: 949px) {
+/* MEDIA QUERY BREAKPOINT for index.css @ 550px width */
+@media screen and (min-width: 550px) and (max-width: 949px) {
     /* NAVBAR */
     .nav {
         position: absolute;
@@ -164,7 +164,7 @@
     /* SECTION / SUBSECTION */
     section {
         width: 100%;
-        height: 630px;
+        height: calc(100vw + 50px);
         display: flex;
         background: #000;
         color: #FFF;
@@ -173,12 +173,17 @@
       
     .subsectionWrapper {
         width: 95%;
-        height: 530px;
+        height: calc(65% + 50px);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         text-align: center;
+        margin-bottom: 100px;
+    }
+
+    .subsectionWrapper img {
+        width: 85%;
     }
     
     .subsectionContent {
