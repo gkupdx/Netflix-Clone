@@ -1,8 +1,9 @@
 //// Registration.js - component for the /signup/registration page
 
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const Registration = ({ logo }) => {
+    let { state } = useLocation(); // destructure for direct use
     let reroute = useNavigate();
 
     // on logo click, redirect to landing page
@@ -14,7 +15,13 @@ const Registration = ({ logo }) => {
     // on button click, move to Step 1 of registration
     const stepOne = () => {
         let path = `/signup/regform`
-        reroute(path);
+        let input = state.email;
+
+        reroute(path, {
+            state: {
+                email: input
+            }
+        });
     }
 
     return (
