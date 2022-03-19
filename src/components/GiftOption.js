@@ -36,7 +36,7 @@ const GiftOption = ({ logo }) => {
         }
     }
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [inputState, dispatch] = useReducer(reducer, initialState);
 
     // onBlur handler
     const handleOnBlur = (event) => {
@@ -71,12 +71,12 @@ const GiftOption = ({ logo }) => {
                 type: 'Red Box',
                 name: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length < 4 && state.giftCode !== '') || (fieldName === 'zipCode' && state.zipCode !== '' && (fieldVal.length < 5 || fieldVal.length > 5))) {
+        } else if ((fieldName === 'giftCode' && fieldVal.length < 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && inputState.zipCode !== '' && (fieldVal.length < 5 || fieldVal.length > 5))) {
             dispatch({
                 type: 'Validate Red',
                 name: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4 && state.giftCode !== '') || (fieldName === 'zipCode' && fieldVal.length === 5 && state.zipCode !== '')) {
+        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && fieldVal.length === 5 && inputState.zipCode !== '')) {
             dispatch({
                 type: 'Green Box',
                 name: fieldName
@@ -135,13 +135,13 @@ const GiftOption = ({ logo }) => {
                     <h1>Enter your gift code</h1>
                 </div>
                 <div>
-                    <input type="text" name="giftCode" placeholder="Gift Card Pin or Code" maxLength="60" style={{ borderColor: (state.giftCode === 'red' || state.giftCode === 'validate red') ? 'crimson' : state.giftCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {state.giftCode === 'red' && <p style={errorMsgStyle}>Gift Card Pin or Code is required!</p>}
-                    {state.giftCode === 'validate red' && <p style={errorMsgStyle}>Gift Card Pin or Code should be between 4 and 60 characters!</p>}
+                    <input type="text" name="giftCode" placeholder="Gift Card Pin or Code" maxLength="60" style={{ borderColor: (inputState.giftCode === 'red' || inputState.giftCode === 'validate red') ? 'crimson' : inputState.giftCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    {inputState.giftCode === 'red' && <p style={errorMsgStyle}>Gift Card Pin or Code is required!</p>}
+                    {inputState.giftCode === 'validate red' && <p style={errorMsgStyle}>Gift Card Pin or Code should be between 4 and 60 characters!</p>}
         
-                    <input type="text" name="zipCode" placeholder="Zip Code" style={{ borderColor: (state.zipCode === 'red' || state.zipCode === 'validate red') ? 'crimson' : state.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {state.zipCode === 'red' && <p style={errorMsgStyle}>Zip Code is required!</p>}
-                    {state.zipCode === 'validate red' && <p style={errorMsgStyle}>Please enter a valid ZIP code.</p>}
+                    <input type="text" name="zipCode" placeholder="Zip Code" style={{ borderColor: (inputState.zipCode === 'red' || inputState.zipCode === 'validate red') ? 'crimson' : inputState.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    {inputState.zipCode === 'red' && <p style={errorMsgStyle}>Zip Code is required!</p>}
+                    {inputState.zipCode === 'validate red' && <p style={errorMsgStyle}>Please enter a valid ZIP code.</p>}
 
                     <div className='currentPlanDiv'>
                         <div>
