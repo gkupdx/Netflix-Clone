@@ -1,3 +1,26 @@
+/* MEDIA QUERY BREAKPOINT for index.css @ 750px */
+@media screen and (min-width: 750px) {
+    .main h2 {
+        font-size: 1.5rem;
+    }
+
+    .main p {
+        font-size: 1.5rem;
+    }
+
+    .mainFlexRow {
+        width: 90%;
+    }
+
+    .main input {
+        width: 80%;
+        height: 60px;
+        padding-left: 10px;
+        margin-top: 15px;
+        border: 1px solid grey;
+    }
+}
+
 /* MEDIA QUERY BREAKPOINT for index.css @ 950px width */
 @media screen and (min-width: 950px) {
     /* NAVBAR */
@@ -125,6 +148,13 @@
         font-size: 1.2rem;
         text-align: center;
         margin-top: 30px;
+    }
+
+    .mainFlexRowAlt {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
       
     .main input {

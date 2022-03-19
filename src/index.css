@@ -57,21 +57,22 @@
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
-    width: 100px;
-    height: 30px;
+    width: 115px;
+    height: 25px;
     background: transparent;
     color: #FFF;
+    font-size: 0.9rem;
     border: 1px solid #FFF;
     border-radius: 2px;
 }
   
 .languageDropDown {
     position: absolute;
-    top: 52px;
+    top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100px;
+    width: 115px;
     height: 50px;
     background: #282828;
     border: 1px solid dimgrey;
@@ -127,22 +128,26 @@
 }
   
 .main h2 {
-    width: 70%;
+    width: 80%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 1.1rem;
     margin-top: 15px;
 }
   
 .main p {
-    width: 70%;
+    width: 80%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 1.1rem;
     text-align: center;
     margin-top: 15px;
+}
+
+.mainFlexRow {
+    width: 100%;
 }
   
 .main input {
@@ -186,7 +191,7 @@
 /* SUBSECTION */
 section {
     width: 100%;
-    height: 500px;
+    height: calc(100vw + 50px);
     display: flex;
     background: #000;
     color: #FFF;
@@ -195,13 +200,14 @@ section {
   
 .subsectionWrapper {
     width: 90%;
-    height: 400px;
+    height: calc(65% + 50px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     margin: auto;
+    margin-bottom: 80px;
 }
 
 .subsectionWrapper img {
@@ -215,7 +221,7 @@ section {
   
 .subsectionWrapper h2 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.55rem;
     font-weight: 700;
 }
 
@@ -223,7 +229,7 @@ section {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: normal;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 /* FAQ */
@@ -333,6 +339,24 @@ section {
     cursor: pointer;
 }
 
+@keyframes slide-down {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        height: 300px;
+    } 
+    to {
+        height: 0px;
+    }
+}
+
 .faqBtnDetails {
     width: 100%;
     max-height: 350px;
@@ -342,7 +366,7 @@ section {
     text-align: left;
     background: #333;
     border-top: 1px solid #000;
-    transition: all 0.1s ease-out;
+    animation: slide-down 0.2s forwards;
 }
 
 .faqBtnDetails p {
@@ -355,8 +379,8 @@ section {
 }
 
 .hiddenDetails {
-    height: 0;
-    transition: all 0.1s ease-in;
+    width: 100%;
+    max-height: 300px;
 }
 
 /* FOOTER */
@@ -393,7 +417,7 @@ footer a:hover {
 }
   
 .footerWrapper {
-    width: 90%;
+    width: 80%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -408,18 +432,17 @@ footer a:hover {
 }
 
 .linksWrapper {
-    width: 80%;
-    height: 90%;
+    width: 100%;
+    height: 70%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: auto;
+    margin-top: 20px;
 }
   
 .linksWrapper a {
     width: 50%;
     font-size: 0.8rem;
-    margin-top: 13px;
 }
 
 .languagePopUpAlt {
@@ -446,4 +469,3 @@ footer a:hover {
     color: #FFF;
     cursor: default;
 }
-
