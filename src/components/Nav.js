@@ -13,6 +13,11 @@ const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
         toggleLanguages(!toggle)
     }
 
+    // hide languages
+    const hideLanguages = () => {
+        toggleLanguages(false)
+    }
+
     const hideLangOnScroll = () => {
         let upScrollPos = window.scrollY - 1;
         let scrollPos = window.scrollY;
@@ -47,7 +52,7 @@ const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
 
             <ul>
                 <li>
-                    <button className='languageBtn' onClick={showLanguages}>{globeIcon} English {caretIcon}</button>
+                    <button className='languageBtn' onClick={showLanguages} onBlur={hideLanguages}>{globeIcon} English {caretIcon}</button>
                     {toggle && !scrollEvent ? <div className='languageDropDown'><p>English</p><p>Espanol</p></div> : ''}
                     <a href='/login' className='signIn'>Sign In</a>
                 </li>

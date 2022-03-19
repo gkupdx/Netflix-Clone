@@ -18,6 +18,11 @@ const Footer = () => {
         setShow(!show);
     }
 
+    // hide languages
+    const hideLanguages = () => {
+        setShow(false);
+    }
+
     // Throttle = hard limits the FREQUENCY of how many times a function is called within a time span
     // Debounce = ensures function ONLY RUNS ONCE after given delay BUT ONLY IF ITS NOT CALLED AGAIN WITHIN THAT TIME SPAN
     // (i.e. subsequent calls will each RESET the time for debounce)
@@ -81,7 +86,7 @@ const Footer = () => {
 
                 <div>
                     {show && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
-                    <button onClick={showLanguages}><IoGlobe style={globeIconStyle} /> English <AiFillCaretDown /></button>
+                    <button onClick={showLanguages} onBlur={hideLanguages}><IoGlobe style={globeIconStyle} /> English <AiFillCaretDown /></button>
                 </div>
             </div>
 
