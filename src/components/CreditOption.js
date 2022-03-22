@@ -1,7 +1,7 @@
 //// CreditOption.js - component for the /signup/creditoption route
 
-import { useReducer } from 'react';
-import { useNavigate } from 'react-router';
+import { useRef, useReducer } from 'react';
+import { useNavigate, useLocation } from 'react-router';
 
 import visa from '../assets/visa.svg';
 import mastercard from '../assets/mastercard.svg';
@@ -10,8 +10,12 @@ import discover from '../assets/discover.png';
 
 import { VscQuestion } from 'react-icons/vsc';
 
-const CreditOption = ({ logo }) => {
-    // ensures non-empty input fields
+const CreditOption = ({ logo, svgStyle, pngStyle }) => {
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const firstNameRef = useRef();
+
+    // initial state for reducer
     const initialState = {
         firstName: '',
         lastName: '',
@@ -28,19 +32,19 @@ const CreditOption = ({ logo }) => {
             case 'Red Box':
                 return {
                     ...state,
-                    [action.name]: 'red'
+                    [action.payload]: 'red'
                 }
             // 'Green Box' = give input field a green border if it passes validation
             case 'Green Box':
                 return {
                     ...state,
-                    [action.name]: 'green'
+                    [action.payload]: 'green'
                 }
             // 'Validate Red' = given an input, validate the input according to each field's conditional logic
             case 'Validate Red':
                 return {
                     ...state,
-                    [action.name]: 'validate red'
+                    [action.payload]: 'validate red'
                 }
             // 'Ask for Year' = on initial month input, ask for the expiration year
             case 'Ask For Year':
@@ -54,12 +58,56 @@ const CreditOption = ({ logo }) => {
                     ...state,
                     expDate: 'validate year'
                 }
+            // 'Verify Fields' = see which fields are empty & highlight those fields after 'Start Membership' click
+            case 'Verify Fields':
+                // if default state, return error values for ALL fields
+                if (state === initialState) {
+                    return {
+                        firstName: 'red',
+                        lastName: 'green',
+                        cardNum: 'red',
+                        expDate: 'red',
+                        cvv: 'red',
+                        zipCode: 'red'
+                    }
+                } else {
+                    // convert current state object to array
+                    let stateArray = Object.entries(state);
+
+                    // filter through array to find all keys where value === initialState value
+                    // (i.e. user has not interacted with those fields)
+                    let filteredArray = stateArray.filter(([key, value]) => value === '');
+
+                    // loop through array OF ARRAYS (of length 2)
+                    // per INDEX (total: 6), 
+                    // --> INDEX[0] = Key (e.g. 'firstName')
+                    // --> INDEX[1] = Value (e.g. 'red')
+                    filteredArray.forEach((index) => {
+                        // set the 'lastName' key to 'green'
+                        if (index[0] === 'lastName') {
+                            index[1] = 'green'
+                        } else { // set all others to 'red'
+                            if (index[0] === 'firstName') {
+                                firstNameRef.current.focus(); // apply focus on 'firstName' field
+                            }
+                            index[1] = 'red'
+                        }
+                    });
+
+                    // convert array back to object
+                    let updatedStateObj = Object.fromEntries(filteredArray);
+
+                    // store object as new state
+                    state = updatedStateObj;
+
+                    return state;
+                }
             default:
                 return state;
         }
     }
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [inputState, dispatch] = useReducer(reducer, initialState);
 
     // onBlur handler
     const handleOnBlur = (event) => {
@@ -72,7 +120,7 @@ const CreditOption = ({ logo }) => {
         if (fieldVal.length === 0 && fieldName !== 'lastName') {
             dispatch({
                 type: 'Red Box',
-                name: fieldName
+                payload: fieldName
             });
         }
         // "firstName" onBlur
@@ -80,12 +128,12 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else {    // input passes (before onChange...)
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -94,12 +142,12 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else {    // input passes (before onChange...)
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -109,7 +157,7 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length < 13) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
             // } else if (fieldVal.length > 0) {   // PSEUDO-CODE - test different cards
@@ -126,7 +174,7 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length >= 1 && fieldVal.length < 4 && numRegex) {
                 dispatch({
@@ -139,7 +187,7 @@ const CreditOption = ({ logo }) => {
             } else if (fieldVal.length > 0 && !numRegex) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -148,12 +196,12 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length === 3 || fieldVal.length === 4) {
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length > 0 && fieldVal.length < 3) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -162,12 +210,12 @@ const CreditOption = ({ logo }) => {
             if (fieldVal.length === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length < 5 || fieldVal.length > 5 || (fieldVal.length === 5 && !numRegex)) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -185,57 +233,57 @@ const CreditOption = ({ logo }) => {
         if (fieldVal.length === 0 && fieldName !== 'lastName') {
             dispatch({
                 type: 'Red Box',
-                name: fieldName
+                payload: fieldName
             });
         }
         // "firstName" onChange
-        else if (fieldName === 'firstName' && state.firstName !== '') {
+        else if (fieldName === 'firstName' && inputState.firstName !== '') {
             if (fieldVal.length <= 3) { // change border color from red to green on input length 0~3
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length >= 4 && !alphaRegex) { // change error message if first 4 characters are non-alphabets
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
-            } 
-        } 
+            }
+        }
         // "lastName" onChange
-        else if (fieldName === 'lastName' && state.lastName !== '') {
+        else if (fieldName === 'lastName' && inputState.lastName !== '') {
             if (fieldVal.length >= 4 && !alphaRegex) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else {
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
         // "cardNum" onChange (only handles the MOST POPULAR cards i.e. Visa, MasterCard, Amex, Discover)
-        else if (fieldName === 'cardNum' && state.cardNum !== '') {
+        else if (fieldName === 'cardNum' && inputState.cardNum !== '') {
             if (fieldVal.length >= 13 && fieldVal.length <= 19 && numRegex) {  // change border color from red to green on input length 13~19
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length < 13) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
         // "expDate" onChange
-        else if (fieldName === 'expDate' && state.expDate !== '') {
+        else if (fieldName === 'expDate' && inputState.expDate !== '') {
             if (numRegex && fieldVal.length === 5) {   // change border color from red to green on correct input
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (numRegex && fieldVal.length >= 1 && fieldVal.length < 4) { // change error message to ask for expiration year
                 dispatch({
@@ -248,65 +296,40 @@ const CreditOption = ({ logo }) => {
             } else if (!numRegex) {    // change error message to ask for a valid expiration month
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
-            } 
+            }
         }
         // "cvv" onChange
-        else if (fieldName === 'cvv' && state.cvv !== '') {
+        else if (fieldName === 'cvv' && inputState.cvv !== '') {
             if (fieldVal.length === 3 || fieldVal.length === 4) {   // change from red to green on input length 3 or 4
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length < 3) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
-            } 
+            }
         }
         // "zipCode" onChange
-        else if (fieldName === 'zipCode' && state.zipCode !== '') {
+        else if (fieldName === 'zipCode' && inputState.zipCode !== '') {
             if (fieldVal.length < 5 || fieldVal.length > 5) {
                 dispatch({
                     type: 'Validate Red',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else if (fieldVal.length === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
     }
 
-    // useNavigate()
-    const reroute = useNavigate();
-
-    // on logo click, redirect to landing page
-    const redirect = () => {
-        let path = `/`;
-        reroute(path);
-    }
-
-    // on btn click, redirect to Payment page
-    const returnToPayment = () => {
-        let path = `/signup/payment`
-        reroute(path);
-    }
-
-    // SVG styling 
-    const svgStyle = {
-        width: "60px",
-        height: "25px"
-    }
-    // Discover card PNG styling 
-    const pngStyle = {
-        width: "40px",
-        height: "25px"
-    }
     // CVV question icon styling
     const cvvQuestionStyle = {
         fontSize: "2.5rem",
@@ -327,7 +350,7 @@ const CreditOption = ({ logo }) => {
     return (
         <div className='creditOption'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect} />
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
@@ -343,41 +366,41 @@ const CreditOption = ({ logo }) => {
                     <img src={discover} alt="Discover card PNG" style={pngStyle} />
                 </div>
                 <div>
-                    <input type="text" name="firstName" placeholder="First Name" style={{ borderColor: (state.firstName === 'red' || state.firstName === 'validate red') ? 'crimson' : state.firstName === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                    {state.firstName === 'red' && <p style={{ color: 'crimson' }}>Please enter a first name.</p>}
-                    {state.firstName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid first name</p>}
+                    <input ref={firstNameRef} type="text" name="firstName" placeholder="First Name" style={{ borderColor: (inputState.firstName === 'red' || inputState.firstName === 'validate red') ? 'crimson' : inputState.firstName === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                    {inputState.firstName === 'red' && <p style={{ color: 'crimson' }}>Please enter a first name.</p>}
+                    {inputState.firstName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid first name</p>}
 
-                    <input type="text" name="lastName" placeholder="Last name" style={{ borderColor: state.lastName === 'green' ? 'green' : state.lastName === 'validate red' ? 'crimson' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {state.lastName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid last name</p>}
+                    <input type="text" name="lastName" placeholder="Last name" style={{ borderColor: inputState.lastName === 'green' ? 'green' : inputState.lastName === 'validate red' ? 'crimson' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                    {inputState.lastName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid last name</p>}
 
-                    <input type="text" name="cardNum" placeholder="Card number" maxLength="19" style={{ borderColor: (state.cardNum === 'red' || state.cardNum === 'validate red') ? 'crimson' : state.cardNum === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {state.cardNum === 'red' && <p style={{ color: 'crimson' }}>Please enter a card number.</p>}
-                    {state.cardNum === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid credit card number.</p>}
+                    <input type="text" name="cardNum" placeholder="Card number" maxLength="19" style={{ borderColor: (inputState.cardNum === 'red' || inputState.cardNum === 'validate red') ? 'crimson' : inputState.cardNum === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                    {inputState.cardNum === 'red' && <p style={{ color: 'crimson' }}>Please enter a card number.</p>}
+                    {inputState.cardNum === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid credit card number.</p>}
 
-                    <input type="text" name="expDate" placeholder="Expiration date (MM/YY)" style={{ borderColor: (state.expDate === 'red' || state.expDate === 'validate red' || state.expDate === 'year' || state.expDate === 'validate year') ? 'crimson' : state.expDate === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                    {state.expDate === 'red' && <p style={{ color: 'crimson' }}>Please enter an expiration month.</p>}
-                    {state.expDate === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid expiration month.</p>}
-                    {state.expDate === 'year' && <p style={{ color: 'crimson' }}>Please enter an expiration year.</p>}
-                    {state.expDate === 'validate year' && <p style={{ color: 'crimson' }}>The expiration year must be between 2022 and 2047.</p>}
+                    <input type="text" name="expDate" placeholder="Expiration date (MM/YY)" style={{ borderColor: (inputState.expDate === 'red' || inputState.expDate === 'validate red' || inputState.expDate === 'year' || inputState.expDate === 'validate year') ? 'crimson' : inputState.expDate === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                    {inputState.expDate === 'red' && <p style={{ color: 'crimson' }}>Please enter an expiration month.</p>}
+                    {inputState.expDate === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid expiration month.</p>}
+                    {inputState.expDate === 'year' && <p style={{ color: 'crimson' }}>Please enter an expiration year.</p>}
+                    {inputState.expDate === 'validate year' && <p style={{ color: 'crimson' }}>The expiration year must be between 2022 and 2047.</p>}
 
                     <div>
-                        <input type="text" name="cvv" placeholder="Security code (CVV)" maxLength="4" style={{ borderColor: (state.cvv === 'red' || state.cvv === 'validate red') ? 'crimson' : state.cvv === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                        {state.cvv === 'red' && <p style={{ color: 'crimson' }}>Please enter a security code (CVV).</p>}
-                        {state.cvv === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid CVV code.</p>}
+                        <input type="text" name="cvv" placeholder="Security code (CVV)" maxLength="4" style={{ borderColor: (inputState.cvv === 'red' || inputState.cvv === 'validate red') ? 'crimson' : inputState.cvv === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                        {inputState.cvv === 'red' && <p style={{ color: 'crimson' }}>Please enter a security code (CVV).</p>}
+                        {inputState.cvv === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid CVV code.</p>}
                         <div className='inputIcon'><VscQuestion style={cvvQuestionStyle} /></div>
                     </div>
 
-                    <input type="text" name="zipCode" placeholder="Billing ZIP code" style={{ borderColor: (state.zipCode === 'red' || state.zipCode === 'validate red') ? 'crimson' : state.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {state.zipCode === 'red' && <p style={{ color: 'crimson' }}>Please enter a billing zip code.</p>}
-                    {state.zipCode === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid zip code</p>}
+                    <input type="text" name="zipCode" placeholder="Billing ZIP code" style={{ borderColor: (inputState.zipCode === 'red' || inputState.zipCode === 'validate red') ? 'crimson' : inputState.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                    {inputState.zipCode === 'red' && <p style={{ color: 'crimson' }}>Please enter a billing zip code.</p>}
+                    {inputState.zipCode === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid zip code</p>}
 
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>$19.99/month</p>
-                            <p style={currentPlanStyle}>Premium Plan</p>
+                            <p style={monthlyChargeStyle}>{state.price}</p>
+                            <p style={currentPlanStyle}>{state.planName}</p>
                         </div>
 
-                        <button onClick={returnToPayment}>Change</button>
+                        <button onClick={() => navigate('/signup/editplan')}>Change</button>
                     </div>
                 </div>
                 <div>
@@ -392,7 +415,7 @@ const CreditOption = ({ logo }) => {
                     </p>
                 </div>
 
-                <button className='startMembershipBtn'>Start Membership</button>
+                <button onClick={() => dispatch({ type: 'Verify Fields' })} className='startMembershipBtn'>Start Membership</button>
             </div>
         </div>
     )

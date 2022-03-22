@@ -1,10 +1,12 @@
 //// GiftOption.js - component for the /signup/giftoption route
 
 import { useState, useReducer } from 'react';
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const GiftOption = ({ logo }) => {
     const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+    let { state } = useLocation();
 
     const initialState = {
         giftCode: '',
@@ -17,19 +19,42 @@ const GiftOption = ({ logo }) => {
             case 'Red Box':
                 return {
                     ...state,
-                    [action.name]: 'red'
+                    [action.payload]: 'red'
                 }
             // 'Green Box' = give input field a green border
             case 'Green Box':
                 return {
                     ...state,
-                    [action.name]: 'green'
+                    [action.payload]: 'green'
                 }
             // 'Validate Red' = on some input, validate input is correct characters + length
             case 'Validate Red':
                 return {
                     ...state,
-                    [action.name]: 'validate red'
+                    [action.payload]: 'validate red'
+                }
+            // 'Verify Fields' = see which fields are empty & highlight those fields
+            case 'Verify Fields':
+                // if default state, return error values for both
+                if (state === initialState) {
+                    return {
+                        giftCode: 'red',
+                        zipCode: 'red'
+                    }
+                } else {
+                    let stateArray = Object.entries(state);
+
+                    let filteredArray = stateArray.filter(([key, value]) => value === '');
+
+                    filteredArray.forEach((index) => {
+                        index[1] = 'red';
+                    });
+
+                    let updatedStateObj = Object.fromEntries(filteredArray);
+
+                    state = updatedStateObj;
+
+                    return state;
                 }
             default:
                 return state;
@@ -46,17 +71,17 @@ const GiftOption = ({ logo }) => {
         if (fieldVal.length === 0) {
             dispatch({
                 type: 'Red Box',
-                name: fieldName
+                payload: fieldName
             });
         } else if ((fieldName === 'giftCode' && fieldVal.length < 4) || (fieldName === 'zipCode' && (fieldVal.length < 5 || fieldVal.length > 5))) {
             dispatch({
                 type: 'Validate Red',
-                name: fieldName
+                payload: fieldName
             });
         } else if ((fieldName === 'giftCode' && fieldVal.length >= 4) || (fieldName === 'zipCode' && fieldVal.length === 5)) {
             dispatch({
                 type: 'Green Box',
-                name: fieldName
+                payload: fieldName
             });
         }
     }
@@ -69,37 +94,19 @@ const GiftOption = ({ logo }) => {
         if (fieldVal.length === 0) {
             dispatch({
                 type: 'Red Box',
-                name: fieldName
+                payload: fieldName
             });
         } else if ((fieldName === 'giftCode' && fieldVal.length < 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && inputState.zipCode !== '' && (fieldVal.length < 5 || fieldVal.length > 5))) {
             dispatch({
                 type: 'Validate Red',
-                name: fieldName
+                payload: fieldName
             });
         } else if ((fieldName === 'giftCode' && fieldVal.length >= 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && fieldVal.length === 5 && inputState.zipCode !== '')) {
             dispatch({
                 type: 'Green Box',
-                name: fieldName
+                payload: fieldName
             });
         }
-    }
-
-    // useNavigate()
-    const reroute = useNavigate();
-
-    const redirect = () => {
-        let path = `/`;
-        reroute(path);
-    }
-
-    // on btn click, redirect to Payment page
-    const returnToPayment = () => {
-        let path = `/signup/payment`
-        reroute(path);
-    }
-
-    const displayLearnMore = () => {
-        setShow(true);
     }
 
     // styling of different elements
@@ -125,7 +132,7 @@ const GiftOption = ({ logo }) => {
     return (
         <div className='giftOption'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect} />
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
@@ -145,17 +152,17 @@ const GiftOption = ({ logo }) => {
 
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>$19.99</p>
-                            <p style={currentPlanStyle}>Premium Plan</p>
+                            <p style={monthlyChargeStyle}>{state.price}</p>
+                            <p style={currentPlanStyle}>{state.planName}</p>
                         </div>
 
-                        <button onClick={returnToPayment}>Change</button>
+                        <button onClick={() => navigate('/signup/editplan')}>Change</button>
                     </div>
                 </div>
 
-                <button className='redeemCodeBtn'>Redeem Gift Code</button>
+                <button onClick={() => dispatch({ type: 'Verify Fields' })}className='redeemCodeBtn'>Redeem Gift Code</button>
 
-                <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={displayLearnMore}>Learn more.</span></p>
+                <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
                 {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
                     and for general security purposes (it is not used for personalized advertising by Google).
                 </p>}
