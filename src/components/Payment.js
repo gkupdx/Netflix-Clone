@@ -1,10 +1,9 @@
 //// Payment.js - component for /signup/payment (Step 3)
 
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 import { MdLockOutline } from 'react-icons/md';
 import { IoIosLock } from 'react-icons/io';
-import { VscChevronRight } from 'react-icons/vsc';
 
 import visa from '../assets/visa.svg';
 import mastercard from '../assets/mastercard.svg';
@@ -13,73 +12,55 @@ import discover from '../assets/discover.png';
 import paypal from '../assets/paypal.svg';
 import giftcard from '../assets/netflix_giftcard.svg';
 
-const Payment = ({ logo }) => {
-    const reroute = useNavigate();
+const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
+    const navigate = useNavigate();
+    let { state } = useLocation();
 
-    const redirect = () => {
-        let path = `/`;
-        reroute(path);
-    }
-
-    // on <div> click, move to Credit options page
-    const creditPage = () => {
+    // on <div> click, go to corresponding page
+    const goToCredit = () => {
         let path = `/signup/creditoption`;
-        reroute(path);
+
+        navigate(path, {
+            state: {
+                price: state.price,
+                planName: state.planName
+            }
+        });
     }
 
-    // on <div> click, move to PayPal option page
-    const paypalPage = () => {
+    const goToPaypal = () => {
         let path = `/signup/paypaloption`;
-        reroute(path);
+
+        navigate(path, {
+            state: {
+                price: state.price,
+                planName: state.planName
+            }
+        });
     }
 
-    // on <div> click, move to Gift code option page
-    const giftPage = () => {
+    const goToGift = () => {
         let path = `/signup/giftoption`;
-        reroute(path);
-    }
 
-    // Circle lock styling
-    const circleLockStyle = {
-        color: "#e50914",
-        fontSize: "2.5rem"
-    }
-
-    // Key lock styling
-    const keyLockStyle = {
-        color: "#F9BE08",
-        fontSize: "1rem"
-    }
-
-    // Chevron right styling
-    const chevronRightStyle = {
-        color: "lightgrey",
-        fontSize: "2rem"
-    }
-
-    // SVG styling 
-    const svgStyle = {
-        width: "60px",
-        height: "25px"
-    }
-
-    // Discover card PNG styling 
-    const pngStyle = {
-        width: "40px",
-        height: "25px"
+        navigate(path, {
+            state: {
+                price: state.price,
+                planName: state.planName
+            }
+        });
     }
 
 
     return (
         <div className='payment'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect} />
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
             <div className='flexColPayment'>
                 <div>
-                    <MdLockOutline style={circleLockStyle} />
+                    <MdLockOutline style={{ color: "#e50914", fontSize: "2.5rem" }} />
                 </div>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
@@ -94,8 +75,8 @@ const Payment = ({ logo }) => {
                 </div>
 
                 <div>
-                    <p className='secureServer'>End-to-end encrypted <IoIosLock style={keyLockStyle} /></p>
-                    <div onClick={creditPage} className='creditDiv'>
+                    <p className='secureServer'>End-to-end encrypted <IoIosLock style={{ color: "#f9be08", fontSize: "1rem" }} /></p>
+                    <div onClick={goToCredit} className='creditDiv'>
                         <div className={window.innerWidth < 576 ? 'creditFlexCol' : 'creditFlexRow'}>
                             <div>
                                 <p>Credit or Debit Card</p>
@@ -108,31 +89,31 @@ const Payment = ({ logo }) => {
                             </div>
                         </div>
                         <div>
-                            <VscChevronRight style={chevronRightStyle} />
+                            {chevronRight}
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <div onClick={paypalPage} className='paypalGiftDiv'>
+                    <div onClick={goToPaypal} className='paypalGiftDiv'>
                         <div className='paypalGiftFlexRow'>
                             <p>PayPal</p>
                             <img src={paypal} alt="PayPal SVG" style={svgStyle} />
                         </div>
                         <div>
-                            <VscChevronRight style={chevronRightStyle} />
+                            {chevronRight}
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <div onClick={giftPage} className='paypalGiftDiv'>
+                    <div onClick={goToGift} className='paypalGiftDiv'>
                         <div className='paypalGiftFlexRow'>
                             <p>Gift Code</p>
                             <img src={giftcard} alt="Netflix Gift Card SVG" style={svgStyle} />
                         </div>
                         <div>
-                            <VscChevronRight style={chevronRightStyle} />
+                            {chevronRight}
                         </div>
                     </div>
                 </div>
