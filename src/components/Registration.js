@@ -4,20 +4,14 @@ import { useNavigate, useLocation } from "react-router";
 
 const Registration = ({ logo }) => {
     let { state } = useLocation(); // destructure for direct use
-    let reroute = useNavigate();
-
-    // on logo click, redirect to landing page
-    const redirect = () => {
-        let path = `/`
-        reroute(path);
-    }
+    let navigate = useNavigate();
 
     // on button click, move to Step 1 of registration
-    const stepOne = () => {
+    const goToRegForm = () => {
         let path = `/signup/regform`
         let input = state.email;
 
-        reroute(path, {
+        navigate(path, {
             state: {
                 email: input
             }
@@ -27,7 +21,7 @@ const Registration = ({ logo }) => {
     return (
         <div className='registration'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect}/>
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')}/>
                 <a href='/login'>Sign In</a>
             </div>
 
@@ -37,7 +31,7 @@ const Registration = ({ logo }) => {
                 <h1>Finish setting up your account</h1>
                 <h3>Netflix is personalized for you.</h3>
                 <h3>Create a password to watch on any device at any time.</h3>
-                <button onClick={stepOne} className='nextBtn'>Next</button>
+                <button onClick={goToRegForm} className='nextBtn'>Next</button>
             </div>
         </div>
     )

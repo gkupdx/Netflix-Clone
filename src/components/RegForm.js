@@ -4,6 +4,7 @@ import { useEffect, useRef, useReducer } from 'react';
 import { useNavigate, useLocation } from "react-router";
 
 const RegForm = ({ logo }) => {
+    let navigate = useNavigate();
     let passwordRef = useRef();
     let { state } = useLocation(); // destructure for direct use
 
@@ -35,18 +36,8 @@ const RegForm = ({ logo }) => {
 
     const [inputState, dispatch] = useReducer(reducer, initialState);
 
-
-    // useNavigate()
-    let reroute = useNavigate();
-
-    // on logo click, redirect to landing page
-    const redirect = () => {
-        let path = `/`;
-        reroute(path);
-    }
-
     // on button click, move to Step 2 of registration
-    const stepTwo = () => {
+    const goToSignUp = () => {
         let fieldVal = passwordRef.current.value;
 
         // if length === 0, on BUTTON CLICK, apply 'Red Box' + focus
@@ -72,13 +63,13 @@ const RegForm = ({ logo }) => {
     }
 
     // trigger this effect ONLY AFTER password validation + correct state + button click
-    // dependencies --> inputState.passwordField, reroute()
+    // dependencies --> inputState.passwordField, navigate()
     useEffect(() => {
         if (inputState.passwordField === 'valid click') {
             let path = `/signup`;
-            reroute(path)
+            navigate(path)
         }
-    }, [inputState.passwordField, reroute]);
+    }, [inputState.passwordField, navigate]);
 
 
     // onBlur handler
@@ -127,16 +118,10 @@ const RegForm = ({ logo }) => {
         }
     }
 
-    // error message styling 
-    const errorMsgStyle = {
-        color: 'crimson'
-    }
-
-
     return (
         <div className='regForm'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect}/>
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')}/>
                 <a href='/login'>Sign In</a>
             </div>
 
@@ -147,10 +132,10 @@ const RegForm = ({ logo }) => {
                 <h3>We hate paperwork, too.</h3>
                 <input type="text" name="email" placeholder="Email" value={state.email} style={{ borderColor: state.email ? 'green' : 'none' }}/>
                 <input ref={passwordRef} type="password" name="password" placeholder="Add a password" style={{ borderColor: inputState.passwordField === 'green' ? 'green' : (inputState.passwordField !== '' ? 'crimson' : 'none')}} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                {inputState.passwordField === 'red' && <p style={errorMsgStyle}>Password is required!</p>}
-                {inputState.passwordField === 'too short' && <p style={errorMsgStyle}>Password should be between 6 and 60 characters</p>}
-                {inputState.passwordField === 'too long' && <p style={errorMsgStyle}>Please shorten your password to 60 characters or less.</p>}
-                <button onClick={stepTwo} className='nextBtn'>Next</button>
+                {inputState.passwordField === 'red' && <p style={{ color: 'crimson' }}>Password is required!</p>}
+                {inputState.passwordField === 'too short' && <p style={{ color: 'crimson' }}>Password should be between 6 and 60 characters</p>}
+                {inputState.passwordField === 'too long' && <p style={{ color: 'crimson' }}>Please shorten your password to 60 characters or less.</p>}
+                <button onClick={goToSignUp} className='nextBtn'>Next</button>
             </div>
         </div>
     )
