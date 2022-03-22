@@ -1,20 +1,10 @@
 //// PaypalOption.js - component for the /signup/paypaloption route
 
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const PaypalOption = ({ logo }) => {
-    let reroute = useNavigate();
-
-    let redirect = () => {
-        let path = `/`;
-        reroute(path);
-    }
-
-    // on btn click, redirect to Payment page
-    const returnToPayment = () => {
-        let path = `/signup/payment`
-        reroute(path);
-    }
+    let navigate = useNavigate();
+    let { state } = useLocation();
 
     const monthlyChargeStyle = {
         fontSize: "0.85rem",
@@ -32,7 +22,7 @@ const PaypalOption = ({ logo }) => {
     return (
         <div className='paypalOption'>
             <div className='flexRowFull'>
-                <img src={logo} alt='Netflix logo white' onClick={redirect} />
+                <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
@@ -44,11 +34,11 @@ const PaypalOption = ({ logo }) => {
                 <div>
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>$19.99/month</p>
-                            <p style={currentPlanStyle}>Premium Plan</p>
+                            <p style={monthlyChargeStyle}>{state.price}</p>
+                            <p style={currentPlanStyle}>{state.planName}</p>
                         </div>
 
-                        <button onClick={returnToPayment}>Change</button>
+                        <button onClick={() => navigate('/signup/editplan')}>Change</button>
                     </div>
                 </div>
                 <div>
