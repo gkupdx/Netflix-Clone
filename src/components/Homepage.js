@@ -3,6 +3,7 @@
 
 import { IoGlobe } from 'react-icons/io5';
 import { AiFillCaretDown } from 'react-icons/ai';
+import { VscChevronRight } from 'react-icons/vsc';
 
 import Nav from './Nav';
 import Banner from './Banner';
@@ -42,21 +43,16 @@ const Homepage = ({ toggleLanguages, toggle }) => {
         }
     ];
 
-    // Globe icon styling
-    const globeIconStyle = {
-        color: "#FFF"
-    }
-
     return (
         <div>
-            <Nav toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} caretIcon={<AiFillCaretDown />} />
-            <Banner />
+            <Nav toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={{ color: "#FFF" }}/>} caretIcon={<AiFillCaretDown />} />
+            <Banner chevronIcon={<VscChevronRight />}/>
             <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv} order={odd}/>
             <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile} order={even}/>
             <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile} order={odd}/>
             <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile} order={even}/>
-            <FAQ />
-            <Footer />
+            <FAQ chevronIcon={<VscChevronRight />}/>
+            <Footer globeIcon={<IoGlobe style={{ color: "grey" }}/>} caretIcon={<AiFillCaretDown />} />
         </div>
     )
 }
