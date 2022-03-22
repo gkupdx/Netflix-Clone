@@ -3,9 +3,8 @@
 import { useEffect, useRef, useReducer } from 'react';
 import { useNavigate } from 'react-router';
 
-import { VscChevronRight } from 'react-icons/vsc';
-
-const Banner = () => {
+const Banner = ({ chevronIcon }) => {
+    let navigate = useNavigate();
     const emailRef = useRef();
 
     const initialState = {
@@ -31,11 +30,8 @@ const Banner = () => {
 
     const [emailState, dispatch] = useReducer(reducer, initialState);
 
-    
-    let reroute = useNavigate();
-
     // On Button click, sends user to the Sign Up/Registration page if validation passed
-    const redirect = () => {
+    const goToRegistration = () => {
         let fieldVal = emailRef.current.value;
 
         // if either 0 or 1 character, ON BUTTON CLICK, need to apply FOCUS
@@ -90,18 +86,18 @@ const Banner = () => {
     }
 
     // trigger this effect ONLY AFTER email validation + correct state + button click
-    // dependencies --> emailState.emailVal, reroute()
+    // dependencies --> emailState.emailVal, navigate()
     useEffect(() => {
         if (emailState.emailVal === 'valid click') {
             let path = `/signup/registration`;
 
-            reroute(path, {
+            navigate(path, {
                 state: {
                     email: emailRef.current.value
                 }
             });
         }
-    }, [emailState.emailVal, reroute]);
+    }, [emailState.emailVal, navigate]);
 
 
     // OnBlur handler
@@ -214,7 +210,7 @@ const Banner = () => {
                     {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                     {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
-                    <button onClick={redirect}>Get Started <VscChevronRight /></button>
+                    <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
                 </div>
                 :
                 <>
@@ -223,7 +219,7 @@ const Banner = () => {
                         {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                         {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
-                        <button onClick={redirect}>Get Started <VscChevronRight /></button>
+                        <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
                     </div>
                 </>
             }

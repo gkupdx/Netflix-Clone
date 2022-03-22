@@ -3,15 +3,8 @@
 import { useState, useEffect } from 'react';
 import _ from 'lodash';
 
-import { IoGlobe } from 'react-icons/io5';
-import { AiFillCaretDown } from 'react-icons/ai';
-
-const Footer = () => {
+const Footer = ({ globeIcon, caretIcon }) => {
     const [show, setShow] = useState(false);
-
-    const globeIconStyle = {
-        color: "grey"
-    }
 
     // Toggle for languages button
     const showLanguages = () => {
@@ -86,7 +79,7 @@ const Footer = () => {
 
                 <div>
                     {show && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
-                    <button onClick={showLanguages} onBlur={hideLanguages}><IoGlobe style={globeIconStyle} /> English <AiFillCaretDown /></button>
+                    <button onClick={showLanguages} onBlur={hideLanguages}>{globeIcon} English {caretIcon}</button>
                 </div>
             </div>
 

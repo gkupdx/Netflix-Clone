@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router';
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineClose } from 'react-icons/ai';
-import { VscChevronRight } from "react-icons/vsc";
 
-const FAQ = () => {
+const FAQ = ({ chevronIcon }) => {
     const [show, setShow] = useState("");
+    let navigate = useNavigate();
     const emailRef = useRef();
 
     const initialState = {
@@ -34,11 +34,8 @@ const FAQ = () => {
 
     const [emailState, dispatch] = useReducer(reducer, initialState);
 
-
-    let reroute = useNavigate();
-
-    // On Button click, reroute user to /signup/registration if validation passed
-    const redirect = () => {
+    // On Button click, navigate user to /signup/registration if validation passed
+    const goToRegistration = () => {
         let fieldVal = emailRef.current.value;
 
         // if either 0 or 1 character, ON BUTTON CLICK, need to apply FOCUS
@@ -96,13 +93,13 @@ const FAQ = () => {
         if (emailState.emailVal === 'valid click') {
             let path = `/signup/registration`;
 
-            reroute(path, {
+            navigate(path, {
                 state: {
                     email: emailRef.current.value
                 }
             });
         }
-    }, [emailState.emailVal, reroute]);
+    }, [emailState.emailVal, navigate]);
 
     
     // OnBlur handler
@@ -203,27 +200,20 @@ const FAQ = () => {
         } 
     }
 
-    
     // Toggle for FAQ buttons
     const toggleFAQBtn = (input) => {
         // if given input value is equal to current state, set input to empty string
         if (show === input) {
             input = "";
         }
-
         setShow(input);
-    }
-
-    // Plus icon styling
-    const aiOutlineIconStyle = {
-        fontSize: "25px"
     }
 
     return (
         <div className='faq'>
             <div className={show === "" ? 'faqWrapper' : 'faqWrapperMb'}>
                 <h1>Frequently Asked Questions</h1>
-                <button className='faqBtn' onClick={() => toggleFAQBtn("what")}>What is Netflix? {show === 'what' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("what")}>What is Netflix? {show === 'what' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'what' ?
                     <div className='faqBtnDetails'>
                         <p>Netflix is a streaming service that offers a wide variety
@@ -236,7 +226,7 @@ const FAQ = () => {
                     </div>
                     : <div className='hiddenDetails'></div>}
 
-                <button className='faqBtn' onClick={() => toggleFAQBtn("cost")}>How much does Netflix cost? {show === 'cost' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("cost")}>How much does Netflix cost? {show === 'cost' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'cost' ?
                     <div className='faqBtnDetails'>
                         <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop,
@@ -246,7 +236,7 @@ const FAQ = () => {
                     </div>
                     : <div className='hiddenDetails'></div>}
 
-                <button className='faqBtn' onClick={() => toggleFAQBtn("where")}>Where can I watch? {show === 'where' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("where")}>Where can I watch? {show === 'where' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'where' ?
                     <div className='faqBtnDetails'>
                         <p>Watch anywhere, anytime. Sign in with your Netflix
@@ -261,7 +251,7 @@ const FAQ = () => {
                     </div>
                     : <div className='hiddenDetails'></div>}
 
-                <button className='faqBtn' onClick={() => toggleFAQBtn("cancel")}>How do I cancel? {show === 'cancel' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("cancel")}>How do I cancel? {show === 'cancel' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'cancel' ?
                     <div className='faqBtnDetails'>
                         <p>Netflix is flexible. There are no pesky contracts and no
@@ -271,7 +261,7 @@ const FAQ = () => {
                     </div>
                     : <div className='hiddenDetails'></div>}
 
-                <button className='faqBtn' onClick={() => toggleFAQBtn("watch")}>What can I watch on Netflix? {show === 'watch' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("watch")}>What can I watch on Netflix? {show === 'watch' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'watch' ?
                     <div className='faqBtnDetails'>
                         <p>Netflix has an extensive library of feature films, documentaries,
@@ -280,7 +270,7 @@ const FAQ = () => {
                     </div>
                     : <div className='hiddenDetails'></div>}
 
-                <button className='faqBtn' onClick={() => toggleFAQBtn("kids")}>Is Netflix good for kids? {show === 'kids' ? <AiOutlineClose style={aiOutlineIconStyle} /> : <AiOutlinePlus style={aiOutlineIconStyle} />}</button>
+                <button className='faqBtn' onClick={() => toggleFAQBtn("kids")}>Is Netflix good for kids? {show === 'kids' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
                 {show === 'kids' ?
                     <div className='faqBtnDetails'>
                         <p>The Netflix Kids experience is included in your membership to give
@@ -298,7 +288,7 @@ const FAQ = () => {
                     {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                     {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
-                    <button className='getStartedBtn' onClick={redirect}>Get Started <VscChevronRight /></button>
+                    <button className='getStartedBtn' onClick={goToRegistration}>Get Started {chevronIcon}</button>
                 </div>
             </div>
         </div>
