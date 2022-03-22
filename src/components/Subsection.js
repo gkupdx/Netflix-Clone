@@ -28,6 +28,7 @@ const Subsection = ({ header, body, imgSrc, order }) => {
     return (
         <section>
             <div className='subsectionWrapper'>
+                {/* Display image & text in different order depending on value of switchElements */}
                 {switchElements ?
                     <>
                         <div>
