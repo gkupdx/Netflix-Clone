@@ -48,7 +48,7 @@ const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
 
     return (
         <nav className='nav'>
-            <a href='/'><img src={logo} alt="Netflix text logo" /></a>
+            <img src={logo} alt="Netflix text logo" />
 
             <ul>
                 <li>
