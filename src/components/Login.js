@@ -7,6 +7,7 @@ import textLogo from '../assets/netflix_text_logo.png';
 
 const Login = ({ fbIcon }) => {
     const [show, setShow] = useState(false);
+    let navigate = useNavigate();
 
     const initialState = {
         userName: '',
@@ -19,25 +20,25 @@ const Login = ({ fbIcon }) => {
             case 'Orange Border':
                 return {
                     ...state,
-                    [action.name]: 'orange'
+                    [action.payload]: 'orange'
                 }
             // 'Remove Border' = remove orange border on valid input
             case 'Remove Border':
                 return {
                     ...state,
-                    [action.name]: 'remove border'
+                    [action.payload]: 'remove border'
                 }
             // 'Validate Email' = when 1st character is NON-DIGIT, validate the email
             case 'Validate Email':
                 return {
                     ...state,
-                    [action.name]: 'validate email'
+                    [action.payload]: 'validate email'
                 }
             // 'Validate Phone' = when 1st character is DIGIT, validate the phone number
             case 'Validate Phone':
                 return {
                     ...state,
-                    [action.name]: 'validate phone'
+                    [action.payload]: 'validate phone'
                 }
             default:
                 return state;
@@ -50,53 +51,43 @@ const Login = ({ fbIcon }) => {
     const handleOnBlur = (event) => {
         let fieldName = event.target.name;
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
         // apply for both fields
-        if (fieldVal.length === 0) {
+        if (len === 0) {
             dispatch({
                 type: 'Orange Border',
-                name: fieldName
+                payload: fieldName
             });
         }
         else if (fieldName === 'userName') {
-            // let found = false; // flag set to true if the '@' character was found
-            // let str = fieldVal.toString();
-
-            // // loop through fieldVal to find '@'
-            // for (let i = 0; i < str.length; ++i) {
-            //     if (str.charAt(i) === '@') {
-            //         found = true;
-            //         return;
-            //     }
-            // }
-
-            if (fieldVal.length >= 5 && fieldVal.length < 51) { // on valid input, remove orange border
+            if (len >= 5 && len < 51) { // on valid input, remove orange border
                 dispatch({
                     type: 'Remove Border',
-                    name: fieldName
+                    payload: fieldName
                 });
-            } else if (isNaN(fieldVal.charAt(0)) && (fieldVal.length < 5 || fieldVal.length >= 51)) { // ask for valid email
+            } else if (isNaN(fieldVal.charAt(0)) && (len < 5 || len >= 51)) { // ask for valid email
                 dispatch({
                     type: 'Validate Email',
-                    name: fieldName
+                    payload: fieldName
                 });
-            } else if (!isNaN(fieldVal.charAt(0)) && (fieldVal.length < 5 || fieldVal.length >= 51)) { // ask for valid phone number
+            } else if (!isNaN(fieldVal.charAt(0)) && (len < 5 || len >= 51)) { // ask for valid phone number
                 dispatch({
                     type: 'Validate Phone',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
         else if (fieldName === 'password') {
-            if (fieldVal.length < 4 || fieldVal.length > 60) {
+            if (len < 4 || len > 60) {
                 dispatch({
                     type: 'Orange Border',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else {
                 dispatch({
                     type: 'Remove Border',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
@@ -106,61 +97,47 @@ const Login = ({ fbIcon }) => {
     const handleOnChange = (event) => {
         let fieldName = event.target.name;
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length === 0) {
+        if (len === 0) {
             dispatch({
                 type: 'Orange Border',
-                name: fieldName
+                payload: fieldName
             });
         } else if (fieldName === 'userName' && state.userName !== '') {
             // if first character is NON-DIGIT & length < 5 or >= 51 - ask for EMAIL
-            if (isNaN(fieldVal.charAt(0)) && (fieldVal.length < 5 || fieldVal.length >= 51)) {
+            if (isNaN(fieldVal.charAt(0)) && (len < 5 || len >= 51)) {
                 dispatch({
                     type: 'Validate Email',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
             // if first character is DIGIT & length < 5 or >= 51 - ask for PHONE NUM
-            else if (!isNaN(fieldVal.charAt(0)) && (fieldVal.length < 5 || fieldVal.length >= 51)) {
+            else if (!isNaN(fieldVal.charAt(0)) && (len < 5 || len >= 51)) {
                 dispatch({
                     type: 'Validate Phone',
-                    name: fieldName
+                    payload: fieldName
                 });
             } 
-            else if (fieldVal.length >= 5 && fieldVal.length < 51) {
+            else if (len >= 5 && len < 51) {
                 dispatch({
                     type: 'Remove Border',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         } else if (fieldName === 'password' && state.password !== '') {
-            if (fieldVal.length < 4 || fieldVal.length > 60) {
+            if (len < 4 || len > 60) {
                 dispatch({
                     type: 'Orange Border',
-                    name: fieldName
+                    payload: fieldName
                 });
             } else {
                 dispatch({
                     type: 'Remove Border',
-                    name: fieldName
+                    payload: fieldName
                 });
             }
         }
-    }
-
-
-    // on 'Learn more' click, display detailed info on Google reCAPTCHA
-    const displayLearnMore = () => {
-        setShow(true);
-    }
-
-    // assign useNavigate() to variable for use
-    let reroute = useNavigate();
-
-    // on Netflix logo click, redirect to landing page
-    const redirect = () => {
-        let path = `/`;
-        reroute(path);
     }
 
     const errorMsgStyle = {
@@ -171,7 +148,7 @@ const Login = ({ fbIcon }) => {
 
     return (
         <div className='login'>
-            <button className='redirectBtn' onClick={redirect}><img src={textLogo} alt='Netflix text logo' /></button>
+            <button className='redirectBtn' onClick={() => navigate('/')}><img src={textLogo} alt='Netflix text logo' /></button>
 
             <div className='formDiv'>
                 <h1>Sign In</h1>
@@ -199,7 +176,7 @@ const Login = ({ fbIcon }) => {
                     <div className='formHelp'>
                         <button className='fbBtn'>{fbIcon} Login with Facebook</button>
                         <p className='signUp'>New to Netflix? <a href='/'>Sign up now</a>.</p>
-                        <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={displayLearnMore}>Learn more.</span></p>
+                        <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
                         {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
                             and for general security purposes (it is not used for personalized advertising by Google).
                         </p>}

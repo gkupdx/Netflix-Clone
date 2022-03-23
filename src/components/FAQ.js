@@ -37,22 +37,23 @@ const FAQ = ({ chevronIcon }) => {
     // On Button click, navigate user to /signup/registration if validation passed
     const goToRegistration = () => {
         let fieldVal = emailRef.current.value;
+        let len = fieldVal.length;
 
         // if either 0 or 1 character, ON BUTTON CLICK, need to apply FOCUS
-        if (fieldVal.length === 0 || fieldVal.length === 1) {
+        if (len === 0 || len === 1) {
             emailRef.current.focus();
             dispatch({
                 type: 'Empty'
             });
-        } else if (fieldVal.length > 1 && fieldVal.length < 5) { // 2-4 characters, DON'T FOCUS
+        } else if (len > 1 && len < 5) { // 2-4 characters, DON'T FOCUS
             dispatch({
                 type: 'Empty'
             });
-        } else if (fieldVal.length >= 5) { // VALIDATE
+        } else if (len >= 5) { // VALIDATE
             let flag = false; // flag is set on meeting validation requirements
 
             // loop through input
-            for (let i = 0; i < fieldVal.length; ++i) {
+            for (let i = 0; i < len; ++i) {
                 if (fieldVal.charAt(i) === '@') { // '@' character was found so check for '.com'
                     let atSignIndex = i;
 
@@ -65,7 +66,7 @@ const FAQ = ({ chevronIcon }) => {
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
-                            let dotComString = fieldVal.substring(atSignIndex, fieldVal.length);
+                            let dotComString = fieldVal.substring(atSignIndex, len);
                             if (dotComString.includes('.com')) {
                                 flag = true;
                                 break;
@@ -105,17 +106,18 @@ const FAQ = ({ chevronIcon }) => {
     // OnBlur handler
     const handleOnBlur = (event) => {
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
         // if less than 5 characters, displays 'Email is required!'
-        if (fieldVal.length < 5) {
+        if (len < 5) {
             dispatch({
                 type: 'Empty'
             });
-        } else if (fieldVal.length >= 5) {
+        } else if (len >= 5) {
             let flag = false; // flag is set on meeting validation requirements
 
             // loop through input
-            for (let i = 0; i < fieldVal.length; ++i) {
+            for (let i = 0; i < len; ++i) {
                 if (fieldVal.charAt(i) === '@') { // '@' character was found so check for '.com'
                     let atSignIndex = i;
 
@@ -128,7 +130,7 @@ const FAQ = ({ chevronIcon }) => {
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
-                            let dotComString = fieldVal.substring(atSignIndex, fieldVal.length);
+                            let dotComString = fieldVal.substring(atSignIndex, len);
                             if (dotComString.includes('.com')) {
                                 flag = true;
                                 break;
@@ -155,16 +157,17 @@ const FAQ = ({ chevronIcon }) => {
     // OnChange handler (only triggers if state is NOT in default state)'
     const handleOnChange = (event) => {
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length < 5 && emailState.emailVal !== '') {
+        if (len < 5 && emailState.emailVal !== '') {
             dispatch({
                 type: 'Empty'
             });
-        } else if (fieldVal.length >= 5 && emailState.emailVal !== '') { // VALIDATE
+        } else if (len >= 5 && emailState.emailVal !== '') { // VALIDATE
             let flag = false;
 
             // loop through input
-            for (let i = 0; i < fieldVal.length; ++i) {
+            for (let i = 0; i < len; ++i) {
                 if (fieldVal.charAt(i) === '@') { // '@' character was found so check for '.com'
                     let atSignIndex = i;
 
@@ -177,7 +180,7 @@ const FAQ = ({ chevronIcon }) => {
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
-                            let dotComString = fieldVal.substring(atSignIndex, fieldVal.length);
+                            let dotComString = fieldVal.substring(atSignIndex, len);
                             if (dotComString.includes('.com')) {
                                 flag = true;
                                 break;

@@ -39,19 +39,20 @@ const RegForm = ({ logo }) => {
     // on button click, move to Step 2 of registration
     const goToSignUp = () => {
         let fieldVal = passwordRef.current.value;
+        let len = fieldVal.length;
 
         // if length === 0, on BUTTON CLICK, apply 'Red Box' + focus
-        if (fieldVal.length === 0) {
+        if (len === 0) {
             passwordRef.current.focus();
             dispatch({
                 type: 'Red Box'
             });
-        } else if (fieldVal.length < 6) {
+        } else if (len < 6) {
             passwordRef.current.focus();
             dispatch({
                 type: 'Too Short'
             });
-        } else if (fieldVal.length > 60) {
+        } else if (len > 60) {
             dispatch({
                 type: 'Too Long'
             });
@@ -75,20 +76,21 @@ const RegForm = ({ logo }) => {
     // onBlur handler
     const handleOnBlur = (event) => {
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length === 0) {    // ask for a password 
+        if (len === 0) {    // ask for a password 
             dispatch({
                 type: 'Red Box'
             });
-        } else if (fieldVal.length > 0 && fieldVal.length < 6) {   
+        } else if (len > 0 && len < 6) {   
             dispatch({
                 type: 'Too Short'
             });
-        } else if (fieldVal.length > 60) {
+        } else if (len > 60) {
             dispatch({
                 type: 'Too Long'
             });
-        } else if (fieldVal.length >= 6 && fieldVal.length < 60) {
+        } else if (len >= 6 && len < 60) {
             dispatch({
                 type: 'Green Box'
             });
@@ -98,20 +100,21 @@ const RegForm = ({ logo }) => {
     // onChange handler (dispatch ONLY IF onBlur event HAS NOT already happened)
     const handleOnChange = (event) => {
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length === 0 && inputState.passwordField !== '') {    
+        if (len === 0 && inputState.passwordField !== '') {    
             dispatch({
                 type: 'Red Box'
             });
-        } else if (fieldVal.length > 0 && fieldVal.length < 6 && inputState.passwordField !== '') {  
+        } else if (len > 0 && len < 6 && inputState.passwordField !== '') {  
             dispatch({
                 type: 'Too Short'
             });
-        } else if (fieldVal.length > 60 && inputState.passwordField !== '') {  
+        } else if (len > 60 && inputState.passwordField !== '') {  
             dispatch({
                 type: 'Too Long'
             });
-        } else if (fieldVal.length >= 6 && fieldVal.length < 60 && inputState.passwordField !== '') {  
+        } else if (len >= 6 && len < 60 && inputState.passwordField !== '') {  
             dispatch({
                 type: 'Green Box'
             });

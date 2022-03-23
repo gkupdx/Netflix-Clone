@@ -67,18 +67,19 @@ const GiftOption = ({ logo }) => {
     const handleOnBlur = (event) => {
         let fieldName = event.target.name;
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length === 0) {
+        if (len === 0) {
             dispatch({
                 type: 'Red Box',
                 payload: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length < 4) || (fieldName === 'zipCode' && (fieldVal.length < 5 || fieldVal.length > 5))) {
+        } else if ((fieldName === 'giftCode' && len < 4) || (fieldName === 'zipCode' && (len < 5 || len > 5))) {
             dispatch({
                 type: 'Validate Red',
                 payload: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4) || (fieldName === 'zipCode' && fieldVal.length === 5)) {
+        } else if ((fieldName === 'giftCode' && len >= 4) || (fieldName === 'zipCode' && len === 5)) {
             dispatch({
                 type: 'Green Box',
                 payload: fieldName
@@ -90,37 +91,24 @@ const GiftOption = ({ logo }) => {
     const handleOnChange = (event) => {
         let fieldName = event.target.name;
         let fieldVal = event.target.value;
+        let len = fieldVal.length;
 
-        if (fieldVal.length === 0) {
+        if (len === 0) {
             dispatch({
                 type: 'Red Box',
                 payload: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length < 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && inputState.zipCode !== '' && (fieldVal.length < 5 || fieldVal.length > 5))) {
+        } else if ((fieldName === 'giftCode' && len < 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && inputState.zipCode !== '' && (len < 5 || len > 5))) {
             dispatch({
                 type: 'Validate Red',
                 payload: fieldName
             });
-        } else if ((fieldName === 'giftCode' && fieldVal.length >= 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && fieldVal.length === 5 && inputState.zipCode !== '')) {
+        } else if ((fieldName === 'giftCode' && len >= 4 && inputState.giftCode !== '') || (fieldName === 'zipCode' && len === 5 && inputState.zipCode !== '')) {
             dispatch({
                 type: 'Green Box',
                 payload: fieldName
             });
         }
-    }
-
-    // styling of different elements
-    const monthlyChargeStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "700",
-        marginTop: "0"
-    }
-
-    const currentPlanStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "500",
-        color: "grey",
-        marginTop: "0"
     }
 
     const errorMsgStyle = {
@@ -152,8 +140,8 @@ const GiftOption = ({ logo }) => {
 
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>{state.price}</p>
-                            <p style={currentPlanStyle}>{state.planName}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "700", marginTop: "0" }}>{state.price}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "500", marginTop: "0", color: "grey" }}>{state.planName}</p>
                         </div>
 
                         <button onClick={() => navigate('/signup/editplan')}>Change</button>
