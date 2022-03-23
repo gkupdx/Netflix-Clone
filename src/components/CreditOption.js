@@ -115,9 +115,10 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         let fieldVal = event.target.value;
         let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal);
         let numRegex = /^\d+$/.test(fieldVal);
+        let len = fieldVal.length; // store field value's length for reusability
 
         // apply for ALL fields (except "lastName")
-        if (fieldVal.length === 0 && fieldName !== 'lastName') {
+        if (len === 0 && fieldName !== 'lastName') {
             dispatch({
                 type: 'Red Box',
                 payload: fieldName
@@ -125,7 +126,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "firstName" onBlur
         else if (fieldName === 'firstName') {
-            if (fieldVal.length >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
+            if (len >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -139,7 +140,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "lastName" onBlur
         else if (fieldName === 'lastName') {
-            if (fieldVal.length >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
+            if (len >= 4 && !alphaRegex) {  // if input length >= 4 and is NON-alphabet, show error
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -151,40 +152,71 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                 });
             }
         }
-        // * WORK ON THIS LATER *
-        // "cardNum" onBlur (only handles the MOST POPULAR cards i.e. Visa, MasterCard, Amex, Discover)
+        // "cardNum" onBlur for Visa, MasterCard, Amex, & Discover Card
+        // BASIC validation (i.e. does not handle every edge case because range of possible credit card numbers is TOO wide)
         else if (fieldName === 'cardNum') {
-            if (fieldVal.length < 13) {
+            if (len < 13) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
                 });
+            } else {  
+                let charAtZero = fieldVal.charAt(0); // store char @ index 0 for resuability
+                let firstTwo = fieldVal.substring(0, 2); // grab first 2 characters of input (MasterCard test)
+                let isInRange = parseInt(firstTwo); // convert to int & make sure its within range 51-55 (MasterCard test)
+
+                // Visa: (starts with 4) && (length 13 || 16)
+                if (charAtZero === '4' && (len === 13 || len === 16) && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                }
+                // MasterCard: (starts with 51 thru 55) && (length 16) 
+                else if ((isInRange >= 51 && isInRange <= 55) && len === 16 && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                } 
+                // Amex - (starts with 34 || 37) && (length 15)
+                else if ((firstTwo === '34' || firstTwo === '37') && len === 15 && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                } 
+                // Discover - [(starts with 6011) && (length 16) || (starts with 5) && (length 15)]
+                else if (((fieldVal.substring(0, 4) === '6011' && len === 16) || (charAtZero === '5' && len === 15)) && numRegex) {
+                     dispatch({
+                         type: 'Green Box',
+                         payload: fieldName
+                     });
+                } 
+                else {
+                    dispatch({
+                        type: 'Validate Red',
+                        payload: fieldName
+                    });
+                }
             }
-            // } else if (fieldVal.length > 0) {   // PSEUDO-CODE - test different cards
-
-            //     // Visa: (starts with 4) && (length 13 || 16)
-            //     // MasterCard: (starts with 51 thru 55) && (length 16)
-            //     // Amex - (starts with 34 || 37) && (length 15)
-            //     // Discover - [(starts with 6011) && (length 16) || (starts with 5) && (length 15)]
-
-            // }
         }
         // "expDate" onBlur
         else if (fieldName === 'expDate') {
-            if (fieldVal.length === 5 && numRegex) {
+            if (len === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (fieldVal.length >= 1 && fieldVal.length < 4 && numRegex) {
+            } else if (len >= 1 && len < 4 && numRegex) {
                 dispatch({
                     type: 'Ask For Year'
                 });
-            } else if ((fieldVal.length > 5 || fieldVal.length === 4) && numRegex) {
+            } else if ((len > 5 || len === 4) && numRegex) {
                 dispatch({
                     type: 'Validate Year'
                 });
-            } else if (fieldVal.length > 0 && !numRegex) {
+            } else if (len > 0 && !numRegex) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -193,12 +225,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "cvv" onBlur 
         else if (fieldName === 'cvv') {
-            if (fieldVal.length === 3 || fieldVal.length === 4) {
+            if (len === 3 || len === 4) {
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (fieldVal.length > 0 && fieldVal.length < 3) {
+            } else if (len > 0 && len < 3) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -207,12 +239,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "zipCode" onBlur
         else if (fieldName === 'zipCode') {
-            if (fieldVal.length === 5 && numRegex) {
+            if (len === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (fieldVal.length < 5 || fieldVal.length > 5 || (fieldVal.length === 5 && !numRegex)) {
+            } else if (len < 5 || len > 5 || (len === 5 && !numRegex)) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -227,10 +259,10 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         let fieldVal = event.target.value;
         let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal); // regex to check for ONLY alphabets in input
         let numRegex = /^\d+$/.test(fieldVal); // regex to check for ONLY numbers in input
-
+        let len = fieldVal.length;
 
         // apply for ALL fields (except "lastName")
-        if (fieldVal.length === 0 && fieldName !== 'lastName') {
+        if (len === 0 && fieldName !== 'lastName') {
             dispatch({
                 type: 'Red Box',
                 payload: fieldName
@@ -238,12 +270,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "firstName" onChange
         else if (fieldName === 'firstName' && inputState.firstName !== '') {
-            if (fieldVal.length <= 3) { // change border color from red to green on input length 0~3
+            if (len <= 3) { // change border color from red to green on input length 0~3
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (fieldVal.length >= 4 && !alphaRegex) { // change error message if first 4 characters are non-alphabets
+            } else if (len >= 4 && !alphaRegex) { // change error message if first 4 characters are non-alphabets
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -252,7 +284,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "lastName" onChange
         else if (fieldName === 'lastName' && inputState.lastName !== '') {
-            if (fieldVal.length >= 4 && !alphaRegex) {
+            if (len >= 4 && !alphaRegex) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -264,32 +296,66 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                 });
             }
         }
-        // "cardNum" onChange (only handles the MOST POPULAR cards i.e. Visa, MasterCard, Amex, Discover)
+        // "cardNum" onChange 
         else if (fieldName === 'cardNum' && inputState.cardNum !== '') {
-            if (fieldVal.length >= 13 && fieldVal.length <= 19 && numRegex) {  // change border color from red to green on input length 13~19
-                dispatch({
-                    type: 'Green Box',
-                    payload: fieldName
-                });
-            } else if (fieldVal.length < 13) {
+            if (len < 13) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
                 });
+            } else {  
+                let charAtZero = fieldVal.charAt(0); // store char @ index 0 for resuability
+                let firstTwo = fieldVal.substring(0, 2); // grab first 2 characters of input (MasterCard test)
+                let isInRange = parseInt(firstTwo); // convert to int & make sure its within range 51-55 (MasterCard test)
+
+                // Visa: (starts with 4) && (length 13 || 16)
+                if (charAtZero === '4' && (len === 13 || len === 16) && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                }
+                // MasterCard: (starts with 51 thru 55) && (length 16) 
+                else if ((isInRange >= 51 && isInRange <= 55) && len === 16 && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                } 
+                // Amex - (starts with 34 || 37) && (length 15)
+                else if ((firstTwo === '34' || firstTwo === '37') && len === 15 && numRegex) {
+                    dispatch({
+                        type: 'Green Box',
+                        payload: fieldName
+                    });
+                } 
+                // Discover - [(starts with 6011) && (length 16) || (starts with 5) && (length 15)]
+                else if (((fieldVal.substring(0, 4) === '6011' && len === 16) || (charAtZero === '5' && len === 15)) && numRegex) {
+                     dispatch({
+                         type: 'Green Box',
+                         payload: fieldName
+                     });
+                } 
+                else {
+                    dispatch({
+                        type: 'Validate Red',
+                        payload: fieldName
+                    });
+                }
             }
         }
         // "expDate" onChange
         else if (fieldName === 'expDate' && inputState.expDate !== '') {
-            if (numRegex && fieldVal.length === 5) {   // change border color from red to green on correct input
+            if (numRegex && len === 5) {   // change border color from red to green on correct input
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (numRegex && fieldVal.length >= 1 && fieldVal.length < 4) { // change error message to ask for expiration year
+            } else if (numRegex && len >= 1 && len < 4) { // change error message to ask for expiration year
                 dispatch({
                     type: 'Ask For Year'
                 });
-            } else if ((fieldVal.length === 4 || fieldVal.length > 5) && numRegex) {
+            } else if ((len === 4 || len > 5) && numRegex) {
                 dispatch({
                     type: 'Validate Year'
                 });
@@ -302,12 +368,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "cvv" onChange
         else if (fieldName === 'cvv' && inputState.cvv !== '') {
-            if (fieldVal.length === 3 || fieldVal.length === 4) {   // change from red to green on input length 3 or 4
+            if (len === 3 || len === 4) {   // change from red to green on input length 3 or 4
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
-            } else if (fieldVal.length < 3) {
+            } else if (len < 3) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
@@ -316,35 +382,18 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
         // "zipCode" onChange
         else if (fieldName === 'zipCode' && inputState.zipCode !== '') {
-            if (fieldVal.length < 5 || fieldVal.length > 5) {
+            if (len < 5 || len > 5) {
                 dispatch({
                     type: 'Validate Red',
                     payload: fieldName
                 });
-            } else if (fieldVal.length === 5 && numRegex) {
+            } else if (len === 5 && numRegex) {
                 dispatch({
                     type: 'Green Box',
                     payload: fieldName
                 });
             }
         }
-    }
-
-    // CVV question icon styling
-    const cvvQuestionStyle = {
-        fontSize: "2.5rem",
-        color: "lightgrey"
-    }
-    // Price per month styling
-    const monthlyChargeStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "700"
-    }
-    // Current selected plan styling
-    const currentPlanStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "500",
-        color: "grey"
     }
 
     return (
@@ -370,12 +419,15 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                     {inputState.firstName === 'red' && <p style={{ color: 'crimson' }}>Please enter a first name.</p>}
                     {inputState.firstName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid first name</p>}
 
+
                     <input type="text" name="lastName" placeholder="Last name" style={{ borderColor: inputState.lastName === 'green' ? 'green' : inputState.lastName === 'validate red' ? 'crimson' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                     {inputState.lastName === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid last name</p>}
+
 
                     <input type="text" name="cardNum" placeholder="Card number" maxLength="19" style={{ borderColor: (inputState.cardNum === 'red' || inputState.cardNum === 'validate red') ? 'crimson' : inputState.cardNum === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                     {inputState.cardNum === 'red' && <p style={{ color: 'crimson' }}>Please enter a card number.</p>}
                     {inputState.cardNum === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid credit card number.</p>}
+
 
                     <input type="text" name="expDate" placeholder="Expiration date (MM/YY)" style={{ borderColor: (inputState.expDate === 'red' || inputState.expDate === 'validate red' || inputState.expDate === 'year' || inputState.expDate === 'validate year') ? 'crimson' : inputState.expDate === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                     {inputState.expDate === 'red' && <p style={{ color: 'crimson' }}>Please enter an expiration month.</p>}
@@ -383,12 +435,11 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                     {inputState.expDate === 'year' && <p style={{ color: 'crimson' }}>Please enter an expiration year.</p>}
                     {inputState.expDate === 'validate year' && <p style={{ color: 'crimson' }}>The expiration year must be between 2022 and 2047.</p>}
 
-                    <div>
-                        <input type="text" name="cvv" placeholder="Security code (CVV)" maxLength="4" style={{ borderColor: (inputState.cvv === 'red' || inputState.cvv === 'validate red') ? 'crimson' : inputState.cvv === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                        {inputState.cvv === 'red' && <p style={{ color: 'crimson' }}>Please enter a security code (CVV).</p>}
-                        {inputState.cvv === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid CVV code.</p>}
-                        <div className='inputIcon'><VscQuestion style={cvvQuestionStyle} /></div>
-                    </div>
+
+                    <input type="text" name="cvv" placeholder="Security code (CVV)" maxLength="4" style={{ borderColor: (inputState.cvv === 'red' || inputState.cvv === 'validate red') ? 'crimson' : inputState.cvv === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} /><span className='inputIcon'><VscQuestion style={{ color: "#bfbfbf", fontSize: "2.6rem" }} /></span>
+                    {inputState.cvv === 'red' && <p style={{ color: 'crimson' }}>Please enter a security code (CVV).</p>}
+                    {inputState.cvv === 'validate red' && <p style={{ color: 'crimson' }}>Please enter a valid CVV code.</p>}
+           
 
                     <input type="text" name="zipCode" placeholder="Billing ZIP code" style={{ borderColor: (inputState.zipCode === 'red' || inputState.zipCode === 'validate red') ? 'crimson' : inputState.zipCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                     {inputState.zipCode === 'red' && <p style={{ color: 'crimson' }}>Please enter a billing zip code.</p>}
@@ -396,8 +447,8 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
 
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>{state.price}</p>
-                            <p style={currentPlanStyle}>{state.planName}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "700" }}>{state.price}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "500", color: "grey" }}>{state.planName}</p>
                         </div>
 
                         <button onClick={() => navigate('/signup/editplan')}>Change</button>
