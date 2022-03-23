@@ -21,7 +21,7 @@ import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import logoImgSrc from './assets/netflix_text_logo.png'
+import logoImgSrc from './assets/netflix_text_logo.png';
 
 // Routes from React Router
 import { Routes, Route } from 'react-router-dom';
@@ -137,7 +137,7 @@ function App() {
         {/* EDIT PLAN */}
         <Route path='/signup/editplan' element={
           <>
-            <EditPlan logo={logoImgSrc} />
+            <EditPlan logo={logoImgSrc} checkMarkLg={<IoCheckmarkOutline style={{ color: "#e50914", fontSize: "2rem" }}/>} checkMarkSm={<IoCheckmarkOutline style={{ fontSize: "2rem" }}/>}/>
             <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         }/>
