@@ -33,7 +33,7 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
         });
     }
 
-    // row descriptor (e.g. 'Monthly price', etc...) styling
+    // row descriptor (e.g. 'Monthly price', 'Video quality', etc...) styling
     const rowDescriptorStyle = {
         fontSize: "0.8rem",
         fontWeight: "500",

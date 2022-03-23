@@ -16,7 +16,8 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
     const navigate = useNavigate();
     let { state } = useLocation();
 
-    // on <div> click, go to corresponding page
+    // on <div> click, go to CreditOption page
+    // and pass-on selected plan info received from PlanForm.js
     const goToCredit = () => {
         let path = `/signup/creditoption`;
 
@@ -27,7 +28,8 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
             }
         });
     }
-
+    // on <div> click, go to PaypalOption page
+    // and pass-on selected plan info received from PlanForm.js
     const goToPaypal = () => {
         let path = `/signup/paypaloption`;
 
@@ -38,7 +40,8 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
             }
         });
     }
-
+    // on <div> click, go to GiftOption page
+    // and pass-on selected plan info received from PlanForm.js
     const goToGift = () => {
         let path = `/signup/giftoption`;
 
