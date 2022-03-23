@@ -481,12 +481,12 @@
     border-color: blue;
 }
 
-/* .inputIcon {
-    position: absolute;
-    right: 0;
-    bottom: 410px;
-    margin-right: 50px;
-} */
+.inputIcon {
+    position: relative;
+    float: right;
+    margin-top: -50px;
+    margin-right: 5px;
+}
 
 .currentPlanDiv {
     width: 100%;
