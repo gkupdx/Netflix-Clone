@@ -6,19 +6,6 @@ const PaypalOption = ({ logo }) => {
     let navigate = useNavigate();
     let { state } = useLocation();
 
-    const monthlyChargeStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "700",
-        marginTop: "0"
-    }
-
-    const currentPlanStyle = {
-        fontSize: "0.85rem",
-        fontWeight: "500",
-        color: "grey",
-        marginTop: "0"
-    }
-
     return (
         <div className='paypalOption'>
             <div className='flexRowFull'>
@@ -34,8 +21,8 @@ const PaypalOption = ({ logo }) => {
                 <div>
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={monthlyChargeStyle}>{state.price}</p>
-                            <p style={currentPlanStyle}>{state.planName}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "700", marginTop: "0" }}>{state.price}</p>
+                            <p style={{ fontSize: "0.85rem", fontWeight: "500", marginTop: "0", color: "grey"}}>{state.planName}</p>
                         </div>
 
                         <button onClick={() => navigate('/signup/editplan')}>Change</button>

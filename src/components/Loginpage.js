@@ -12,23 +12,10 @@ const Loginpage = ({ toggleLanguages, toggle }) => {
     // different footer theme depending on page
     let footerTheme = "dark";
 
-    // Facebook icon styling
-    const fbIconStyle = {
-        width: "20px",
-        height: "20px",
-        background: "#FFF",
-        color: "#4267b2"
-    }
-
-    // Globe icon styling
-    const globeIconStyle = {
-        color: "grey"
-    }
-
     return (
         <div>
-            <Login fbIcon={<ImFacebook2 style={fbIconStyle}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
+            <Login fbIcon={<ImFacebook2 style={{ widtH: "20px", height: "20px", background: "#FFF", color: "#4267b2" }}/>}/>
+            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={{ color: "grey" }}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
         </div>
     )
 }
