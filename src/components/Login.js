@@ -40,6 +40,28 @@ const Login = ({ fbIcon }) => {
                     ...state,
                     [action.payload]: 'validate phone'
                 }
+            // 'Verify Fields' = see which fields are empty & highlight those fields after 'Sign In' click
+            case 'Verify Fields':
+                if (state === initialState) { 
+                    return {
+                        userName: 'orange',
+                        password: 'orange'
+                    }
+                } else {
+                    let stateArray = Object.entries(state);
+
+                    stateArray.forEach((index) => {
+                        if (index[1] === '') {
+                            index[1] = 'orange'
+                        }
+                    });
+
+                    let updatedStateObj = Object.fromEntries(stateArray);
+
+                    state = updatedStateObj;
+
+                    return state;
+                }
             default:
                 return state;
         }
@@ -162,7 +184,7 @@ const Login = ({ fbIcon }) => {
                         <input type="text" name="password" placeholder="Password" style={{ borderBottom: (state.password !== '' && state.password !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
                         {state.password === 'orange' && <p style={errorMsgStyle}>Your password must contain between 4 and 60 characters.</p>}
 
-                        <input type="button" value="Sign In"/>
+                        <input type="button" value="Sign In" onClick={() => dispatch({ type: 'Verify Fields' })}/>
                         <div className='rowJustifyBetween'>
                             <div>
                                 <input type="checkbox" id="checkbox" />

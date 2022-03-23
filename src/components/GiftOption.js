@@ -1,12 +1,13 @@
 //// GiftOption.js - component for the /signup/giftoption route
 
-import { useState, useReducer } from 'react';
+import { useState, useRef, useReducer } from 'react';
 import { useNavigate, useLocation } from "react-router";
 
 const GiftOption = ({ logo }) => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     let { state } = useLocation();
+    let giftRef = useRef();
 
     const initialState = {
         giftCode: '',
@@ -44,13 +45,16 @@ const GiftOption = ({ logo }) => {
                 } else {
                     let stateArray = Object.entries(state);
 
-                    let filteredArray = stateArray.filter(([key, value]) => value === '');
-
-                    filteredArray.forEach((index) => {
-                        index[1] = 'red';
+                    stateArray.forEach((index) => {
+                        if (index[1] === '') {
+                            if (index[0] === 'giftCode') {
+                                giftRef.current.focus();
+                            }
+                            index[1] = 'red';
+                        }
                     });
 
-                    let updatedStateObj = Object.fromEntries(filteredArray);
+                    let updatedStateObj = Object.fromEntries(stateArray);
 
                     state = updatedStateObj;
 
@@ -130,7 +134,7 @@ const GiftOption = ({ logo }) => {
                     <h1>Enter your gift code</h1>
                 </div>
                 <div>
-                    <input type="text" name="giftCode" placeholder="Gift Card Pin or Code" maxLength="60" style={{ borderColor: (inputState.giftCode === 'red' || inputState.giftCode === 'validate red') ? 'crimson' : inputState.giftCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    <input ref={giftRef} type="text" name="giftCode" placeholder="Gift Card Pin or Code" maxLength="60" style={{ borderColor: (inputState.giftCode === 'red' || inputState.giftCode === 'validate red') ? 'crimson' : inputState.giftCode === 'green' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
                     {inputState.giftCode === 'red' && <p style={errorMsgStyle}>Gift Card Pin or Code is required!</p>}
                     {inputState.giftCode === 'validate red' && <p style={errorMsgStyle}>Gift Card Pin or Code should be between 4 and 60 characters!</p>}
         

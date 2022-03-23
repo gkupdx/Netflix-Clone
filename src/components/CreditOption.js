@@ -74,28 +74,28 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                     // convert current state object to array
                     let stateArray = Object.entries(state);
 
-                    // filter through array to find all keys where value === initialState value
-                    // (i.e. user has not interacted with those fields)
-                    let filteredArray = stateArray.filter(([key, value]) => value === '');
-
-                    // loop through array OF ARRAYS (of length 2)
-                    // per INDEX (total: 6), 
+                    // loop through array OF ARRAYS (length 2)
+                    // for each INDEX (total: 6), 
                     // --> INDEX[0] = Key (e.g. 'firstName')
                     // --> INDEX[1] = Value (e.g. 'red')
-                    filteredArray.forEach((index) => {
-                        // set the 'lastName' key to 'green'
-                        if (index[0] === 'lastName') {
+                    stateArray.forEach((index) => {
+                        // set 'lastName' key to 'green' if in default state
+                        if (index[0] === 'lastName' && index[1] === '') {
                             index[1] = 'green'
-                        } else { // set all others to 'red'
+                        } else {
                             if (index[0] === 'firstName') {
                                 firstNameRef.current.focus(); // apply focus on 'firstName' field
                             }
-                            index[1] = 'red'
+                            
+                            // set all other fields to 'red' if in default state
+                            if (index[1] === '') {
+                                index[1] = 'red'
+                            }
                         }
                     });
 
-                    // convert array back to object
-                    let updatedStateObj = Object.fromEntries(filteredArray);
+                    // convert array back into object
+                    let updatedStateObj = Object.fromEntries(stateArray);
 
                     // store object as new state
                     state = updatedStateObj;
