@@ -187,11 +187,12 @@ const Login = ({ fbIcon }) => {
                         <input type="button" value="Sign In" onClick={() => dispatch({ type: 'Verify Fields' })}/>
                         <div className='rowJustifyBetween'>
                             <div>
-                                <input type="checkbox" id="checkbox" />
+                                {/* Netflix uses a custom checkbox */}
+                                <input type="checkbox" id="checkbox" defaultChecked/>
                                 <label htmlFor="checkbox"> Remember me</label>
                             </div>
 
-                            <button className='helpBtn'>Need help?</button>
+                            <button>Need help?</button>
                         </div>
                     </div>
 
