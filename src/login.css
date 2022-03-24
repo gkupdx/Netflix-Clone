@@ -118,21 +118,25 @@
     justify-content: space-between;
     margin-top: 10px;
 }
-  
-.helpBtn {
-    color: grey;
+
+.rowJustifyBetween label {
+    color: lightgrey;
+}
+
+.rowJustifyBetween button {
+    color: lightgrey;
     background: transparent;
     border: none;
 }
-  
-.helpBtn:hover {
+
+.rowJustifyBetween button:hover {
     cursor: pointer;
     text-decoration: underline;
 }
   
 .formHelp {
     width: 90%;
-    margin-top: 50px;
+    margin-top: 30px;
 }
   
 .fbBtn {
@@ -153,7 +157,7 @@
     color: grey;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
-    margin-top: 15px;
+    margin-top: 20px;
 }
   
 .signUp a {
@@ -169,7 +173,7 @@
     color: grey;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.75rem;
-    margin-top: 15px;
+    margin-top: 10px;
 }
   
 .learnMore {
@@ -268,14 +272,14 @@
     width: 140px;
     height: 50px;
     background: #000;
-    border: 1px solid dimgrey;
+    border: 1px solid #3d3d3d;
     border-radius: 4px;
-    margin-bottom: 85px;
+    margin-bottom: 5px;
 }
 
 .languagePopUp p {
     width: 100%;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin-top: 0;
     padding-left: 5px;
   }
