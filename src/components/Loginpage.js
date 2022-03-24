@@ -8,14 +8,14 @@ import { ImFacebook2 } from 'react-icons/im';
 import Login from './Login';
 import FooterAlt from './FooterAlt';
 
-const Loginpage = ({ toggleLanguages, toggle }) => {
+const Loginpage = () => {
     // different footer theme depending on page
     let footerTheme = "dark";
 
     return (
         <div>
             <Login fbIcon={<ImFacebook2 style={{ width: "20px", height: "20px", background: "#FFF", color: "#4267b2" }}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={{ color: "grey" }}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
+            <FooterAlt globeIcon={<IoGlobe style={{ color: "grey" }}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
         </div>
     )
 }

@@ -1,17 +1,13 @@
 //// FooterAlt.js - component for alternate footer placed at bottom of Sign In page
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import _ from 'lodash';
 
 import { AiFillCaretDown } from 'react-icons/ai';
 
-const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme }) => {
+const FooterAlt = ({ globeIcon, chevronDownIcon, theme }) => {
+    const [toggle, setToggle] = useState(false);
     let scrollEvent = false; // variable to detect scroll event
-
-    // toggle for language btn
-    const showLanguages = () => {
-        toggleLanguages(!toggle)
-    }
 
     const hideLangOnScroll = () => {
         let upScrollPos = window.scrollY - 1;
@@ -25,7 +21,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme 
 
         // reset "toggle" to ensure its state value is default for next button click
         // doing so prevents inconsistent states for ternary operation on Line 57
-        toggleLanguages(false);
+        setToggle(false);
     };
 
     useEffect(() => {
@@ -57,7 +53,7 @@ const FooterAlt = ({ toggleLanguages, toggle, globeIcon, chevronDownIcon, theme 
 
                 <div>
                     {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUp' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
-                    <button onClick={showLanguages}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
+                    <button onClick={() => toggle ? setToggle(false) : setToggle(true)} onBlur={() => setToggle(false)}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
                 </div>
             </div>
         </footer>
