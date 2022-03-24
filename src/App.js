@@ -145,7 +145,7 @@ function App() {
         {/* LOGIN PAGE */}
         <Route path='/login' element={
           <>
-            <Loginpage toggleLanguages={toggleLanguages} toggle={toggle} />
+            <Loginpage />
           </>
         }
         />
