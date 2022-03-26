@@ -4,8 +4,10 @@ import { useEffect } from 'react';
 import _ from 'lodash';
 
 import logo from '../assets/netflix_text_logo.png';
+import { useNavigate } from 'react-router';
 
-const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
+const Nav = ({ toggleLanguages, toggle, setToggle, globeIcon, caretIcon }) => {
+    let navigate = useNavigate();
     let scrollEvent = false; // variable to detect scroll event
 
     const hideLangOnScroll = () => {
@@ -20,7 +22,7 @@ const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
 
         // reset "toggle" to ensure its state value is default for next button click
         // doing so prevents inconsistent states for ternary operation on Line 57
-        toggleLanguages(false);
+        setToggle(false);
     }
 
     useEffect(() => {
@@ -40,13 +42,11 @@ const Nav = ({ toggleLanguages, toggle, globeIcon, caretIcon }) => {
         <nav className='nav'>
             <img src={logo} alt="Netflix text logo" />
 
-            <ul>
-                <li>
-                    <button className='languageBtn' onClick={() => toggleLanguages(!toggle)} onBlur={() => toggleLanguages(false)}>{globeIcon} English {caretIcon}</button>
-                    {toggle && !scrollEvent ? <div className='languageDropDown'><p>English</p><p>Espanol</p></div> : ''}
-                    <a href='/login' className='signIn'>Sign In</a>
-                </li>
-            </ul>
+            <div>
+                <button className='languageBtn' onClick={() => toggleLanguages(!toggle)} onBlur={() => setToggle(false)}>{globeIcon} English {caretIcon}</button>
+                {toggle && !scrollEvent ? <div className='languageDropDown'><p>English</p><p>Espanol</p></div> : ''}
+                <button className='signIn' onClick={() => navigate('/login')}>Sign In</button>
+            </div>
         </nav>
     )
 }

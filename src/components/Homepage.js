@@ -17,12 +17,7 @@ import devicePile from '../assets/device_pile.png';
 import kidsProfile from '../assets/kids_profile.png';
 
 
-const Homepage = ({ toggleLanguages, toggle }) => {
-    // Variables to determine subsection ordering
-    // (for styling reasons)
-    let odd = 1;
-    let even = 2;
-
+const Homepage = ({ toggleLanguages, toggle, setToggle }) => {
     // Temporary array of subsection headers + body 
     const subsectionContent = [
         {
@@ -45,12 +40,12 @@ const Homepage = ({ toggleLanguages, toggle }) => {
 
     return (
         <div>
-            <Nav toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={{ color: "#FFF" }}/>} caretIcon={<AiFillCaretDown />} />
+            <Nav toggleLanguages={toggleLanguages} toggle={toggle} setToggle={setToggle} globeIcon={<IoGlobe style={{ color: "#FFF" }}/>} caretIcon={<AiFillCaretDown />} />
             <Banner chevronIcon={<VscChevronRight />}/>
-            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv} order={odd}/>
-            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile} order={even}/>
-            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile} order={odd}/>
-            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile} order={even}/>
+            <Subsection header={subsectionContent[0].header} body={subsectionContent[0].body} imgSrc={tv} order={1}/>
+            <Subsection header={subsectionContent[1].header} body={subsectionContent[1].body} imgSrc={mobile} order={2}/>
+            <Subsection header={subsectionContent[2].header} body={subsectionContent[2].body} imgSrc={devicePile} order={1}/>
+            <Subsection header={subsectionContent[3].header} body={subsectionContent[3].body} imgSrc={kidsProfile} order={2}/>
             <FAQ chevronIcon={<VscChevronRight />}/>
             <Footer globeIcon={<IoGlobe style={{ color: "grey" }}/>} caretIcon={<AiFillCaretDown />} />
         </div>
