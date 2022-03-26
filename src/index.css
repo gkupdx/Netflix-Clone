@@ -26,15 +26,15 @@
 /* NAVBAR CSS */
 .nav {
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 70px;
     padding: 10px;
     background: transparent;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
   
 .nav img {
@@ -42,23 +42,12 @@
     height: 50px;
 }
   
-.nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-}
-  
-.nav ul li a {
-    margin: 5px 20px;
-}
-  
 .languageBtn {
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
     width: 115px;
-    height: 25px;
+    height: 27px;
     background: transparent;
     color: #FFF;
     font-size: 0.9rem;
@@ -92,20 +81,23 @@
 }
   
 .signIn {
+    width: 60px;
+    height: 27px;
     background: #e50914;
     color: #FFF;
-    text-decoration: none;
-    padding: 3px 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: none;
     border-radius: 3px;
+    margin-left: 10px;
 }
 
-.browseBtn {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.signIn:hover {
+    cursor: pointer;
 }
 
-/* LANDING PAGE CSS */
+/* HERO IMAGE / BANNER */
 .main {
     height: 515px;
     display: flex;
@@ -125,6 +117,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
+    margin-top: 50px;
 }
   
 .main h2 {
