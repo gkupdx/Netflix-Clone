@@ -8,11 +8,13 @@ const PaypalOption = ({ logo }) => {
 
     return (
         <div className='paypalOption'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexColPaypal'>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>

@@ -123,11 +123,13 @@ const RegForm = ({ logo }) => {
 
     return (
         <div className='regForm'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')}/>
                 <a href='/login'>Sign In</a>
             </div>
-
+            
+            {/* BODY */}
             <div className='flexColForm'>
                 <p>STEP <b>1</b> OF <b>3</b></p>
                 <h1>Create a password to start your membership</h1>

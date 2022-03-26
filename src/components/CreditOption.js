@@ -398,11 +398,13 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
 
     return (
         <div className='creditOption'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexColCredit'>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>

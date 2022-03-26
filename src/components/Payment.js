@@ -56,11 +56,13 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
 
     return (
         <div className='payment'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexColPayment'>
                 <div>
                     <MdLockOutline style={{ color: "#e50914", fontSize: "2.5rem" }} />

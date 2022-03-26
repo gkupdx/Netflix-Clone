@@ -13,11 +13,13 @@ const SignUp = ({ logo, checkMarkCircle, checkMark }) => {
 
     return (
         <div className='plans'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexColPlans'>
                 <div>
                     {checkMarkCircle}

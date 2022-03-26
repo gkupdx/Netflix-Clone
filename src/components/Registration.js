@@ -20,11 +20,13 @@ const Registration = ({ logo }) => {
 
     return (
         <div className='registration'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')}/>
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexCol'>
                 <img src='https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Devices.png' alt='Devices'/>
                 <p>STEP <b>1</b> OF <b>3</b></p>
