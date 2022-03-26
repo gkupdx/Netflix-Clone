@@ -70,7 +70,7 @@ const Footer = ({ globeIcon, caretIcon }) => {
                     <a href='#tos'>Terms of Use</a>
                     <a href='#privacy'>Privacy</a>
                     <a href='#cookies'>Cookie Preferences</a>
-                    <a href='#ci'>Corporate Information</a>
+                    {window.innerWidth < 550 ? <a href='#ci'>Corporate Information</a> : <a href='#ci'>Corporate<br/>Information</a>}
                     <a href='#contact'>Contact Us</a>
                     <a href='#speedtest'>Speed Test</a>
                     <a href='#legal'>Legal Notices</a>
