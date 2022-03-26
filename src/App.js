@@ -65,7 +65,7 @@ function App() {
         {/* HOMEPAGE / LANDING PAGE */}
         <Route path='/' element={
           <>
-            <Homepage toggleLanguages={toggleLanguages} toggle={toggle} />
+            <Homepage toggleLanguages={toggleLanguages} toggle={toggle} setToggle={setToggle}/>
           </>
         }
         />
@@ -74,7 +74,7 @@ function App() {
         <Route path='/signup/registration' element={
           <>
             <Registration logo={logoImgSrc} />
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -82,7 +82,7 @@ function App() {
         <Route path='/signup/regform' element={
           <>
             <RegForm logo={logoImgSrc} />
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -90,7 +90,7 @@ function App() {
         <Route path='/signup' element={
           <>
             <SignUp logo={logoImgSrc} checkMarkCircle={<IoIosCheckmarkCircleOutline style={{ color: "#e50914", fontSize: "3.5rem" }}/>} checkMark={<IoCheckmarkOutline style={{ color: "#e50914", fontSize: "2rem" }}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -98,7 +98,7 @@ function App() {
         <Route path='/signup/planform' element={
           <>
             <PlanForm logo={logoImgSrc} checkMarkLg={<IoCheckmarkOutline style={{ color: "#e50914", fontSize: "2rem" }}/>} checkMarkSm={<IoCheckmarkOutline style={{ fontSize: "2rem" }}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -106,7 +106,7 @@ function App() {
         <Route path='/signup/payment' element={
           <>
             <Payment logo={logoImgSrc} chevronRight={<VscChevronRight style={{ color: "lightgrey", fontSize: "2rem" }}/>} svgStyle={svgStyle} pngStyle={pngStyle}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -114,7 +114,7 @@ function App() {
         <Route path='/signup/creditoption' element={
           <>
             <CreditOption logo={logoImgSrc} svgStyle={svgStyle} pngStyle={pngStyle}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -122,7 +122,7 @@ function App() {
         <Route path='/signup/paypaloption' element={
           <>
             <PaypalOption logo={logoImgSrc} />
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         } />
 
@@ -130,7 +130,7 @@ function App() {
         <Route path='/signup/giftoption' element={
           <>
             <GiftOption logo={logoImgSrc} />
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         }/>
 
@@ -138,7 +138,7 @@ function App() {
         <Route path='/signup/editplan' element={
           <>
             <EditPlan logo={logoImgSrc} checkMarkLg={<IoCheckmarkOutline style={{ color: "#e50914", fontSize: "2rem" }}/>} checkMarkSm={<IoCheckmarkOutline style={{ fontSize: "2rem" }}/>}/>
-            <FooterAlt toggleLanguages={toggleLanguages} toggle={toggle} globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
+            <FooterAlt globeIcon={<IoGlobe style={globeIconStyle} />} caretIcon={<AiFillCaretDown style={caretIconStyle} />} theme={footerTheme} />
           </>
         }/>
 
