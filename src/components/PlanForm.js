@@ -33,75 +33,95 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
         });
     }
 
-    // row descriptor (e.g. 'Monthly price', 'Video quality', etc...) styling
-    const rowDescriptorStyle = {
-        fontSize: "0.8rem",
-        fontWeight: "500",
-        alignSelf: "center",
-        marginTop: "-10px"
+    /* Temp styling */
+    const flexRow = {
+        display: "flex",
+        alignItems: "center"
+    }
+
+    const redText = {
+        color: "#e50914",
+        fontWeight: "700"
+    }
+
+    const greyText = {
+        color: "dimgrey",
+        fontWeight: "700"
     }
 
     return (
         <div className='planForm'>
+            {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>
             </div>
 
+            {/* BODY */}
             <div className='flexColFull'>
                 <p>STEP <b>2</b> OF <b>3</b></p>
                 <h1>Choose the plan that's right for you</h1>
-                <h2>{checkMarkLg} Watch all you want. Ad-free.</h2>
-                <h2>{checkMarkLg} Recommendations just for you.</h2>
-                <h2>{checkMarkLg} Change or cancel your plan anytime.</h2>
-
+                <div style={flexRow}>
+                    {checkMarkLg}<h2> Watch all you want. Ad-free.</h2>
+                </div>
+                <div style={flexRow}>
+                    {checkMarkLg}<h2> Recommendations just for you.</h2>
+                </div>
+                <div style={flexRow}>
+                    {checkMarkLg}<h2> Change or cancel your plan anytime.</h2>
+                </div>
+                
                 <div className='flexRowBtns'>
                     <button onClick={() => setActivePlan('basic')} className={activePlan === 'basic' ? 'activeBtn' : 'inactiveBtn'}>Basic</button>
                     <button onClick={() => setActivePlan('std')} className={activePlan === 'std' ? 'activeBtn' : 'inactiveBtn'}>Standard</button>
                     <button onClick={() => setActivePlan('premo')} className={activePlan === 'premo' ? 'activeBtn' : 'inactiveBtn'}>Premium</button>
                 </div>
 
-                <p style={rowDescriptorStyle}>Monthly price</p>
-
-                <div className='flexRowPlans'>
-                    <p className={activePlan === 'basic' ? 'textRed' : 'textGrey'}>$9.99.</p>
-                    <p className={activePlan === 'std' ? 'textRed' : 'textGrey'}>$15.49</p>
-                    <p className={activePlan === 'premo' ? 'textRed' : 'textGrey'}>$19.99</p>
+                <div className='planBreakdown'>
+                    <h3>Monthly price</h3>
+                    <div className='flexRowBreakdown'>
+                        <p style={activePlan === 'basic' ? redText : greyText }>$9.99.</p>
+                        <p style={activePlan === 'std' ? redText : greyText }>$15.49</p>
+                        <p style={activePlan === 'premo' ? redText : greyText }>$19.99</p>
+                    </div>
                 </div>
 
-                <p style={rowDescriptorStyle}>Video quality</p>
-
-                <div className='flexRowPlans'>
-                    <p className={activePlan === 'basic' ? 'textRed' : 'textGrey'}>Good</p>
-                    <p className={activePlan === 'std' ? 'textRed' : 'textGrey'}>Better</p>
-                    <p className={activePlan === 'premo' ? 'textRed' : 'textGrey'}>Best</p>
+                <div className='planBreakdown'>
+                    <h3>Video quality</h3>
+                    <div className='flexRowBreakdown'>
+                        <p style={activePlan === 'basic' ? redText : greyText }>Good</p>
+                        <p style={activePlan === 'std' ? redText : greyText }>Better</p>
+                        <p style={activePlan === 'premo' ? redText : greyText }>Best</p>
+                    </div>
                 </div>
 
-                <p style={rowDescriptorStyle}>Resolution</p>
-
-                <div className='flexRowPlans'>
-                    <p className={activePlan === 'basic' ? 'textRed' : 'textGrey'}>480p</p>
-                    <p className={activePlan === 'std' ? 'textRed' : 'textGrey'}>1080p</p>
-                    <p className={activePlan === 'premo' ? 'textRed' : 'textGrey'}>4K+HDR</p>
+                <div className='planBreakdown'>
+                    <h3>Resolution</h3>
+                    <div className='flexRowBreakdown'>
+                        <p style={activePlan === 'basic' ? redText : greyText }>480p</p>
+                        <p style={activePlan === 'std' ? redText : greyText }>1080p</p>
+                        <p style={activePlan === 'premo' ? redText : greyText}>4K+HDR</p>
+                    </div>
                 </div>
 
-                <p style={rowDescriptorStyle}>Watch on your TV, computer, mobile phone and tablet</p>
-
-                <div className='flexRowPlans'>
-                    <p className={activePlan === 'basic' ? 'textRed' : 'textGrey'}>{checkMarkSm}</p>
-                    <p className={activePlan === 'std' ? 'textRed' : 'textGrey'}>{checkMarkSm}</p>
-                    <p className={activePlan === 'premo' ? 'textRed' : 'textGrey'}>{checkMarkSm}</p>
+                <div className='planBreakdown' style={{ borderBottom: 'none' }}>
+                    <h3>Watch on your TV, computer, mobile phone and tablet</h3>
+                    <div className='flexRowBreakdown'>
+                        <p style={activePlan === 'basic' ? redText : greyText }>{checkMarkSm}</p>
+                        <p style={activePlan === 'std' ? redText : greyText }>{checkMarkSm}</p>
+                        <p style={activePlan === 'premo' ? redText : greyText }>{checkMarkSm}</p>
+                    </div>
                 </div>
 
                 <div className='planDetails'>
                     <p>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject
-                    to your internet service and device capabilities. Not all content is 
-                    available in all resolutions. See our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a> for more details.</p>
-                    <p>Only people who live with you may use your account. Watch on 4 different 
-                    devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
+                        to your internet service and device capabilities. Not all content is
+                        available in all resolutions. See our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a> for more details.</p>
+                    <p>Only people who live with you may use your account. Watch on 4 different
+                        devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
                 </div>
 
-                <button onClick={goToPayment} className='nextBtnAlt'>Next</button>
+                <button onClick={goToPayment} className='nextBtn'>Next</button>
             </div>
         </div>
     )
