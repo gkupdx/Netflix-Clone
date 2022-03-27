@@ -50,7 +50,7 @@ const EditPlan = ({ logo, checkMarkLg, checkMarkSm }) => {
     }
 
     return (
-        <div className='planForm'>
+        <div className='editPlan'>
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
                 <a href='/login'>Sign In</a>

@@ -154,7 +154,7 @@ const GiftOption = ({ logo }) => {
                     </div>
                 </div>
 
-                <button onClick={() => dispatch({ type: 'Verify Fields' })}className='redeemCodeBtn'>Redeem Gift Code</button>
+                <button onClick={() => dispatch({ type: 'Verify Fields' })} className='redeemCodeBtn'>Redeem Gift Code</button>
 
                 <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
                 {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
