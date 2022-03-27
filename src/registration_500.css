@@ -101,13 +101,14 @@
     }
     
     .flexColPayment h2 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: 500;
         letter-spacing: -1px;
         margin-bottom: 10px;
     }
 
     .flexColPayment h3 {
+        line-height: 1.2;
         margin-top: 0;
     }
     
@@ -185,85 +186,13 @@
     
     /* CREDIT/DEBIT OPTION */
     .creditOption {
-        width: 100%;
         height: 1125px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
     }
     
     .flexColCredit {
-        width: 75%;
         height: 900px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         margin: auto;
         margin-top: 30px;
-    }
-    
-    .flexColCredit p {
-        font-size: 0.8rem;
-    }
-    
-    .flexColCredit input {
-        width: 100%;
-        height: 60px;
-        padding: 10px;
-        margin-top: 10px;
-        border: 1px solid grey;
-    }
-    
-    .flexColCredit input::placeholder {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-    }
-
-    .flexColCredit input:focus {
-        outline: none;
-        border-color: blue;
-    }
-    
-    .currentPlanDiv {
-        width: 100%;
-        height: 70px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #F2F2F2;
-        padding: 10px;
-        margin-top: 10px;
-    }
-    
-    .currentPlanDiv button {
-        color: #1672F9;
-        font-size: 0.9rem;
-        font-weight: 700;
-        background: transparent;
-        border: none;
-    }
-    
-    .currentPlanDiv button:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
-    
-    .membershipDetails {
-        color: grey;
-        line-height: 0.9rem;
-        margin-top: 15px;
-    }
-    
-    .membershipDetails a {
-        text-decoration: none;
-    }
-    
-    .membershipDetails a:hover {
-        text-decoration: underline;
     }
     
     .startMembershipBtn {
@@ -289,158 +218,37 @@
     
     /* PAYPAL OPTION */
     .paypalOption {
-        width: 100%;
         height: 755px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
     }
     
     .flexColPaypal {
-        width: 80%;
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-        margin-bottom: 320px;
-    }
-    
-    .flexColPaypal p {
-        font-size: 0.8rem;
-        margin-top: 20px;
-    }
-    
-    .flexColPaypal h3 {
-        font-size: 1rem;
-        font-weight: normal;
-        letter-spacing: -1px;
-        margin-top: 20px;
-    }
-    
-    .payPalBtn {
-        display: inline-flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100%;
-        height: 65px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
-        border: none;
-        border-radius: 5px;
-        margin: auto;
-        margin-top: 40px;
-    }
-    
-    .payPalBtn:hover {
-        background: #ff2400;
-        cursor: pointer;
+        width: 430px;
     }
     
     /* GIFT CODE OPTION */
     .giftOption {
-        width: 100%;
         height: 790px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
     }
     
     .flexColGift {
-        width: 75%;
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-        margin-bottom: 250px;
-    }
-    
-    .flexColGift p {
-        font-size: 0.8rem;
-        margin-top: 30px;
-    }
-    
-    .flexColGift input {
-        width: 100%;
-        height: 60px;
-        padding: 10px;
-        margin-top: 10px;
-        border: 1px solid grey;
-    }
-    
-    .flexColGift input::placeholder {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
+        width: 420px;
     }
 
-    .flexColGift input:focus {
-        outline: none;
-        border-color: blue;
+    .flexColGift h1 {
+        margin-bottom: 10px;
     }
 
     .flexColGiftMb {
-        width: 75%;
-        height: 770px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-        margin-bottom: 400px;
+        width: 420px;
     }
 
     .flexColGiftMb p {
-        font-size: 0.8rem;
-        margin-top: 30px;
-    }
-    
-    .flexColGiftMb input {
-        width: 100%;
-        height: 60px;
-        padding: 10px;
-        margin-top: 10px;
-        border: 1px solid grey;
-    }
-    
-    .flexColGiftMb input::placeholder {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-    }
-
-    .flexColGiftMb input:focus {
-        outline: none;
-        border-color: blue;
+        margin-top: 25px;
     }
     
     .redeemCodeBtn {
-        display: inline-flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100%;
-        height: 65px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
-        border: none;
-        border-radius: 5px;
         margin: auto;
         margin-top: 30px;
-    }
-    
-    .redeemCodeBtn:hover {
-        background: #ff2400;
-        cursor: pointer;
     }
 
     /* FOOTER ALT - LIGHT */

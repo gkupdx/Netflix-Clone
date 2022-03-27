@@ -111,7 +111,7 @@
 }
 
 .flexColForm {
-    width: 400px;
+    width: 420px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -147,6 +147,7 @@
 
 .flexColForm input::placeholder {
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .flexColForm input:focus {
@@ -340,13 +341,14 @@
 }
 
 .planDetails p {
-    color: dimgrey;
+    color: #333;
     font-size: 0.8rem;
     margin: 0;
     padding-bottom: 10px;
 }
 
 .planDetails a {
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -476,7 +478,7 @@
     cursor: pointer;
 }
 
-/* CREDIT/DEBIT OPTION */
+/* CREDIT/DEBIT OPTION PAGE */
 .creditOption {
     width: 100%;
     height: 1100px;
@@ -490,7 +492,7 @@
 }
 
 .flexColCredit {
-    width: 80%;
+    width: 85%;
     height: 1000px;
     display: flex;
     flex-direction: column;
@@ -554,8 +556,9 @@
 
 .membershipDetails {
     color: grey;
-    line-height: 0.9rem;
-    margin-top: 15px;
+    letter-spacing: -0.25px;
+    line-height: 1rem;
+    margin-top: 20px;
 }
 
 .membershipDetails a {
@@ -587,7 +590,7 @@
     cursor: pointer;
 }
 
-/* PAYPAL OPTION */
+/* PAYPAL OPTION PAGE */
 .paypalOption {
     width: 100%;
     height: 720px;
@@ -601,7 +604,7 @@
 }
 
 .flexColPaypal {
-    width: 80%;
+    width: 85%;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -657,7 +660,7 @@
 }
 
 .flexColGift {
-    width: 80%;
+    width: 85%;
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -668,7 +671,11 @@
 
 .flexColGift p {
     font-size: 0.8rem;
-    margin-top: 30px;
+    margin-top: 25px;
+}
+
+.flexColGift h1 {
+    margin-bottom: 5px;
 }
 
 .flexColGift input {
@@ -690,7 +697,7 @@
 }
 
 .flexColGiftMb {
-    width: 80%;
+    width: 85%;
     height: 770px;
     display: flex;
     flex-direction: column;
@@ -699,9 +706,13 @@
     margin-bottom: 400px;
 }
 
+.flexColGiftMb h1 {
+    margin-bottom: 10px;
+}
+
 .flexColGiftMb p {
     font-size: 0.8rem;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 .flexColGiftMb input {
@@ -734,9 +745,7 @@
     font-size: 1.5rem;
     border: none;
     border-radius: 5px;
-    margin: auto;
     margin-top: 20px;
-    margin-bottom: -10px;
 }
 
 .redeemCodeBtn:hover {
@@ -744,11 +753,39 @@
     cursor: pointer;
 }
 
+.flexColGiftMb .redeemCodeBtn {
+    margin-top: 25px;
+}
+
 .giftOption .captcha {
     color: grey;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
+    margin-top: 15px;
+}
+
+.giftOption .learnMoreDetails {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.editPlan {
+    width: 100%;
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFF;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 150px;
+}
+
+.editPlan h1 {
+    margin-top: 20px;
 }
 
 /* FOOTER ALT - LIGHT THEME */
@@ -760,6 +797,9 @@
     font-family: 'Open Sans', sans-serif;
     border-top: 1px solid lightgrey;
 }
+
+/* Likely need a 'footerAltLightTwo' class for 'SignUp' component & onwards... */
+/* Different height from footerAltLight... annoying... */
 
 .footerAltLight button {
     display: inline-flex;
@@ -787,6 +827,7 @@
 .linksWrapperAltLight a {
     width: 50%;
     font-size: 0.8rem;
+    color: dimgrey;
     margin-top: 10px;
 }
 
