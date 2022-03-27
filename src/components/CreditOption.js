@@ -1,6 +1,6 @@
 //// CreditOption.js - component for the /signup/creditoption route
 
-import { useRef, useReducer } from 'react';
+import { useState, useRef, useEffect, useReducer } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 
 import visa from '../assets/visa.svg';
@@ -11,6 +11,7 @@ import discover from '../assets/discover.png';
 import { VscQuestion } from 'react-icons/vsc';
 
 const CreditOption = ({ logo, svgStyle, pngStyle }) => {
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     const navigate = useNavigate();
     const { state } = useLocation();
     const firstNameRef = useRef();
@@ -396,6 +397,27 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
     }
 
+    /* At browser width >= 525px, override 'flexColCredit' width using inline styling */
+    useEffect(() => {
+        const overrideWidth = () => {
+            let updateWidth = 0;
+
+            if (window.innerWidth >= 525) {
+                updateWidth = 525;    
+            } else {
+                updateWidth = 524;
+            }
+
+            setBrowserWidth(updateWidth);
+        }
+
+        window.addEventListener('resize', overrideWidth);
+
+        return () => {
+            window.removeEventListener('resize', overrideWidth);
+        }
+    });
+
     return (
         <div className='creditOption'>
             {/* NAVIGATION */}
@@ -405,7 +427,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
             </div>
 
             {/* BODY */}
-            <div className='flexColCredit'>
+            <div className='flexColCredit' style={{ width: browserWidth >= 525 && "430px" }}>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
                     <h1>Set up your credit or debit card</h1>
@@ -461,10 +483,10 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
                         By clicking the "Start Membership" button below, you agree to
                         our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a>,
                         <a href="https://help.netflix.com/legal/privacy">Privacy Statement</a>, that you
-                        are over 18, and that <b>Netflix will automatically continue your membership
+                        are over 18, and that <span style={{ fontWeight: "600" }}>Netflix will automatically continue your membership
                             and charge the membership fee (currently $19.99/month) to your payment
                             method until you cancel. You may cancel at any time to avoid future charges.
-                        </b>. To cancel, go to Account and click "Cancel Membership".
+                        </span>. To cancel, go to Account and click "Cancel Membership".
                     </p>
                 </div>
 
