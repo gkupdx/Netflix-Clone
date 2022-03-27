@@ -170,7 +170,7 @@ const Login = ({ fbIcon }) => {
 
     return (
         <div className='login'>
-            <button className='redirectBtn' onClick={() => navigate('/')}><img src={textLogo} alt='Netflix text logo' /></button>
+            <button className='logo' onClick={() => navigate('/')}><img src={textLogo} alt='Netflix text logo' /></button>
 
             <div className='formDiv'>
                 <h1>Sign In</h1>
