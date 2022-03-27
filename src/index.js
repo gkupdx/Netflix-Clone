@@ -4,10 +4,10 @@ import './index.css';
 import './index_550.css';
 import './index_950.css';
 import './login.css';
-import './login_576.css';
+import './login_500.css';
 import './login_950.css';
 import './registration.css';
-import './registration_576.css';
+import './registration_500.css';
 import App from './App';
 
 // React Router
