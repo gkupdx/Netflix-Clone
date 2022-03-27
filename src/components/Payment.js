@@ -1,5 +1,6 @@
 //// Payment.js - component for /signup/payment (Step 3)
 
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 
 import { MdLockOutline } from 'react-icons/md';
@@ -13,6 +14,7 @@ import paypal from '../assets/paypal.svg';
 import giftcard from '../assets/netflix_giftcard.svg';
 
 const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     const navigate = useNavigate();
     let { state } = useLocation();
 
@@ -53,6 +55,19 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
         });
     }
 
+    // Switch classNames between 'creditFlexCol' & 'creditFlexRow' depending on browser width
+    useEffect(() => {
+        const updateBrowserWidth = () => {
+            setBrowserWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', updateBrowserWidth);
+
+        return () => {
+            window.removeEventListener('resize', updateBrowserWidth);
+        }
+    });
+
 
     return (
         <div className='payment'>
@@ -82,7 +97,7 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
                 <div>
                     <p className='secureServer'>End-to-end encrypted <IoIosLock style={{ color: "#f9be08", fontSize: "1rem" }} /></p>
                     <div onClick={goToCredit} className='creditDiv'>
-                        <div className={window.innerWidth < 576 ? 'creditFlexCol' : 'creditFlexRow'}>
+                        <div className={browserWidth < 500 ? 'creditFlexCol' : 'creditFlexRow'}>
                             <div>
                                 <p>Credit or Debit Card</p>
                             </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import _ from 'lodash';
 
 const Footer = ({ globeIcon, caretIcon }) => {
+    const [width, setWidth] = useState(window.innerWidth);
     const [show, setShow] = useState(false);
 
     // Toggle for languages button
@@ -50,6 +51,19 @@ const Footer = ({ globeIcon, caretIcon }) => {
         }
     });
 
+    // Conditional rendering for the 'Corporate Information' link
+    useEffect(() => {
+        const updateWidth = () => {
+            setWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', updateWidth);
+
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        }
+    });
+
 
     return (
         <footer>
@@ -70,7 +84,7 @@ const Footer = ({ globeIcon, caretIcon }) => {
                     <a href='#tos'>Terms of Use</a>
                     <a href='#privacy'>Privacy</a>
                     <a href='#cookies'>Cookie Preferences</a>
-                    {window.innerWidth < 550 ? <a href='#ci'>Corporate Information</a> : <a href='#ci'>Corporate<br/>Information</a>}
+                    {width < 550 ? <a href='#ci'>Corporate Information</a> : <a href='#ci'>Corporate<br/>Information</a>}
                     <a href='#contact'>Contact Us</a>
                     <a href='#speedtest'>Speed Test</a>
                     <a href='#legal'>Legal Notices</a>
