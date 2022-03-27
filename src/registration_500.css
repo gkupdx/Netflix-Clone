@@ -1,24 +1,11 @@
-/* MEDIA QUERY BREAKPOINT for registration.css @ 576px width */
-@media screen and (min-width: 576px) {
+/* MEDIA QUERY BREAKPOINT for registration.css @ 500px width */
+@media screen and (min-width: 500px) {
     .registration {
-        width: 100%;
         height: 750px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
     }
     
     .flexRowFull {
-        width: 100%;
         height: 75px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid lightgrey;
     }
     
     .flexRowFull img {
@@ -26,102 +13,18 @@
         height: 100px;
     }
     
-    .flexRowFull img:hover {
-        cursor: pointer;
-    }
-    
     .flexRowFull a {
-        color: #333;
         font-size: 1rem;
-        font-weight: bold;
-        text-decoration: none;
-        margin-right: 10px;
-    }
-    
-    .flexRowFull a:hover {
-        text-decoration: underline;
-    }
-    
-    .flexCol {
-        width: 60%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-    }
-    
-    .flexCol img {
-        width: 80%;
-        height: auto;
-        margin-bottom: 40px;
-    }
-    
-    .flexCol p {
-        font-size: 0.8rem;
-    }
-    
-    .flexCol h1 {
-        margin-bottom: 15px;
-    }
-    
-    .flexCol h2 {
-        font-size: 1.2rem;
-        font-weight: normal;
-        letter-spacing: -1px;
-    }
-    
-    .flexCol h3 {
-        font-size: 1rem;
-        font-weight: normal;
-    }
-    
-    .nextBtn {
-        display: inline-flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100%;
-        height: 65px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
-        border: none;
-        border-radius: 5px;
-        margin: auto;
-        margin-top: 15px;
-    }
-    
-    .nextBtn:hover {
-        background: #ff2400;
-        cursor: pointer;
     }
     
     /* REG FORM ROUTE */
     .regForm {
-        width: 100%;
         height: 750px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
     }
     
     .flexColForm {
-        width: 80%;
+        width: 440px;
         height: 730px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-        margin-top: 40px;
-    }
-    
-    .flexColForm p {
-        font-size: 0.8rem;
     }
     
     .flexColForm h1 {
@@ -129,257 +32,83 @@
     }
     
     .flexColForm h3 {
-        font-size: 1.1rem;
-        font-weight: normal;
-        margin-top: 10px;
-    }
-    
-    .flexColForm input {
-        width: 100%;
-        height: 60px;
-        padding: 10px;
-        border: 1px solid grey;
-    }
-
-    .flexColForm input::placeholder {
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-
-    .flexColForm input:focus {
-        outline: none;
-        border-color: blue;
+        margin-top: 5px;
     }
     
     /* SIGN UP / PLANS ROUTE */
     .plans {
-        width: 100%;
         height: 815px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
-    .flexColPlans {
-        width: 60%;
-        height: 55%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-    }
-    
-    .flexColPlans p {
-        font-size: 0.8rem;
     }
 
     .flexColPlans h1 {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
     
     .flexColPlans h2 {
-        width: 250px;
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     
     /* PLAN FORM ROUTE */
     .planForm {
-        width: 100%;
-        height: 920px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
-        margin-bottom: 150px;
+        height: 940px;
     }
     
     .flexColFull {
         width: 90%;
-        height: 880px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
     }
-    
+
     .flexColFull p {
-        font-size: 0.8rem;
-        margin-top: 15px;
+        margin-top: 25px;
     }
     
     .flexColFull h1 {
-        margin-bottom: 15px;
-    }
-    
-    .flexColFull h2 {
-        font-size: 1.1rem;
-        font-weight: normal;
         letter-spacing: -1px;
     }
-    
-    .flexRowPlans {
-        width: 100%;
-        height: 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        border-bottom: 1px solid lightgrey;
-        margin: auto;
-        margin-top: 5px;
-    }
-    
-    .flexRowPlans p {
-        width: 80%;
-        font-size: 1rem;
-        margin: auto;
-    }
-    
-    .flexRowBtns {
-        width: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-    }
-    
-    .inactiveBtn {
-        position: relative;
-        width: 32%;
-        height: 70px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1rem;
-        font-weight: bold;
-        border: none;
-        opacity: 0.5;
-    }
-    
-    .activeBtn {
-        position: relative;
-        width: 32%;
-        height: 70px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1rem;
-        font-weight: bold;
-        border: none;
-        box-shadow: 0 0 30px 1px lightgrey;
-    }
-    
+
     .activeBtn:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-left: 70px;
-        width: 0;
-        height: 0;
-        border-top: 15px solid #e50914;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
+        margin-left: 55px;
     }
-    
-    .textGrey {
-        color: dimgrey;
-        font-size: rem;
-        font-weight: bold;
-        margin-top: 15px;
+
+    .planBreakdown {
+        height: 72px;
     }
-    
-    .textRed {
-        color: #e50914;
-        font-size: 0.8rem;
-        font-weight: bold;
-        margin-top: 15px;
+
+    .flexRowBreakdown p {
+        margin-bottom: 40px;
     }
     
     .planDetails {
-        color: dimgrey;
-        font-size: 1.1rem;
-    }
-    
-    .planDetails a {
-        text-decoration: none;
-    }
-    
-    .planDetails a:hover {
-        text-decoration: underline;
+        margin-top: -15px;
     }
 
-    .nextBtnAlt {
-        display: inline-flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 90%;
-        height: 65px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
-        border: none;
-        border-radius: 5px;
-        margin: auto;
-        margin-top: 25px;
+    .planDetails p {
+        padding-bottom: 0;
+        margin-bottom: -15px;
     }
 
-    .nextBtnAlt:hover {
-        background: #ff2400;
-        cursor: pointer;
+    .flexColFull .nextBtn {
+        margin-top: 15px;
     }
     
     /* PAYMENT ROUTE */
-    .payment {
-        width: 100%;
-        height: 825px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background: #FFF;
-        color: #333;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
     .flexColPayment {
-        width: 80%;
-        height: 530px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: auto;
-        margin-bottom: 170px;
+        width: 85%;
+        height: 680px;
     }
-    
+
     .flexColPayment p {
-        font-size: 0.8rem;
-        margin-top: 30px;
+        margin-top: 40px;
     }
     
     .flexColPayment h2 {
-        width: 200px;
-        font-size: 1.1rem;
-        font-weight: normal;
+        font-size: 1.15rem;
+        font-weight: 500;
         letter-spacing: -1px;
+        margin-bottom: 10px;
     }
-    
+
     .flexColPayment h3 {
-        width: 250px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        letter-spacing: -1px;
+        margin-top: 0;
     }
     
     .secureServer {
@@ -716,67 +445,20 @@
 
     /* FOOTER ALT - LIGHT */
     .footerAltLight {
-        width: 100%;
         height: 200px;
-        background: #f4f4f4;
-        color: dimgrey;
-        font-family: 'Open Sans', sans-serif;
-        border-top: 1px solid lightgrey;
-    }
-
-    .footerAltLight button {
-        display: inline-flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 140px;
-        height: 50px;
-        color: grey;
-        font-size: 18px;
-        border-radius: 2px;
-        background: #FFF;
-        border: 1px solid grey;
-    }
-
-    .linksWrapperAltLight {
-        width: 100%;
-        height: 50%;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin-top: 20px;
     }
     
     .linksWrapperAltLight a {
         width: 33.3%;
-        font-size: 0.8rem;
-        margin-top: 10px;
     }
 
     .languagePopUpLight {
-        position: fixed;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 137px;
-        height: 60px;
-        background: #FFF;
-        border: 1px solid dimgrey;
-        border-radius: 4px;
-        box-shadow: 3px 2px 0px 0px dimgrey;
-        margin-bottom: 72px;
+        padding: 4px;
+        margin-bottom: 68px;
     }
     
     .languagePopUpLight p {
-        width: 100%;
         font-size: 0.85rem;
-        padding-left: 10px;
       }
-      
-    .languagePopUpLight p:hover {
-        background: dimgrey;
-        color: #FFF;
-        cursor: default;
-    }
 }
 
