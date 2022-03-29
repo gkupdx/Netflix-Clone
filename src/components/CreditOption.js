@@ -419,7 +419,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
     });
 
     return (
-        <div className='creditOption'>
+        <div className={inputState === initialState ? 'creditOption' : 'creditOptionMb'}>
             {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
@@ -427,12 +427,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
             </div>
 
             {/* BODY */}
-            <div className='flexColCredit' style={{ width: browserWidth >= 525 && "430px" }}>
+            <div className={inputState === initialState ? 'flexColCredit' : 'flexColCreditMb'} style={{ width: browserWidth >= 525 && "430px" }}>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
                     <h1>Set up your credit or debit card</h1>
                 </div>
-                <div>
+                <div style={{ marginTop: "10px" }}>
                     <img src={visa} alt="Visa SVG" style={svgStyle} />
                     <img src={mastercard} alt="MasterCard SVG" style={svgStyle} />
                     <img src={amex} alt="American Express SVG" style={svgStyle} />
