@@ -87,6 +87,7 @@
     }
 
     .flexColFull .nextBtn {
+        width: 440px;
         margin-top: 15px;
     }
     
