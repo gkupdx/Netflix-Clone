@@ -201,6 +201,23 @@ const Banner = ({ chevronIcon }) => {
         } 
     }
 
+    // Apply conditional inline border styling based on state value
+    let inputBorderStyle = {};
+    if (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') {
+        inputBorderStyle = {
+            border: 'none',
+            borderBottom: '2px solid orange'
+        }
+    } else if (emailState.emailVal === 'valid') {
+        inputBorderStyle = {
+            borderBottom: 'none',
+            border: '1px solid green'
+        }
+    } else {
+        inputBorderStyle = {}
+    }
+
+
     return (
         <div className='main'>
             <h1>Unlimited movies, TV shows, and more.</h1>
@@ -209,7 +226,7 @@ const Banner = ({ chevronIcon }) => {
 
             {window.innerWidth < 950 ?
                 <div className='mainFlexRow'>
-                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={{ borderBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '2px solid orange', borderColor: emailState.emailVal === 'valid' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
                     {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                     {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
@@ -218,7 +235,7 @@ const Banner = ({ chevronIcon }) => {
                 :
                 <>
                     <div className='mainFlexRowAlt'>
-                        <input ref={emailRef} type="text" name="email" placeholder="Email address" style={{ borderBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '2px solid orange', borderColor: emailState.emailVal === 'valid' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                        <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
                         {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                         {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 

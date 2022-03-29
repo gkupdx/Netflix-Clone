@@ -212,6 +212,22 @@ const FAQ = ({ chevronIcon }) => {
         setShow(input);
     }
 
+    // Apply conditional inline border styling based on state value
+    let inputBorderStyle = {};
+    if (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') {
+        inputBorderStyle = {
+            border: 'none',
+            borderBottom: '2px solid orange'
+        }
+    } else if (emailState.emailVal === 'valid') {
+        inputBorderStyle = {
+            borderBottom: 'none',
+            border: '1px solid green'
+        }
+    } else {
+        inputBorderStyle = {}
+    }
+
     return (
         <div className='faq'>
             <div className={show === "" ? 'faqWrapper' : 'faqWrapperMb'}>
@@ -287,7 +303,7 @@ const FAQ = ({ chevronIcon }) => {
 
                 <div>
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={{ borderBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '2px solid orange', borderColor: emailState.emailVal === 'valid' ? 'green' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
                     {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                     {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
