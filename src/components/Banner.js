@@ -1,9 +1,10 @@
 //// Banner.js - component for Netflix hero image banner
 
-import { useEffect, useRef, useReducer } from 'react';
+import { useState, useEffect, useRef, useReducer } from 'react';
 import { useNavigate } from 'react-router';
 
 const Banner = ({ chevronIcon }) => {
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     let navigate = useNavigate();
     const emailRef = useRef();
 
@@ -21,9 +22,9 @@ const Banner = ({ chevronIcon }) => {
             case 'Valid':
                 return { emailVal: 'valid' }
             // 'Valid Click' = email passed validation AND 'Get Started' button was clicked
-            case 'Valid Click': 
-                return { emailVal : 'valid click' }
-            default: 
+            case 'Valid Click':
+                return { emailVal: 'valid click' }
+            default:
                 return state;
         }
     }
@@ -54,11 +55,11 @@ const Banner = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // a '.' is RIGHT AFTER the '@' index (invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -68,7 +69,7 @@ const Banner = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -120,11 +121,11 @@ const Banner = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // '.' character is RIGHT AFTER the '@' index (i.e. invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -134,7 +135,7 @@ const Banner = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -170,11 +171,11 @@ const Banner = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // '.' character is RIGHT AFTER the '@' index (i.e. invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -184,7 +185,7 @@ const Banner = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -198,7 +199,7 @@ const Banner = ({ chevronIcon }) => {
                     type: 'Valid'
                 });
             }
-        } 
+        }
     }
 
     // Apply conditional inline border styling based on state value
@@ -217,32 +218,55 @@ const Banner = ({ chevronIcon }) => {
         inputBorderStyle = {}
     }
 
+    // At browser width >= 600px, override 'main' width using inline styling 
+    useEffect(() => {
+        const overrideWidth = () => {
+            let updateWidth = 0;
+
+            if (window.innerWidth >= 600) {
+                updateWidth = 600;
+            } else {
+                updateWidth = 599;
+            }
+
+            setBrowserWidth(updateWidth);
+        }
+
+        window.addEventListener('resize', overrideWidth);
+
+        return () => {
+            window.removeEventListener('resize', overrideWidth);
+        }
+    });
+
 
     return (
-        <div className='main'>
-            <h1>Unlimited movies, TV shows, and more.</h1>
-            <h2>Watch anywhere. Cancel anytime.</h2>
-            <p>Ready to watch? Enter your email to create or restart your membership</p>
+        <div className='banner'>
+            <div className='bannerWrapper' style={{ width: browserWidth >= 600 && "600px" }}>
+                <h1>Unlimited movies, TV shows, and more.</h1>
+                <h2>Watch anywhere. Cancel anytime.</h2>
+                <p>Ready to watch? Enter your email to create or restart your membership</p>
 
-            {window.innerWidth < 950 ?
-                <div className='mainFlexRow'>
-                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
-                    {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
-
-                    <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
-                </div>
-                :
-                <>
-                    <div className='mainFlexRowAlt'>
-                        <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
+                {window.innerWidth < 950 ?
+                    <div className='mainFlexRow'>
+                        <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                         {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                         {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
 
                         <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
                     </div>
-                </>
-            }
+                    :
+                    <>
+                        <div className='mainFlexRowAlt'>
+                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
+                            {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
+
+                            <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
+                        </div>
+                    </>
+                }
+            </div>
         </div>
     )
 }

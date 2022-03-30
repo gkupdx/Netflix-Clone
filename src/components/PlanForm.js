@@ -1,9 +1,10 @@
 //// PlanForm.js - component for /signup/planform (Step 2 continued)
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     // sets the default plan choice to "Premium"
     const [activePlan, setActivePlan] = useState('premo');
     let navigate = useNavigate();
@@ -32,6 +33,27 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
             }
         });
     }
+
+    // Switch classes from 'planBreakdown' to 'planBreakdownAlt' based on browser width
+    useEffect(() => {
+        let updateWidth;
+
+        const changeClasses = () => {
+            if (window.innerWidth < 607) {
+                updateWidth = 606;
+            } else {
+                updateWidth = 607;
+            }
+
+            setBrowserWidth(updateWidth);
+        }
+
+        window.addEventListener('resize', changeClasses);
+
+        return () => {
+            window.removeEventListener('resize', changeClasses);
+        }
+    });
 
     /* Temp styling */
     const flexRow = {
@@ -104,7 +126,7 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
                     </div>
                 </div>
 
-                <div className='planBreakdown' style={{ borderBottom: 'none' }}>
+                <div className={browserWidth < 607 ? 'planBreakdown' : 'planBreakdownAlt'} style={{ borderBottom: 'none' }}>
                     <h3>Watch on your TV, computer, mobile phone and tablet</h3>
                     <div className='flexRowBreakdown'>
                         <p style={activePlan === 'basic' ? redText : greyText }>{checkMarkSm}</p>
