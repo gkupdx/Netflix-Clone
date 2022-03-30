@@ -21,7 +21,7 @@ const SignUp = ({ logo, checkMarkCircle, checkMark }) => {
 
             {/* BODY */}
             <div className='flexColPlans'>
-                <div>
+                <div className='checkMarkCircle'>
                     {checkMarkCircle}
                 </div>
                 <div>

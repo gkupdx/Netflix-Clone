@@ -79,7 +79,7 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
 
             {/* BODY */}
             <div className='flexColPayment'>
-                <div>
+                <div className='mdLockIcon'>
                     <MdLockOutline style={{ color: "#e50914", fontSize: "2.5rem" }} />
                 </div>
                 <div>
