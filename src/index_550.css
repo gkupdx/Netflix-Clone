@@ -39,22 +39,22 @@
     }
 
     /* HERO IMAGE / BANNER */
-    .main {
+    .banner {
         height: 760px;
     }
       
-    .main h1 {
-        width: 85%;
+    .bannerWrapper h1 {
+        width: 100%;
         font-size: 2.95rem;
     }
       
-    .main h2 {
+    .bannerWrapper h2 {
         width: 85%;
         font-weight: 600;
         font-size: 1.5rem;
     }
       
-    .main p {
+    .bannerWrapper p {
         width: 70%;
     }
       
@@ -184,14 +184,14 @@
 
 /* media query @ 590px width */
 @media screen and (min-width: 590px) {
-    .main {
+    .banner {
         height: 700px;
     }
 }
 
 /* media query @ 740px width */
 @media screen and (min-width: 740px) {
-    .main {
+    .banner {
         height: 730px;
     }
 }

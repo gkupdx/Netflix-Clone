@@ -65,15 +65,9 @@
     margin-bottom: 15px;
 }
 
-.flexCol h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    letter-spacing: -1px;
-}
-
 .flexCol h3 {
-    font-size: 1rem;
-    font-weight: normal;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .nextBtn {
@@ -111,7 +105,7 @@
 }
 
 .flexColForm {
-    width: 390px;
+    width: 85%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -242,7 +236,7 @@
 
 .flexColFull p {
     font-size: 0.8rem;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .flexColFull h1 {
@@ -297,8 +291,7 @@
     content: '';
     position: absolute;
     top: 100%;
-    left: 0;
-    margin-left: 50px;
+    left: 40%;
     width: 0;
     height: 0;
     border-top: 15px solid #e50914;

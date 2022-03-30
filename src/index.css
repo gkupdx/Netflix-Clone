@@ -98,7 +98,8 @@
 }
 
 /* HERO IMAGE / BANNER */
-.main {
+.banner {
+    width: 100%;
     height: 515px;
     display: flex;
     flex-direction: column;
@@ -110,9 +111,18 @@
     box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
     text-align: center;
 }
+
+.bannerWrapper {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
   
-.main h1 {
-    width: 90%;
+.bannerWrapper h1 {
+    width: 100%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.7rem;
@@ -120,7 +130,7 @@
     margin-top: 50px;
 }
   
-.main h2 {
+.bannerWrapper h2 {
     width: 80%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
@@ -129,7 +139,7 @@
     margin-top: 15px;
 }
   
-.main p {
+.bannerWrapper p {
     width: 80%;
     color: #FFF;
     font-family: 'Open Sans', sans-serif;

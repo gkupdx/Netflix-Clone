@@ -1,10 +1,10 @@
 /* MEDIA QUERY BREAKPOINT for index.css @ 750px */
 @media screen and (min-width: 750px) {
-    .main h2 {
+    .bannerWrapper h2 {
         font-size: 1.5rem;
     }
 
-    .main p {
+    .bannerWrapper p {
         font-size: 1.5rem;
     }
 
@@ -12,7 +12,7 @@
         width: 90%;
     }
 
-    .main input {
+    .mainFlexRow input {
         width: 80%;
         height: 60px;
         padding-left: 10px;
@@ -109,7 +109,7 @@
     }
 
     /* LANDING PAGE */
-    .main {
+    .banner {
         width: 100%;
         height: 690px;
         display: flex;
@@ -123,7 +123,7 @@
         text-align: center;
     }
       
-    .main h1 {
+    .bannerWrapper h1 {
         width: 55%;
         color: #FFF;
         font-family: 'Open Sans', sans-serif;
@@ -131,7 +131,7 @@
         font-weight: 700;
     }
       
-    .main h2 {
+    .bannerWrapper h2 {
         width: 85%;
         color: #FFF;
         font-family: 'Open Sans', sans-serif;
@@ -140,7 +140,7 @@
         margin-top: 15px;
     }
       
-    .main p {
+    .bannerWrapper p {
         width: 70%;
         color: #FFF;
         font-family: 'Open Sans', sans-serif;
@@ -157,7 +157,7 @@
         align-items: center;
     }
       
-    .main input {
+    .mainFlexRowAlt input {
         width: 60%;
         height: 60px;
         padding-left: 10px;
@@ -165,16 +165,16 @@
         border: 1px solid grey;
     }
       
-    .main input::placeholder {
+    .mainFlexRowAlt input::placeholder {
         font-size: 1rem;
     }
 
-    .main input:focus {
+    .mainFlexRowAlt input:focus {
         outline: none;
         border-color: blue;
     }
       
-    .main button {
+    .mainFlexRowAlt button {
         display: inline-flex;
         justify-content: space-evenly;
         align-items: center;
@@ -193,7 +193,7 @@
         margin-top: 15px;
     }
       
-    .main button:hover {
+    .mainFlexRowAlt button:hover {
         background: #ff2400;
         cursor: pointer;
     }
