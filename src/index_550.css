@@ -65,7 +65,7 @@
         width: 80%;
     }
       
-    .mainFlexRow input {
+    .bannerFlexRow input {
         width: 85%;
     }
 
@@ -102,11 +102,7 @@
       
     .faq p {
         width: 85%;
-        margin-top: 25px;
-    }
-      
-    .faq input {
-        width: 100%;
+        margin-top: 35px;
     }
 
     .getStartedBtn {
@@ -164,6 +160,14 @@
         margin: 0;
     }
 
+    .faqFlexRow input {
+        width: 100%;
+    }
+
+    .faqFlexRow p {
+        margin-top: 5px;
+    }
+
     /* FOOTER */
     footer {
         height: 415px;
@@ -171,6 +175,11 @@
     
     .footerWrapper p {
         margin-top: 50px;
+    }
+
+    .footerWrapper button {
+        width: 160px;
+        height: 50px;
     }
     
     .linksWrapper {
@@ -184,6 +193,7 @@
     }
 
     .languagePopUpAlt {
+        width: 160px;
         margin-bottom: 70px;
     }
     
@@ -193,10 +203,16 @@
       }
 }
 
-/* MEDIA QUERY for index.css @ 590px width */
+/* MEDIA QUERIES for additional breakpoints (small changes only) */
 @media screen and (min-width: 590px) {
     .banner {
         height: 700px;
+    }
+}
+
+@media screen and (min-width: 625px) {
+    .faqFlexRow input {
+        width: 458px;
     }
 }
 
@@ -206,7 +222,6 @@
     }
 }
 
-/* MEDIA QUERY for index.css @ 710px width */
 @media screen and (min-width: 710px) {
     section {
         height: 670px;
@@ -217,7 +232,6 @@
     }
 }
 
-/* MEDIA QUERY for index.css @ 740px width */
 @media screen and (min-width: 740px) {
     /* HERO BANNER */
     .banner {
@@ -228,17 +242,25 @@
         font-size: 1.4rem;
     }
 
-    .mainFlexRow input {
+    .bannerFlexRow p {
+        font-size: 0.9rem;
+    }
+
+    .bannerFlexRow input {
         height: 60px;
     }
 
     /* FAQ */
     .faq p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
-    .faq input {
+    .faqFlexRow input {
         height: 60px;
+    }
+
+    .faqFlexRow p {
+        font-size: 0.9rem;
     }
 
     /* FOOTER */

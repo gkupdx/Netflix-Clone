@@ -1,184 +1,70 @@
-/* MEDIA QUERY BREAKPOINT for index.css @ 750px */
-@media screen and (min-width: 750px) {
-    .bannerWrapper h2 {
-        font-size: 1.5rem;
-    }
-
-    .bannerWrapper p {
-        font-size: 1.5rem;
-    }
-
-    .mainFlexRow {
-        width: 90%;
-    }
-
-    .mainFlexRow input {
-        width: 80%;
-        height: 60px;
-        padding-left: 10px;
-        margin-top: 15px;
-        border: 1px solid grey;
-    }
-}
-
 /* MEDIA QUERY BREAKPOINT for index.css @ 950px width */
 @media screen and (min-width: 950px) {
-    /* NAVBAR */
-    .nav {
-        position: absolute;
-        width: 90%;
-        height: 70px;
-        padding: 10px;
-        background: transparent;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-left: 5%;
-    }
-      
+    /* NAVBAR */ 
     .nav img {
         width: 175px;
         height: 100px;
         margin-top: 20px;
     }
-      
-    .nav ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-        margin-top: 15px;
-    }
-      
-    .nav ul li a {
-        margin: 5px 20px;
-    }
-      
-    .languageBtn {
-        display: inline-flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100px;
-        height: 35px;
-        background: transparent;
-        color: #FFF;
-        font-size: 0.9rem;
-        border: 1px solid #FFF;
-        border-radius: 2px;
-    }
-      
-    .languageDropDown {
-        position: absolute;
-        top: 55px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100px;
-        height: 50px;
-        background: #282828;
-        border: 1px solid dimgrey;
-        border-radius: 2px;
-        box-shadow: 0 0 0px 2px #000;
-        padding-left: 5px;
-    }
-      
-    .languageDropDown p {
-        font-size: 0.9rem;
-        margin-top: 0;
-    }
-      
-    .languageDropDown p:hover {
-        background: dimgrey;
-        cursor: default;
-    }
-      
-    .signIn {
-        background: #e50914;
-        color: #FFF;
-        text-decoration: none;
-        padding: 7px 17px;
-        border-radius: 3px;
-    }
     
-    .browseBtn {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
     /* LANDING PAGE */
     .banner {
-        width: 100%;
         height: 690px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-image: url('assets/netflix_landing_page_bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        box-shadow: inset 0 -200px 200px #000, inset 0 50px 200px #000;
-        text-align: center;
     }
       
     .bannerWrapper h1 {
-        width: 55%;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
         font-size: 3rem;
-        font-weight: 700;
     }
       
     .bannerWrapper h2 {
-        width: 85%;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 600;
-        font-size: 1.5rem;
         margin-top: 15px;
     }
       
     .bannerWrapper p {
-        width: 70%;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
+        width: 100%;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-align: center;
         margin-top: 30px;
     }
 
-    .mainFlexRowAlt {
-        width: 90%;
+    .bannerFlexRowAlt {
+        width: 110%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
       
-    .mainFlexRowAlt input {
-        width: 60%;
+    .bannerFlexRowAlt input {
+        width: 450px;
         height: 60px;
         padding-left: 10px;
-        margin-top: 15px;
+        margin-top: 20px;
         border: 1px solid grey;
     }
       
-    .mainFlexRowAlt input::placeholder {
+    .bannerFlexRowAlt input::placeholder {
         font-size: 1rem;
     }
 
-    .mainFlexRowAlt input:focus {
+    .bannerFlexRowAlt input:focus {
         outline: none;
         border-color: blue;
     }
+
+    .bannerFlexRowAlt p {
+        color: orange;
+        font-size: 0.9rem;
+        text-align: left;
+        margin-top: 5px;
+        opacity: 0;
+    }
       
-    .mainFlexRowAlt button {
+    .bannerFlexRowAlt button {
         display: inline-flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 200px;
+        width: 250px;
         height: 60px;
         background: #e50914;
         color: #FFF;
@@ -190,48 +76,41 @@
         border-bottom-left-radius: 0;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
-        margin-top: 15px;
+        margin-top: -30px;
     }
       
-    .mainFlexRowAlt button:hover {
+    .bannerFlexRowAlt button:hover {
         background: #ff2400;
         cursor: pointer;
     }
 
     /* SECTION / SUBSECTION */
     section {
-        width: 100%;
-        height: 400px;
-        display: flex;
-        background: #000;
-        color: #FFF;
-        border-top: 7px solid #3d3d3d;
+        height: calc(40vw + 10px);
     }
       
     .subsectionWrapper {
         width: 90%;
-        height: 300px;
+        height: 50%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
         text-align: left;
+        margin: auto;
+        padding-bottom: 50px;
     }
     
     .subsectionContent {
-        width: 80%;
+        width: 90%;
     }
       
-    .subsectionWrapper h2 {
-        font-family: 'Open Sans', sans-serif;
+    .subsectionContent h2 {
         font-size: 3rem;
-        font-weight: 700;
-        margin-left: 10px;
         line-height: 1.2;
+        margin-left: 10px;
     }
     
     .subsectionContent h4 {
-        font-family: 'Open Sans', sans-serif;
         font-size: 1.55rem;
         font-weight: normal;
         margin-top: 20px;
@@ -240,20 +119,11 @@
 
     /* FAQ */
     .faq {
-        width: 100%;
         min-height: 925px;
-        display: flex;
-        background: #000;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        border-top: 7px solid #3d3d3d;
         padding-bottom: 85px;
     }
       
     .faq p {
-        width: 85%;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
         font-size: 1.1rem;
         margin: auto;
         margin-top: 65px;
@@ -261,49 +131,19 @@
       
     .faq input {
         width: 65%;
-        height: 60px;
-        padding: 10px;
-        margin: auto;
-        border: 1px solid grey;
-    }
-
-    .faq input:focus {
-        outline: none;
-        border-color: blue;
     }
 
     .getStartedBtn {
-        display: inline-flex;
-        justify-content: space-evenly;
-        align-items: center;
         width: 200px;
         height: 60px;
-        background: #e50914;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
         font-size: 1.5rem;
-        border: none;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
         margin: auto;
         margin-top: 20px;
         padding: 15px;
     }
       
-    .getStartedBtn:hover {
-        background: #ff2400;
-        cursor: pointer;
-    }
-      
     .faqWrapper {
-        width: 75%;
         min-height: 750px;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: auto;
     }
 
     .faqWrapper h1 {
@@ -313,100 +153,80 @@
 
     /* faqWrapper with margin-bottom */
     .faqWrapperMb {
-        width: 75%;
         min-height: 750px;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
         margin: auto;
         margin-bottom: 20px;
     }
 
     .faqWrapperMb h1 {
         font-size: 3rem;
-        margin-top: 50px;
-        margin-bottom: 30px;
     }  
 
     .faqBtn {
         width: 90%;
         height: 75px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #333;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
         font-size: 1.6rem;
-        border: none;
         padding-left: 2rem;
         margin: auto;
         margin-top: 10px;
     }
-    
-    .faqBtn:hover {
-        cursor: pointer;
+
+    @keyframes slide-down {
+        from {
+            max-height: 0;
+        }
+        to {
+            max-height: 550px;
+        }
     }
     
     .faqBtnDetails {
         width: 90%;
-        max-height: 550px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: left;
-        background: #333;
-        border-top: 1px solid #000;
         margin: auto;
-        transition: all 0.1s ease-out;
     }
     
     .faqBtnDetails p {
-        width: 100%;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
         font-size: 1.6rem;
         padding: 1.7rem;
         margin: 0;
     }
-    
-    .hiddenDetails {
-        height: 0;
-        transition: all 0.1s ease-in;
+
+    .faqFlexRow {
+        width: 105%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faqFlexRow input {
+        width: 450px;
+        height: 60px;
+        padding-left: 10px;
+        margin-top: 20px;
+        border: 1px solid grey;
+    }
+
+    .faqFlexRow input::placeholder {
+        font-size: 1rem;
+    }
+
+    .faqFlexRow input:focus {
+        outline: none;
+        border-color: blue;
+    }
+
+    .faqFlexRow p {
+        color: orange;
+        font-size: 0.9rem;
+        text-align: left;
+        margin-top: 5px;
+        opacity: 0;
     }
 
     /* FOOTER */
     footer {
-        width: 100%;
         height: 380px;
         display: flex;
-        background: #000;
-        color: grey;
-        font-family: 'Open Sans', sans-serif;
-        border-top: 7px solid #3d3d3d;
-    }
-      
-    footer a {
-        color: grey;
-        text-decoration: none;
-    }
-      
-    footer a:hover {
-        text-decoration: underline;
-    }
-      
-    .footerWrapper button {
-        display: inline-flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 150px;
-        height: 55px;
-        background: transparent;
-        color: grey;
-        font-size: 18px;
-        border: 1px solid #3d3d3d;
-        border-radius: 2px;
-        margin-top: 10px;
     }
       
     .footerWrapper {
@@ -418,19 +238,9 @@
         margin: auto;
     }
     
-    .footerWrapper p {
-        width: 80%;
-        font-weight: 500;
-        margin-top: 50px;
-    }
-    
     .linksWrapper {
-        width: 100%;
-        height: 50%;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
         margin: auto;
+        margin-top: 30px;
     }
       
     .linksWrapper a {
@@ -439,29 +249,17 @@
     }
 
     .languagePopUpAlt {
-        position: absolute;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 135px;
-        height: 50px;
-        background: #000;
-        border: 1px solid dimgrey;
-        border-radius: 2px;
-        box-shadow: 0 0 0px 2px #000;
-        padding-left: 5px;
-        margin-bottom: 62px;
+        width: 160px;
     }
-      
-    .languagePopUpAlt p {
-        font-size: 0.9rem;
-        margin-top: 0;
+}
+
+/* MEDIA QUERY for index.css @ 1150px breakpoint */
+@media screen and (min-width: 1150px) {
+    section {
+        height: 470px;
     }
-      
-    .languagePopUpAlt p:hover {
-        color: #FFF;
-        background: dimgrey;
-        cursor: default;
+
+    .subsectionWrapper {
+        width: 1020px;
     }
 }
