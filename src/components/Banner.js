@@ -244,7 +244,7 @@ const Banner = ({ chevronIcon }) => {
 
 
     return (
-        <div className='banner'>
+        <div className='banner' style={{ marginBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '30px' }}>
             <div className='bannerWrapper' style={{ width: browserWidth >= 600 && "600px" }}>
                 <h1>Unlimited movies, TV shows, and more.</h1>
                 <h2>Watch anywhere. Cancel anytime.</h2>
@@ -252,18 +252,22 @@ const Banner = ({ chevronIcon }) => {
 
                 {browserWidth < 950 ?
                     <div className='bannerFlexRow'>
-                        <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                        {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
-                        {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
+                        <div>
+                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            {emailState.emailVal === 'empty' && <p>Email is required!</p>}
+                            {emailState.emailVal === 'invalid' && <p>Please enter a valid email address</p>}
+                        </div>
 
                         <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
                     </div>
                     :
                     <>
                         <div className='bannerFlexRowAlt'>
-                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
-                            {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
-                            {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
+                            <div>
+                                <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                                <p style={{ opacity: emailState.emailVal === 'empty' && '1' }}>Email is required!</p>
+                                <p style={{ opacity: emailState.emailVal === 'invalid' && '1' }}>Please enter a valid email address</p>
+                            </div>
 
                             <button onClick={goToRegistration}>Get Started {chevronIcon}</button>
                         </div>
