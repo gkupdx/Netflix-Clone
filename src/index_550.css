@@ -1,3 +1,10 @@
+/* MEDIA QUERY for index.css @ 470px */
+@media screen and (min-width: 470px) {
+    section {
+        height: calc(100vw + 20px);
+    }
+}
+
 /* MEDIA QUERY BREAKPOINT for index.css @ 550px width */
 @media screen and (min-width: 550px) {
     /* NAVBAR */
@@ -63,17 +70,21 @@
     }
 
     /* SECTION / SUBSECTION */
+    section {
+        height: calc(100vw - 10px);
+    }
     .subsectionWrapper {
         width: 95%;
         margin-bottom: 100px;
     }
 
     .subsectionWrapper img {
-        width: calc(85% + 25px);
+        width: 85%;
     }
       
     .subsectionWrapper h2 {
         font-size: 2.35rem;
+        margin-top: 50px;
     }
     
     .subsectionContent h4 {
@@ -189,11 +200,21 @@
     }
 }
 
-/* MEDIA QUERY for index.css @ 705px width */
-@media screen and (min-width: 705px) {
-    /* .subsection {
-        max-height: 500px;
-    } */
+@media screen and (min-width: 700px) {
+    section {
+        height: 735px;
+    }
+}
+
+/* MEDIA QUERY for index.css @ 710px width */
+@media screen and (min-width: 710px) {
+    section {
+        height: 670px;
+    }
+
+    .subsectionWrapper h2 {
+        margin-top: 30px;
+    }
 }
 
 /* MEDIA QUERY for index.css @ 740px width */
