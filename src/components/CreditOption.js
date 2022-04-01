@@ -471,8 +471,8 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
 
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={{ fontSize: "0.85rem", fontWeight: "700" }}>{state.price}</p>
-                            <p style={{ fontSize: "0.85rem", fontWeight: "500", color: "grey" }}>{state.planName}</p>
+                            <p className='price'>{state.price}</p>
+                            <p className='planName'>{state.planName}</p>
                         </div>
 
                         <button onClick={() => navigate('/signup/editplan')}>Change</button>

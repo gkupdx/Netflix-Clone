@@ -23,8 +23,8 @@ const PaypalOption = ({ logo }) => {
                 <div>
                     <div className='currentPlanDiv'>
                         <div>
-                            <p style={{ fontSize: "0.85rem", fontWeight: "700", marginTop: "0" }}>{state.price}</p>
-                            <p style={{ fontSize: "0.85rem", fontWeight: "500", marginTop: "0", color: "grey"}}>{state.planName}</p>
+                            <p className='price' style={{ marginTop: "0" }}>{state.price}</p>
+                            <p className='planName' style={{ marginTop: "0" }}>{state.planName}</p>
                         </div>
 
                         <button onClick={() => navigate('/signup/editplan')}>Change</button>
