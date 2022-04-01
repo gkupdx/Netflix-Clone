@@ -218,15 +218,18 @@ const Banner = ({ chevronIcon }) => {
         inputBorderStyle = {}
     }
 
-    // At browser width >= 600px, override 'main' width using inline styling 
+    // At browser width >= 600px, override 'banner' width using inline styling AND
+    // at browser width >= 950px, render 'mainFlexRowAlt' instead of 'mainFlexRow'
     useEffect(() => {
         const overrideWidth = () => {
             let updateWidth = 0;
 
-            if (window.innerWidth >= 600) {
+            if (window.innerWidth < 600) {
+                updateWidth = 599;
+            } else if (window.innerWidth >= 600 && window.innerWidth < 950) {
                 updateWidth = 600;
             } else {
-                updateWidth = 599;
+                updateWidth = 950;
             }
 
             setBrowserWidth(updateWidth);
@@ -247,8 +250,8 @@ const Banner = ({ chevronIcon }) => {
                 <h2>Watch anywhere. Cancel anytime.</h2>
                 <p>Ready to watch? Enter your email to create or restart your membership</p>
 
-                {window.innerWidth < 950 ?
-                    <div className='mainFlexRow'>
+                {browserWidth < 950 ?
+                    <div className='bannerFlexRow'>
                         <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                         {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                         {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
@@ -257,7 +260,7 @@ const Banner = ({ chevronIcon }) => {
                     </div>
                     :
                     <>
-                        <div className='mainFlexRowAlt'>
+                        <div className='bannerFlexRowAlt'>
                             <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
                             {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
                             {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
