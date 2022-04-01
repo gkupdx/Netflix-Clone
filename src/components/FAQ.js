@@ -25,9 +25,9 @@ const FAQ = ({ chevronIcon }) => {
             case 'Valid':
                 return { emailVal: 'valid' }
             // 'Valid Click' = email passed validation AND 'Get Started' button was clicked
-            case 'Valid Click': 
-                return { emailVal : 'valid click' }
-            default: 
+            case 'Valid Click':
+                return { emailVal: 'valid click' }
+            default:
                 return state;
         }
     }
@@ -58,11 +58,11 @@ const FAQ = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // a '.' is RIGHT AFTER the '@' index (invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -72,7 +72,7 @@ const FAQ = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -102,7 +102,7 @@ const FAQ = ({ chevronIcon }) => {
         }
     }, [emailState.emailVal, navigate]);
 
-    
+
     // OnBlur handler
     const handleOnBlur = (event) => {
         let fieldVal = event.target.value;
@@ -122,11 +122,11 @@ const FAQ = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // '.' character is RIGHT AFTER the '@' index (i.e. invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -136,7 +136,7 @@ const FAQ = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -172,11 +172,11 @@ const FAQ = ({ chevronIcon }) => {
                     let atSignIndex = i;
 
                     // '.' character is RIGHT AFTER the '@' index (i.e. invalid so break loop)
-                    if (fieldVal.charAt(atSignIndex+1) === '.') { 
+                    if (fieldVal.charAt(atSignIndex + 1) === '.') {
                         break;
                     } else {
                         // test to see if character RIGHT after the '@' is alphabet
-                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex+1));
+                        let alphaRegex = /^[a-zA-Z]+$/.test(fieldVal.charAt(atSignIndex + 1));
 
                         // if true, check to see if substring after the '@' includes '.com'
                         if (alphaRegex) {
@@ -186,7 +186,7 @@ const FAQ = ({ chevronIcon }) => {
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -200,7 +200,7 @@ const FAQ = ({ chevronIcon }) => {
                     type: 'Valid'
                 });
             }
-        } 
+        }
     }
 
     // Toggle for FAQ buttons
@@ -229,7 +229,7 @@ const FAQ = ({ chevronIcon }) => {
     }
 
     return (
-        <div className='faq'>
+        <div className='faq' style={{ marginBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '25px' }}>
             <div className={show === "" ? 'faqWrapper' : 'faqWrapperMb'}>
                 <h1>Frequently Asked Questions</h1>
                 <button className='faqBtn' onClick={() => toggleFAQBtn("what")}>What is Netflix? {show === 'what' ? <AiOutlineClose style={{ fontSize: "25px" }} /> : <AiOutlinePlus style={{ fontSize: "25px" }} />}</button>
@@ -303,11 +303,15 @@ const FAQ = ({ chevronIcon }) => {
 
                 <div>
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                    {emailState.emailVal === 'empty' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Email is required!</p>}
-                    {emailState.emailVal === 'invalid' && <p style={{ color: 'orange', fontSize: '0.9rem' }}>Please enter a valid email address</p>}
+                    <div className='faqFlexRow'>
+                        <div>
+                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            {emailState.emailVal === 'empty' && <p>Email is required!</p>}
+                            {emailState.emailVal === 'invalid' && <p>Please enter a valid email address</p>}
+                        </div>
 
-                    <button className='getStartedBtn' onClick={goToRegistration}>Get Started {chevronIcon}</button>
+                        <button className='getStartedBtn' onClick={goToRegistration}>Get Started {chevronIcon}</button>
+                    </div>
                 </div>
             </div>
         </div>
