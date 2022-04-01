@@ -296,12 +296,12 @@
     }
 
     .inactiveBtn {
-        width: 29%;
+        width: 90px;
         height: 90px;
     }
 
     .activeBtn {
-        width: 29%;
+        width: 90px;
         height: 90px;
     }
 
@@ -375,5 +375,71 @@
     .flexColPayment h3 {
         margin: auto;
         text-align: center;
+    }
+}
+
+/* MEDIA QUERY for registration.css @ 668px */
+@media screen and (min-width: 668px) {
+    .flexColFull .nextBtn {
+        margin-top: 15px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .flexColFull .nextBtn {
+        margin-top: 5px;
+    }
+}
+
+/* MEDIA QUERY for registration.css @ 740px breakpoint */
+@media screen and (min-width: 740px) {
+    /* NAV */
+    .flexRowFull {
+        height: 90px;
+    }
+
+    .flexRowFull a {
+        font-size: 1.1rem;
+        margin-right: 20px;
+    }
+
+    /* REGISTRATION page */
+    .registration {
+        height: 760px;
+    }
+
+    /* PAYMENT page */
+    .payment {
+        height: 880px;
+    }
+
+    /* CREDIT OPTION page */
+    .flexColCredit {
+        margin-top: 25px;
+    }
+
+    .flexColCreditMb input::placeholder {
+        font-size: 1rem;
+    }
+
+    .currentPlanDiv .price {
+        font-size: 0.95rem;
+    }
+
+    .currentPlanDiv .planName {
+        font-size: 0.95rem;
+    }
+
+    .currentPlanDiv button {
+        font-size: 0.95rem;
+    }
+
+    .flexColGift input::placeholder {
+        font-size: 1rem;
+    }
+
+    /* FOOTER ALT LIGHT */
+    .linksWrapperAltLight a {
+        width: 25%;
     }
 }

@@ -55,7 +55,7 @@
     }
       
     .bannerWrapper p {
-        width: 70%;
+        width: 80%;
     }
       
     .mainFlexRow input {
@@ -90,7 +90,7 @@
     }
       
     .faq p {
-        width: 90%;
+        width: 85%;
         margin-top: 25px;
     }
       
@@ -155,7 +155,7 @@
 
     /* FOOTER */
     footer {
-        height: 430px;
+        height: 415px;
     }
     
     .footerWrapper p {
@@ -182,17 +182,56 @@
       }
 }
 
-/* media query @ 590px width */
+/* MEDIA QUERY for index.css @ 590px width */
 @media screen and (min-width: 590px) {
     .banner {
         height: 700px;
     }
 }
 
-/* media query @ 740px width */
+/* MEDIA QUERY for index.css @ 705px width */
+@media screen and (min-width: 705px) {
+    /* .subsection {
+        max-height: 500px;
+    } */
+}
+
+/* MEDIA QUERY for index.css @ 740px width */
 @media screen and (min-width: 740px) {
+    /* HERO BANNER */
     .banner {
         height: 730px;
+    }
+
+    .bannerWrapper p {
+        font-size: 1.4rem;
+    }
+
+    .mainFlexRow input {
+        height: 60px;
+    }
+
+    /* FAQ */
+    .faq p {
+        font-size: 1.3rem;
+    }
+
+    .faq input {
+        height: 60px;
+    }
+
+    /* FOOTER */
+    footer {
+        height: 380px;
+    }
+
+    .linksWrapper {
+        height: 50%;
+        margin-top: 30px;
+    }
+
+    .linksWrapper a {
+        width: 25%;
     }
 }
 

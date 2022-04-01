@@ -582,9 +582,20 @@
     margin-top: 10px;
 }
 
+.currentPlanDiv .price {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.currentPlanDiv .planName {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: grey;
+}
+
 .currentPlanDiv button {
     color: #1672F9;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     background: transparent;
     border: none;
