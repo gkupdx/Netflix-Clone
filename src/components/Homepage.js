@@ -34,7 +34,7 @@ const Homepage = ({ toggleLanguages, toggle, setToggle }) => {
         },
         {
             header: 'Create profiles for kids.',
-            body: 'Send kids on adventures with their favorite characters in a space made just for them--free with your membership.'
+            body: 'Send kids on adventures with their favorite characters in a space made just for them—free with your membership.'
         }
     ];
 
