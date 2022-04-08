@@ -1,0 +1,301 @@
+/* MEDIA QUERY for login.css @ 745px breakpoint (i.e. entirely different CSS page...) */
+@media screen and (min-width: 745px) {
+    .login {
+        width: 100%;
+        height: 1100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-family: 'Open Sans', sans-serif;
+        background-image: url('assets/netflix_landing_page_bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: inset 0 -150px 250px #000, inset 0 50px 200px #000;
+        line-height: 1;
+    }
+    
+    .login img {
+        width: 200px;
+        height: 120px
+    }
+      
+    .formBackground {
+        position: relative;
+        width: 450px;
+        height: 665px;
+        background-color: rgba(0,0,0,0.8);
+        border-radius: 5px;
+        margin: auto;
+        margin-bottom: 345px;
+    }
+
+    .formBackground h1 {
+        position: absolute;
+        color: #FFF;
+        font-size: 2rem;
+        margin-left: 65px;
+        margin-top: 55px;
+    }
+      
+    .form {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 110px;
+    }
+      
+    .form input[type="text"] {
+        width: 70%;
+        height: 50px;
+        background: #333;
+        color: #FFF;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        padding-left: 20px;
+        margin-top: 15px;
+    }
+      
+    .form input[type="text"]::placeholder {
+        color: #a5a79a;
+    }
+      
+    .form input[type="text"]:focus {
+        background: #555555;
+        transition: 0.1s ease;
+    }
+      
+    .form input[type="text"]:focus::placeholder {
+        position: relative;
+        top: -15px;
+        color: #a5a79a;
+        font-size: 0.6rem;
+        transition: all 0.1s ease;
+    }
+
+    .form p {
+        width: 300px;
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+
+    .form input[type="button"] {
+        width: 70%;
+        height: 50px;
+        background: #e50914;
+        color: #FFF;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        margin: auto;
+        margin-top: 40px;
+    }
+      
+    .form input[type="button"]:hover {
+        cursor: pointer;
+    }
+      
+    .form label {
+        color: grey;
+        font-size: 0.75rem;
+    }
+      
+    .rowJustifyBetween {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        margin-top: 10px;
+    }
+      
+    .helpBtn {
+        color: grey;
+        background: transparent;
+        border: none;
+    }
+      
+    .helpBtn:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+      
+    .formHelp {
+        position: absolute;
+        bottom: 0;
+        width: 70%;
+        margin-left: 70px;
+        margin-bottom: 150px;
+    }
+      
+    .fbBtn {
+        width: 150px;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        color: grey;
+        border: none;
+    }
+      
+    .fbBtn:hover {
+        cursor: pointer;
+    }
+      
+    .signUp {
+        color: grey;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+      
+    .signUp a {
+        color: #FFF;
+        text-decoration: none;
+    }
+      
+    .signUp a:hover {
+        text-decoration: underline;
+    }
+      
+    .captcha {
+        color: grey;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+      
+    .learnMore {
+        color: dodgerblue;
+        background: transparent;
+        font-size: 0.8rem;
+        border: none;
+    }
+      
+    .learnMore:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .learnMoreDetails {
+        position: absolute;
+        color: grey;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin-top: 15px;
+    }
+    
+    .learnMoreDetails a {
+        color: dodgerblue;
+        text-decoration: none;
+    }
+    
+    .learnMoreDetails a:hover {
+        text-decoration: underline;
+    }
+
+    /* FOOTER ALT - DARK */
+    .footerAlt {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 255px;
+        display: flex;
+        background-color: rgba(0,0,0,0.6);
+        color: grey;
+        font-family: 'Open Sans', sans-serif;
+        margin-bottom: -130px;
+        z-index: 2;
+    }
+
+    .footerWrapperAlt {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: auto;
+    }
+    
+    .footerWrapperAlt p {
+        width: 80%;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .footerWrapperAlt button {
+        display: inline-flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 145px;
+        height: 50px;
+        background: #000;
+        color: grey;
+        font-size: 0.9rem;
+        border: 1px solid #3d3d3d;
+        border-radius: 2px;
+        margin-bottom: 5px;
+    }
+
+    .linksWrapperAlt {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    
+    .linksWrapperAlt a {
+        width: 25%;
+        font-size: 0.8rem;
+    }
+
+    .languageBtnContainer {
+        margin-top: 30px;
+    }
+    
+    .languagePopUp {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 145px;
+        height: 55px;
+        background: #000;
+        border: 1px solid dimgrey;
+        border-radius: 2px;
+        box-shadow: 0 0 0px 2px #000;
+        padding-left: 5px;
+        margin-bottom: 55px;
+    }
+      
+    .languagePopUp p {
+        font-size: 0.9rem;
+        margin-top: 0;
+    }
+      
+    .languagePopUp p:hover {
+        color: #FFF;
+        background: dimgrey;
+        cursor: default;
+    }
+}
+
+/* MEDIA QUERY for login.css @ 1125px breakpoint */
+@media screen and (min-width: 1125px) {
+    .footerWrapperAlt {
+        width: 1000px;
+    }
+}
