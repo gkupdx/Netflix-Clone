@@ -32,11 +32,11 @@ const Subsection = ({ header, body, imgSrc, order }) => {
                 {switchElements ?
                     <>
                         <div>
-                            <img src={imgSrc} alt='Placeholder' />
+                            <img src={imgSrc} alt='Placeholder'/>
                         </div>
                         <div className='subsectionContent'>
-                            <h2>{header}</h2>
-                            <h4>{body}</h4>
+                            <h2 style={{ marginLeft: "65px" }}>{header}</h2>
+                            <h4 style={{ marginLeft: "65px" }}>{body}</h4>
                         </div>
                     </>
                     :
