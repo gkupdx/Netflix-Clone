@@ -1,11 +1,12 @@
 //// Login.js - component for the login page
 
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import textLogo from '../assets/netflix_text_logo.png';
 
 const Login = ({ fbIcon }) => {
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     const [show, setShow] = useState(false);
     let navigate = useNavigate();
 
@@ -42,7 +43,7 @@ const Login = ({ fbIcon }) => {
                 }
             // 'Verify Fields' = see which fields are empty & highlight those fields after 'Sign In' click
             case 'Verify Fields':
-                if (state === initialState) { 
+                if (state === initialState) {
                     return {
                         userName: 'orange',
                         password: 'orange'
@@ -140,7 +141,7 @@ const Login = ({ fbIcon }) => {
                     type: 'Validate Phone',
                     payload: fieldName
                 });
-            } 
+            }
             else if (len >= 5 && len < 51) {
                 dispatch({
                     type: 'Remove Border',
@@ -167,47 +168,104 @@ const Login = ({ fbIcon }) => {
         fontSize: '0.8rem'
     }
 
+    // Render different JSX based on browser width
+    useEffect(() => {
+        const updateWidth = () => {
+            let updateWidth = 0;
+
+            if (window.innerWidth < 745) {
+                updateWidth = 744;
+            } else {
+                updateWidth = 745;
+            }
+
+            setBrowserWidth(updateWidth);
+        }
+    
+        window.addEventListener('resize', updateWidth);
+
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        }
+    })
 
     return (
         <div className='login'>
             <button className='logo' onClick={() => navigate('/')}><img src={textLogo} alt='Netflix text logo' /></button>
 
-            <div className='formDiv'>
-                <h1>Sign In</h1>
-                <form action="POST">
-                    <div className='form'>
-                        <input type="text" name="userName" placeholder="Email or phone number" style={{ borderBottom: (state.userName !== '' && state.userName !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                        {state.userName === 'orange' && <p style={errorMsgStyle}>Please enter a valid email or phone number.</p>}
-                        {state.userName === 'validate email' && <p style={errorMsgStyle}>Please enter a valid email.</p>}
-                        {state.userName === 'validate phone' && <p style={errorMsgStyle}>Please enter a valid phone number.</p>}
+            {browserWidth >= 745 ?
+                <div className='formBackground'>
+                    {/* <div className='formDiv'> */}
+                        <h1>Sign In</h1>
+                        <form action="POST">
+                            <div className='form'>
+                                <input type="text" name="userName" placeholder="Email or phone number" style={{ borderBottom: (state.userName !== '' && state.userName !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                                {state.userName === 'orange' && <p style={errorMsgStyle}>Please enter a valid email or phone number.</p>}
+                                {state.userName === 'validate email' && <p style={errorMsgStyle}>Please enter a valid email.</p>}
+                                {state.userName === 'validate phone' && <p style={errorMsgStyle}>Please enter a valid phone number.</p>}
 
-                        <input type="text" name="password" placeholder="Password" style={{ borderBottom: (state.password !== '' && state.password !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)}/>
-                        {state.password === 'orange' && <p style={errorMsgStyle}>Your password must contain between 4 and 60 characters.</p>}
+                                <input type="text" name="password" placeholder="Password" style={{ borderBottom: (state.password !== '' && state.password !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                                {state.password === 'orange' && <p style={errorMsgStyle}>Your password must contain between 4 and 60 characters.</p>}
 
-                        <input type="button" value="Sign In" onClick={() => dispatch({ type: 'Verify Fields' })}/>
-                        <div className='rowJustifyBetween'>
-                            <div>
-                                {/* Netflix uses a custom checkbox */}
-                                <input type="checkbox" id="checkbox" defaultChecked/>
-                                <label htmlFor="checkbox"> Remember me</label>
+                                <input type="button" value="Sign In" onClick={() => dispatch({ type: 'Verify Fields' })} />
+                                <div className='rowJustifyBetween'>
+                                    <div>
+                                        {/* Netflix uses a custom checkbox */}
+                                        <input type="checkbox" id="checkbox" defaultChecked />
+                                        <label htmlFor="checkbox"> Remember me</label>
+                                    </div>
+
+                                    <button>Need help?</button>
+                                </div>
                             </div>
 
-                            <button>Need help?</button>
+                            <div className='formHelp'>
+                                <button className='fbBtn'>{fbIcon} Login with Facebook</button>
+                                <p className='signUp'>New to Netflix? <a href='/'>Sign up now</a>.</p>
+                                <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
+                                {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
+                                    and for general security purposes (it is not used for personalized advertising by Google).
+                                </p>}
+                            </div>
+                        </form>
+                    {/* </div> */}
+                </div>
+                :
+                <div className='formDiv'>
+                    <h1>Sign In</h1>
+                    <form action="POST">
+                        <div className='form'>
+                            <input type="text" name="userName" placeholder="Email or phone number" style={{ borderBottom: (state.userName !== '' && state.userName !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            {state.userName === 'orange' && <p style={errorMsgStyle}>Please enter a valid email or phone number.</p>}
+                            {state.userName === 'validate email' && <p style={errorMsgStyle}>Please enter a valid email.</p>}
+                            {state.userName === 'validate phone' && <p style={errorMsgStyle}>Please enter a valid phone number.</p>}
+
+                            <input type="text" name="password" placeholder="Password" style={{ borderBottom: (state.password !== '' && state.password !== 'remove border') ? '2px solid #F77819' : 'none' }} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            {state.password === 'orange' && <p style={errorMsgStyle}>Your password must contain between 4 and 60 characters.</p>}
+
+                            <input type="button" value="Sign In" onClick={() => dispatch({ type: 'Verify Fields' })} />
+                            <div className='rowJustifyBetween'>
+                                <div>
+                                    {/* Netflix uses a custom checkbox */}
+                                    <input type="checkbox" id="checkbox" defaultChecked />
+                                    <label htmlFor="checkbox"> Remember me</label>
+                                </div>
+
+                                <button>Need help?</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='formHelp'>
-                        <button className='fbBtn'>{fbIcon} Login with Facebook</button>
-                        <p className='signUp'>New to Netflix? <a href='/'>Sign up now</a>.</p>
-                        <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
-                        {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
-                            and for general security purposes (it is not used for personalized advertising by Google).
-                        </p>}
-                    </div>
-                </form>
-            </div>
-
-            {window.innerWidth >= 950 && <div className='formBackground'></div>}
+                        <div className='formHelp'>
+                            <button className='fbBtn'>{fbIcon} Login with Facebook</button>
+                            <p className='signUp'>New to Netflix? <a href='/'>Sign up now</a>.</p>
+                            <p className='captcha'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className={!show ? 'learnMore' : 'hidden'} onClick={() => setShow(true)}>Learn more.</span></p>
+                            {show && <p className='learnMoreDetails'>The information collected by Google reCAPTCHA is subject to the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service
+                                and for general security purposes (it is not used for personalized advertising by Google).
+                            </p>}
+                        </div>
+                    </form>
+                </div>
+                }
         </div>
     )
 }
