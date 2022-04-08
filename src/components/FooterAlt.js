@@ -51,9 +51,9 @@ const FooterAlt = ({ globeIcon, chevronDownIcon, theme }) => {
                     <a href='#ci'>Corporate Information</a>
                 </div>
 
-                <div>
-                    {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUp' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
+                <div className='languageBtnContainer'>
                     <button onClick={() => toggle ? setToggle(false) : setToggle(true)} onBlur={() => setToggle(false)}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
+                    {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUp' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
                 </div>
             </div>
         </footer>
