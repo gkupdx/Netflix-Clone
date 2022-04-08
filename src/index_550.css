@@ -71,7 +71,7 @@
 
     /* SECTION / SUBSECTION */
     section {
-        height: calc(100vw - 10px);
+        height: calc(100vw + 65px);
     }
     .subsectionWrapper {
         width: 95%;
@@ -194,7 +194,6 @@
 
     .languagePopUpAlt {
         width: 160px;
-        margin-bottom: 70px;
     }
     
     .languagePopUpAlt p {
@@ -252,10 +251,26 @@
 
     /* FAQ */
     .faq p {
+        width: 450px;
         font-size: 1.4rem;
     }
 
+    .faqWrapper,
+    .faqWrapperMb {
+        width: 85%;
+    }
+
+    .faqBtn {
+        font-size: 1.25rem;
+    }
+
+    .faqBtnDetails p {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
     .faqFlexRow input {
+        width: 500px;
         height: 60px;
     }
 

@@ -11,6 +11,10 @@
     .banner {
         height: 690px;
     }
+
+    .bannerWrapper {
+        padding-top: 50px;
+    }
       
     .bannerWrapper h1 {
         font-size: 3rem;
@@ -99,6 +103,10 @@
         margin: auto;
         padding-bottom: 50px;
     }
+
+    .subsectionWrapper img {
+        width: calc(40vw + 10px);
+    }
     
     .subsectionContent {
         width: 90%;
@@ -124,6 +132,7 @@
     }
       
     .faq p {
+        width: 600px;
         font-size: 1.1rem;
         margin: auto;
         margin-top: 65px;
@@ -163,7 +172,7 @@
     }  
 
     .faqBtn {
-        width: 90%;
+        width: 80%;
         height: 75px;
         font-size: 1.6rem;
         padding-left: 2rem;
@@ -181,21 +190,22 @@
     }
     
     .faqBtnDetails {
-        width: 90%;
+        width: 80%;
         margin: auto;
     }
     
     .faqBtnDetails p {
+        width: 100%;
         font-size: 1.6rem;
         padding: 1.7rem;
         margin: 0;
     }
 
     .faqFlexRow {
-        width: 105%;
+        width: 650px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        margin: auto;
     }
 
     .faqFlexRow input {
@@ -253,13 +263,90 @@
     }
 }
 
-/* MEDIA QUERY for index.css @ 1150px breakpoint */
-@media screen and (min-width: 1150px) {
+/* MEDIA QUERY for index.css @ 1110px breakpoint */
+@media screen and (min-width: 1110px) {
+    .footerWrapper {
+        width: 875px;
+    }
+}
+
+/* MEDIA QUERY for index.css @ 1210px breakpoint */
+@media screen and (min-width: 1210px) {
     section {
-        height: 470px;
+        height: 495px;
     }
 
     .subsectionWrapper {
-        width: 1020px;
+        width: 1075px;
+    }
+
+    .subsectionWrapper img {
+        width: 495px;
+    }
+
+    .subsectionContent h2 {
+        width: 570px;
+    }
+
+    .subsectionContent h4 {
+        width: 540px;
+        font-weight: 500;
+    }
+
+    /* FAQ */
+    .faqBtn {
+        width: 810px;
+    }
+
+    .faqBtnDetails {
+        width: 810px;
     }
 }
+
+/* MEDIA QUERY for index.css @ 1450px breakpoint */
+@media screen and (min-width: 1450px) {
+    /* NAV */
+    .nav img {
+        width: 185px;
+        height: 115px;
+    }
+
+    /* BANNER */
+    .banner {
+        height: 750px;
+    }
+
+    .bannerWrapper h1 {
+        width: 700px;
+        font-size: 3.7rem;
+    }
+
+    .bannerFlexRowAlt input {
+        width: 500px;
+        height: 70px;
+    }
+
+    .bannerFlexRowAlt button {
+        width: 260px;
+        height: 70px;
+        font-size: 1.7rem;
+    }
+
+    /* FAQ */
+    .faqFlexRow {
+        width: 745px;
+    }
+
+    .faqFlexRow input {
+        width: 500px;
+        height: 70px;
+    }
+
+    .faqFlexRow button {
+        width: 350px;
+        height: 70px;
+        font-size: 1.7rem;
+    }
+}
+
+/* MEDIA QUERY for index.css @ fullscreen */
