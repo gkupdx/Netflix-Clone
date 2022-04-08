@@ -228,8 +228,10 @@ const Banner = ({ chevronIcon }) => {
                 updateWidth = 599;
             } else if (window.innerWidth >= 600 && window.innerWidth < 950) {
                 updateWidth = 600;
-            } else {
+            } else if (window.innerWidth >= 950 && window.innerWidth < 1450) {
                 updateWidth = 950;
+            } else {
+                updateWidth = 1450;
             }
 
             setBrowserWidth(updateWidth);
@@ -245,7 +247,7 @@ const Banner = ({ chevronIcon }) => {
 
     return (
         <div className='banner' style={{ marginBottom: (emailState.emailVal === 'empty' || emailState.emailVal === 'invalid') && '30px' }}>
-            <div className='bannerWrapper' style={{ width: browserWidth >= 600 && "600px" }}>
+            <div className='bannerWrapper' style={{ width: (browserWidth >= 600 && browserWidth < 1450) ? "600px" : browserWidth >= 1450 ? "675px" : null}}>
                 <h1>Unlimited movies, TV shows, and more.</h1>
                 <h2>Watch anywhere. Cancel anytime.</h2>
                 <p>Ready to watch? Enter your email to create or restart your membership</p>
