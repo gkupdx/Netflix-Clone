@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './index_550.css';
-// import './index_950.css';
+import './index_950.css';
 import './login.css';
 import './login_500.css';
 // import './login_950.css';
