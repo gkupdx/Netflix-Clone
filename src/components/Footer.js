@@ -91,7 +91,7 @@ const Footer = ({ globeIcon, caretIcon }) => {
                     <a href='#exclusives'>Only on Netflix</a>
                 </div>
 
-                <div>
+                <div className='languageBtnContainer'>
                     {show && !scrollEvent ? <div className='languagePopUpAlt'><p>English</p><p>Espanol</p></div> : ''}
                     <button onClick={showLanguages} onBlur={hideLanguages}>{globeIcon} English {caretIcon}</button>
                 </div>
