@@ -259,7 +259,7 @@
 
     .languagePopUpLight {
         padding: 4px;
-        margin-bottom: 68px;
+        margin-bottom: 55px;
     }
     
     .languagePopUpLight p {
@@ -405,7 +405,7 @@
 
     /* REGISTRATION page */
     .registration {
-        height: 760px;
+        height: 765px;
     }
 
     /* PAYMENT page */
@@ -438,7 +438,11 @@
         font-size: 1rem;
     }
 
-    /* FOOTER ALT LIGHT */
+    /* FOOTER ALT - LIGHT */
+    .footerAltLight {
+        height: 235px;
+    }
+
     .linksWrapperAltLight a {
         width: 25%;
     }
