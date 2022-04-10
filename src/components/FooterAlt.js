@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react';
 import _ from 'lodash';
 
-import { AiFillCaretDown } from 'react-icons/ai';
 
-const FooterAlt = ({ globeIcon, chevronDownIcon, theme }) => {
+const FooterAlt = ({ globeIcon, caretIcon, theme }) => {
     const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
     const [toggle, setToggle] = useState(false);
     let scrollEvent = false; // variable to detect scroll event
@@ -75,7 +74,7 @@ const FooterAlt = ({ globeIcon, chevronDownIcon, theme }) => {
                 </div>
 
                 <div className='languageBtnContainer'>
-                    <button className={theme === 'dark' ? 'languageBtnAlt' : 'languageBtnLight'} onClick={() => toggle ? setToggle(false) : setToggle(true)} onBlur={() => setToggle(false)}>{globeIcon} English {theme === 'dark' ? chevronDownIcon : <AiFillCaretDown />}</button>
+                    <button className={theme === 'dark' ? 'languageBtnAlt' : 'languageBtnLight'} onClick={() => toggle ? setToggle(false) : setToggle(true)} onBlur={() => setToggle(false)}>{globeIcon} English {caretIcon}</button>
                     {toggle && !scrollEvent ? <div className={theme === 'dark' ? 'languagePopUp' : 'languagePopUpLight'}><p>English</p><p>Espanol</p></div> : ''}
                 </div>
             </div>

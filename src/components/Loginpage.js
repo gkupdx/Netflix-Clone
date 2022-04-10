@@ -15,7 +15,7 @@ const Loginpage = () => {
     return (
         <div>
             <Login fbIcon={<ImFacebook2 style={{ width: "20px", height: "20px", background: "#FFF", color: "#4267b2" }}/>}/>
-            <FooterAlt globeIcon={<IoGlobe style={{ color: "grey" }}/>} chevronDownIcon={<VscChevronDown />} theme={footerTheme}/>
+            <FooterAlt globeIcon={<IoGlobe style={{ color: "grey" }}/>} caretIcon={<VscChevronDown />} theme={footerTheme}/>
         </div>
     )
 }
