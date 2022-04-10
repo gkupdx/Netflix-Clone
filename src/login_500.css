@@ -68,17 +68,17 @@
         margin-left: 30px;
     }
 
-    .footerWrapperAlt button {
-        width: 145px;
-        margin-bottom: 5px;
-    }
-
     .linksWrapperAlt {
         height: 30%;
     }
     
     .linksWrapperAlt a {
         width: 33.3%;
+    }
+
+    .languageBtnAlt {
+        width: 145px;
+        margin-bottom: 5px;
     }
     
     .languagePopUp {

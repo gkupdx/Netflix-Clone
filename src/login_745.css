@@ -233,20 +233,6 @@
         margin-top: 10px;
     }
 
-    .footerWrapperAlt button {
-        display: inline-flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 145px;
-        height: 50px;
-        background: #000;
-        color: grey;
-        font-size: 0.9rem;
-        border: 1px solid #3d3d3d;
-        border-radius: 2px;
-        margin-bottom: 5px;
-    }
-
     .linksWrapperAlt {
         width: 100%;
         height: 70%;
@@ -263,6 +249,20 @@
 
     .languageBtnContainer {
         margin-top: 30px;
+    }
+
+    .languageBtnAlt {
+        display: inline-flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 145px;
+        height: 50px;
+        background: #000;
+        color: grey;
+        font-size: 0.9rem;
+        border: 1px solid #3d3d3d;
+        border-radius: 2px;
+        margin-bottom: 5px;
     }
     
     .languagePopUp {
@@ -297,5 +297,6 @@
 @media screen and (min-width: 1125px) {
     .footerWrapperAlt {
         width: 1000px;
+        margin-left: 5%;
     }
 }
