@@ -418,8 +418,12 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
         }
     });
 
+    // Used to compare state values on different renders
+    let initialRender = Object.entries(initialState).toString();
+    let currentRender = Object.entries(inputState).toString();
+
     return (
-        <div className={inputState === initialState ? 'creditOption' : 'creditOptionMb'}>
+        <div className={currentRender === initialRender ? 'creditOption' : 'creditOptionMb'}>
             {/* NAVIGATION */}
             <div className='flexRowFull'>
                 <img src={logo} alt='Netflix logo white' onClick={() => navigate('/')} />
@@ -427,7 +431,7 @@ const CreditOption = ({ logo, svgStyle, pngStyle }) => {
             </div>
 
             {/* BODY */}
-            <div className={inputState === initialState ? 'flexColCredit' : 'flexColCreditMb'} style={{ width: browserWidth >= 525 && "430px" }}>
+            <div className={currentRender === initialRender ? 'flexColCredit' : 'flexColCreditMb'} style={{ width: browserWidth >= 525 && "430px" }}>
                 <div>
                     <p>STEP <b>3</b> OF <b>3</b></p>
                     <h1>Set up your credit or debit card</h1>
