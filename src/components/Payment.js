@@ -89,7 +89,7 @@ const Payment = ({ logo, chevronRight, svgStyle, pngStyle }) => {
                 <div>
                     <h2>Your payment is encrypted and you can change how you pay anytime.</h2>
                 </div>
-                <div>
+                <div className='headerThree'>
                     <h3>Secure for peace of mind.</h3>
                     <h3>Cancel easily online.</h3>
                 </div>
