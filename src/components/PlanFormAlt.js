@@ -7,6 +7,7 @@ const PlanFormAlt = ({ checkMarkSm }) => {
     const [activePlan, setActivePlan] = useState('premo');
 
     const planHeader = {
+        width: '85%',
         fontSize: '0.95rem',
         fontWeight: '500',
         textAlign: 'left',
