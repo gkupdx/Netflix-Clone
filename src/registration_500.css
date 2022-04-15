@@ -5,7 +5,7 @@
     }
     
     .flexRowFull {
-        height: 75px;
+        height: 77px;
     }
     
     .flexRowFull img {
@@ -50,7 +50,7 @@
     
     /* PLAN FORM ROUTE */
     .planForm {
-        height: 940px;
+        height: 1100px;
     }
     
     .flexColFull {
@@ -66,7 +66,7 @@
     }
 
     .planBreakdown {
-        height: 72px;
+        height: 65px;
     }
 
     .flexRowBreakdown p {
@@ -84,10 +84,14 @@
 
     .flexColFull .nextBtn {
         width: 440px;
-        margin-top: 15px;
+        margin-top: 0;
     }
     
     /* PAYMENT ROUTE */
+    .mdLockIcon {
+        margin-top: 45px;
+    }
+
     .flexColPayment {
         width: 85%;
         height: 680px;
@@ -104,9 +108,10 @@
         margin-bottom: 10px;
     }
 
-    .flexColPayment h3 {
+    .headerThree {
         line-height: 1.2;
         margin-top: 0;
+        margin-bottom: -15px;
     }
     
     .secureServer {
@@ -224,11 +229,7 @@
     
     /* GIFT CODE OPTION */
     .giftOption {
-        height: 790px;
-    }
-    
-    .flexColGift {
-        width: 420px;
+        height: 800px;
     }
 
     .flexColGift h1 {
@@ -236,16 +237,11 @@
     }
 
     .flexColGiftMb {
-        width: 420px;
+        margin-bottom: 180px;
     }
 
     .flexColGiftMb p {
         margin-top: 25px;
-    }
-    
-    .redeemCodeBtn {
-        margin: auto;
-        margin-top: 30px;
     }
 
     /* FOOTER ALT - LIGHT */
@@ -259,7 +255,7 @@
 
     .languagePopUpLight {
         padding: 4px;
-        margin-bottom: 55px;
+        margin-bottom: 50px;
     }
     
     .languagePopUpLight p {
@@ -267,8 +263,22 @@
       }
 }
 
-/* MEDIA QUERY for registration.css @ 607px width */
-@media screen and (min-width: 607px) {
+@media screen and (min-width: 505px) {
+    .giftOption {
+        height: 785px;
+    }
+}
+
+/* MEDIA QUERY for 520px breakpoint */
+@media screen and (min-width: 520px) {
+    .flexColGift,
+    .flexColGiftMb {
+        width: 425px;
+    }
+}
+
+/* MEDIA QUERY for registration.css @ 606px width */
+@media screen and (min-width: 606px) {
     /* REGISTRATION PAGE */
     .flexCol {
         text-align: center;
@@ -287,22 +297,40 @@
     }
 
     /* PLAN FORM PAGE */
-    .flexRowBtns {
-        width: 60%;
-        margin: 0;
-        margin-top: 10px;
-        margin-bottom: 15px;
-        margin-left: auto; /* aligns flex container to right (acts like float: right) */
+    .planForm {
+        height: 1045px;
+    }
+
+    .gridContainer {
+        width: 100%;
+        height: 380px;
+    }
+
+    .planBreakdownGrid {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 95px 1fr 1fr 1fr 100px;
+        grid-template-columns: 40% 20% 20% 20%;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .planBreakdownGrid p {
+        font-size: 1rem;
+        font-weight: 700;
     }
 
     .inactiveBtn {
         width: 90px;
         height: 90px;
+        border-radius: 2px;
     }
 
     .activeBtn {
         width: 90px;
         height: 90px;
+        border-radius: 2px;
     }
 
     .activeBtn:after {
@@ -311,43 +339,20 @@
         border-right: 10px solid transparent;
     }
 
-    .planBreakdown {
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        padding-top: 0;
+    .redText {
+        color: #e50914;
     }
 
-    .planBreakdown h3 {
-        width: 35%;
-        font-size: 0.95rem;
+    .greyText {
+        color: dimgrey;
     }
 
-    .planBreakdownAlt {
-        height: 85px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        padding-top: 0;
-    }
-
-    .planBreakdownAlt h3 {
-        width: 35%;
-        font-size: 0.95rem;
-        font-weight: 500;
-    }
-
-    .flexRowBreakdown {
-        width: 60%;
-        margin: 0;
-        padding-top: 10px;
+    .planDetails {
+        margin-top: 0;
     }
 
     .planDetails p {
-        width: 70%;
+        width: 75%;
     }
 
     .flexColFull .nextBtn {
@@ -356,7 +361,11 @@
 
     /* PAYMENT PAGE */
     .flexColPayment {
-        width: 490px;
+        width: 495px;
+    }
+
+    .flexColPayment p {
+        margin-top: 43px;
     }
 
     .mdLockIcon,
@@ -372,22 +381,61 @@
         text-align: center;
     }
 
-    .flexColPayment h3 {
-        margin: auto;
+    .headerThree {
         text-align: center;
+        margin: auto;
+        margin-bottom: -20px;
+    }
+
+    .creditDiv p,
+    .paypalGiftDiv p {
+        margin-top: 0;
     }
 }
 
-/* MEDIA QUERY for registration.css @ 668px */
-@media screen and (min-width: 668px) {
+/* MEDIA QUERY @ 508px breakpoint */
+@media screen and (min-width: 508px) {
+    .flexColFull .nextBtn {
+        margin-top: -15px;
+    }
+}
+
+@media screen and (min-width: 606px) {
+    .planForm {
+        height: 1055px;
+    }
+
+    .flexRowBtns {
+        width: 55%;
+        float: right;
+    }
+
     .flexColFull .nextBtn {
         margin-top: 15px;
     }
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 624px) {
     .flexColFull .nextBtn {
-        margin-top: 5px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 671px) {
+    .flexColFull .nextBtn {
+        margin-top: -15px;
+    }
+}
+
+@media screen and (min-width: 702px) {
+    .planDetails {
+        margin-top: -20px;
+    }
+}
+
+@media screen and (min-width: 718px) {
+    .flexColFull .nextBtn {
+        margin-top: -15px;
     }
 }
 
@@ -398,14 +446,23 @@
         height: 90px;
     }
 
+    .flexRowFull img {
+        margin-left: 2%;
+    }
+
     .flexRowFull a {
         font-size: 1.1rem;
-        margin-right: 20px;
+        margin-right: 3%;
     }
 
     /* REGISTRATION page */
     .registration {
         height: 765px;
+    }
+
+    /* SIGN UP page */
+    .plans {
+        height: 830px;
     }
 
     /* PAYMENT page */
@@ -414,6 +471,10 @@
     }
 
     /* CREDIT OPTION page */
+    .creditOptionMb {
+        height: 1215px;
+    }
+
     .flexColCredit {
         margin-top: 25px;
     }
@@ -434,16 +495,36 @@
         font-size: 0.95rem;
     }
 
+    /* GIFT OPTION */
+    .giftOption {
+        height: 800px;
+    }
+
     .flexColGift input::placeholder {
         font-size: 1rem;
     }
 
+    .giftOption .learnMoreDetails {
+        position: relative;
+        line-height: normal;
+    }
+
     /* FOOTER ALT - LIGHT */
     .footerAltLight {
-        height: 235px;
+        height: 215px;
+    }
+
+    .languageBtnLight {
+        margin-top: 15px;
     }
 
     .linksWrapperAltLight a {
         width: 25%;
+    }
+}
+
+@media screen and (min-width: 745px) {
+    .languageBtnLight {
+        margin-top: -15px;
     }
 }

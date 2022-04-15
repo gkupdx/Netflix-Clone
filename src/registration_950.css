@@ -1,0 +1,40 @@
+/* MEDIA QUERY for registration.css @ 950px breakpoint */
+@media screen and (min-width: 950px) {
+    .planForm {
+        height: 1030px;
+    }
+
+    .gridContainer {
+        height: 400px;
+    }
+
+    .planBreakdownGrid {
+        grid-template-rows: 120px 1fr 1fr 1fr 100px;
+        margin-top: 30px;
+    }
+
+    .inactiveBtn {
+        width: 120px;
+        height: 120px;
+    }
+
+    .activeBtn {
+        width: 120px;
+        height: 120px;
+    }
+
+    .planDetails {
+        margin-top: -10px;
+    }
+
+    .flexColFull .nextBtn {
+        margin-top: -25px;
+    }
+}
+
+/* MEDIA QUERY for registration.css @ 990px breakpoint */
+@media screen and (min-width: 990px) {
+    .flexColFull {
+        width: 875px;
+    }
+}
