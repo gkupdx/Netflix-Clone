@@ -34,6 +34,13 @@ const FAQ = ({ chevronIcon }) => {
 
     const [emailState, dispatch] = useReducer(reducer, initialState);
 
+    // On 'Enter' key press, trigger 'goToRegistration()'
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            goToRegistration();
+        }
+    }
+
     // On Button click, navigate user to /signup/registration if validation passed
     const goToRegistration = () => {
         let fieldVal = emailRef.current.value;
@@ -305,7 +312,7 @@ const FAQ = ({ chevronIcon }) => {
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
                     <div className='faqFlexRow'>
                         <div>
-                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} onKeyPress={(event) => handleKeyPress(event)}/>
                             {emailState.emailVal === 'empty' && <p>Email is required!</p>}
                             {emailState.emailVal === 'invalid' && <p>Please enter a valid email address</p>}
                         </div>

@@ -31,6 +31,13 @@ const Banner = ({ chevronIcon }) => {
 
     const [emailState, dispatch] = useReducer(reducer, initialState);
 
+    // On 'Enter' key press, trigger 'goToRegistration()' function
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            goToRegistration();
+        }
+    }
+
     // On Button click, sends user to the Sign Up/Registration page if validation passed
     const goToRegistration = () => {
         let fieldVal = emailRef.current.value;
@@ -255,7 +262,7 @@ const Banner = ({ chevronIcon }) => {
                 {browserWidth < 950 ?
                     <div className='bannerFlexRow'>
                         <div>
-                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                            <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} onKeyPress={(event) => handleKeyPress(event)}/>
                             {emailState.emailVal === 'empty' && <p>Email is required!</p>}
                             {emailState.emailVal === 'invalid' && <p>Please enter a valid email address</p>}
                         </div>
@@ -266,7 +273,7 @@ const Banner = ({ chevronIcon }) => {
                     <>
                         <div className='bannerFlexRowAlt'>
                             <div>
-                                <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} />
+                                <input ref={emailRef} type="text" name="email" placeholder="Email address" style={inputBorderStyle} onBlur={(event) => handleOnBlur(event)} onChange={(event) => handleOnChange(event)} onKeyPress={(event) => handleKeyPress(event)}/>
                                 <p style={{ opacity: emailState.emailVal === 'empty' && '1' }}>Email is required!</p>
                                 <p style={{ opacity: emailState.emailVal === 'invalid' && '1' }}>Please enter a valid email address</p>
                             </div>
