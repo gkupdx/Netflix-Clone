@@ -82,16 +82,13 @@
     }
     
     .languagePopUp {
-        position: absolute;
         width: 145px;
         border: 1px solid dimgrey;
-        padding-left: 5px;
         margin-top: -5px;
     }
       
     .languagePopUp p {
         font-size: 0.9rem;
-        margin-top: 0;
     }
 }
 

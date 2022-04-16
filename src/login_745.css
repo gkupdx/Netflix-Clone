@@ -218,6 +218,11 @@
         z-index: 2;
     }
 
+    .footerAlt button {
+        width: 150px;
+        height: 48px;
+    }
+
     .footerWrapperAlt {
         width: 92%;
         height: 80%;
@@ -225,12 +230,6 @@
         flex-direction: column;
         justify-content: space-between;
         margin: auto;
-    }
-    
-    .footerWrapperAlt p {
-        width: 80%;
-        font-weight: 500;
-        margin-top: 10px;
     }
 
     .linksWrapperAlt {
@@ -271,19 +270,18 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 145px;
+        align-items: center;
+        width: 150px;
         height: 55px;
         background: #000;
         border: 1px solid dimgrey;
-        border-radius: 2px;
+        border-radius: 4px;
         box-shadow: 0 0 0px 2px #000;
-        padding-left: 5px;
-        margin-bottom: 55px;
+        margin-bottom: 53px;
     }
       
     .languagePopUp p {
         font-size: 0.9rem;
-        margin-top: 0;
     }
       
     .languagePopUp p:hover {

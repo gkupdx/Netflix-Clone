@@ -849,7 +849,7 @@
 
 .editPlan {
     width: 100%;
-    height: 950px;
+    height: 1050px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -857,7 +857,7 @@
     background: #FFF;
     color: #333;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: 150px;
+    padding-bottom: 200px;
 }
 
 .editPlan h1 {
@@ -872,6 +872,12 @@
     color: dimgrey;
     font-family: 'Open Sans', sans-serif;
     border-top: 1px solid lightgrey;
+}
+
+.footerAltLight p {
+    width: 80%;
+    font-weight: 500;
+    margin-top: 10px;
 }
 
 .linksWrapperAltLight {
@@ -910,7 +916,8 @@
     bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     width: 157px;
     height: 60px;
     background: #FFF;
@@ -923,8 +930,9 @@
 .languagePopUpLight p {
     width: 100%;
     font-size: 1rem;
+    font-weight: normal;
     padding-left: 0.5rem;
-    margin-left: 10px;
+    margin-top: 0;
   }
   
 .languagePopUpLight p:hover {

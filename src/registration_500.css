@@ -254,13 +254,8 @@
     }
 
     .languagePopUpLight {
-        padding: 4px;
         margin-bottom: 50px;
     }
-    
-    .languagePopUpLight p {
-        font-size: 0.85rem;
-      }
 }
 
 @media screen and (min-width: 505px) {
