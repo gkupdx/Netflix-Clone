@@ -12,6 +12,10 @@ All icons used in this project were provided by the React Icons library (https:/
 
 **I am not affiliated with Netflix, Inc.**
 
+# VERSION
+
+This project was modeled after the official Netflix website active between February 20, 2022 - April 16, 2022
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
