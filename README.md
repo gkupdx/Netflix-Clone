@@ -1,3 +1,17 @@
+# DISCLAIMER
+
+I do not claim ownership of any image, SVG, and PNG assets used in this project.
+
+All image, SVG, and PNG assets used in this project are owned by Netflix, Inc.
+
+I do not claim ownership of any icons used in this project.
+
+All icons used in this project were provided by the React Icons library (https://react-icons.github.io/react-icons/).
+
+**This project was built for _purely educational, non-profit purposes_.** 
+
+**I am not affiliated with Netflix, Inc.**
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
