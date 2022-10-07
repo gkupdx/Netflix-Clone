@@ -12,6 +12,18 @@ All icons used in this project were provided by the React Icons library (https:/
 
 **I am not affiliated with Netflix, Inc.**
 
+## LANDING PAGE
+
+![](https://github.com/gkupdx/Netflix-Clone/blob/cab2a241eb60ec6783d21f04773616801046317e/netflix_landing.gif)
+
+## REGISTRATION PROCESS PREVIEW
+
+![](https://github.com/gkupdx/Netflix-Clone/blob/cab2a241eb60ec6783d21f04773616801046317e/netflix_registration_preview.gif)
+
+## SIGN-IN PAGE
+
+![](https://github.com/gkupdx/Netflix-Clone/blob/cab2a241eb60ec6783d21f04773616801046317e/netflix_login_preview.gif)
+
 # VERSION
 
 This project was modeled after the official Netflix website active between February 20, 2022 - April 16, 2022
