@@ -1,10 +1,6 @@
 //// PlanFormAlt.js - alternate version of PlanForm.js
 
-import { useState } from 'react';
-
-const PlanFormAlt = ({ checkMarkSm }) => {
-    // sets the default plan choice to "Premium"
-    const [activePlan, setActivePlan] = useState('premo');
+const PlanFormAlt = ({ checkMarkSm, activePlan, setActivePlan }) => {
 
     const planHeader = {
         width: '85%',

@@ -150,13 +150,13 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
                                 devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
                         </div>
 
-                        <button onClick={goToPayment} className='nextBtn'>Next</button>
+                        <button onClick={() => goToPayment()} className='nextBtn'>Next</button>
                     </>
                     :
                     <>
                         {/* RENDER THIS if browser width >= 606px */}
                         <div className='gridContainer'>
-                            <PlanFormAlt checkMarkSm={checkMarkSm} />
+                            <PlanFormAlt checkMarkSm={checkMarkSm} activePlan={activePlan} setActivePlan={setActivePlan}/>
                         </div>
 
                         <div className='planDetails'>
@@ -167,7 +167,7 @@ const PlanForm = ({ logo, checkMarkLg, checkMarkSm }) => {
                                 devices at the same time with Premium, 2 with Standard and 1 with Basic.</p>
                         </div>
 
-                        <button onClick={goToPayment} className='nextBtn'>Next</button>
+                        <button onClick={() => goToPayment()} className='nextBtn'>Next</button>
                     </>
                 }
             </div>
